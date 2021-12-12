@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/edittextnume"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="220dp"
         android:layout_marginLeft="100dp"
         android:ems="10"
         android:hint="Nume complet"
@@ -21,24 +21,37 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/edittextpass"
+        android:id="@+id/edittextemail"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="100dp"
         android:ems="10"
-        android:hint="Enter Email"
+        android:hint="Introduceti Email"
         android:gravity="center"
         android:visibility="visible"
         android:inputType="textEmailAddress"
         />
 
+
     <EditText
-        android:id="@+id/edittextmail"
+        android:id="@+id/edittextpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="100dp"
         android:ems="10"
-        android:hint="Enter Password"
+        android:hint="Introduceti Parola"
+        android:gravity="center"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/edittextpass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:ems="10"
+        android:hint="Reintroduceti Parola"
         android:gravity="center"
         android:inputType="textPassword"
         />
@@ -50,7 +63,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="100dp"
         android:id="@+id/signup"
-        android:text="Already have an account? SignIn here!"
+        android:text="Already have an account? LogIn here!"
         />
 
     <Button
@@ -62,5 +75,11 @@
         android:text="SIGN UP"
 
         />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 </LinearLayout>
