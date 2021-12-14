@@ -27,7 +27,7 @@ public class Register_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        names = findViewById(R.id.editTextTextPersonName3);
+        names = findViewById(R.id.editnume);
         emails = findViewById(R.id.email);
         passwords = findViewById(R.id.Parola);
         passwords2 = findViewById(R.id.parola2);
@@ -84,6 +84,7 @@ public class Register_activity extends AppCompatActivity {
                         return;
                     }
                 }
+                mAuth=FirebaseAuth.getInstance();
 
                 mAuth.createUserWithEmailAndPassword(emailss, passwordss)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {

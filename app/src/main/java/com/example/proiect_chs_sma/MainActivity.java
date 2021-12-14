@@ -10,27 +10,32 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private TextView register;
-    Button but_register;
+    Button but_register,but_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         but_register=findViewById(R.id.inregistrare);
+        but_login=findViewById(R.id.button2);
 
         but_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent gotoregister = new Intent(MainActivity.this,Register_activity.class);
                 startActivity(gotoregister);
+
             }
         });
+
+       but_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotologin = new Intent(MainActivity.this,LogIn_activity.class);
+                startActivity(gotologin);
+            }
+        });
+
     }
-    /*public void onClick(View v){
-        switch (v.getId()){
-            case R.id.signup:
-                startActivity(new Intent(this,SignUp.class));
-                break;
-        }
-    }*/
+
 }
