@@ -8,15 +8,12 @@
     android:gravity="center"
     tools:context=".LogIn_activity">
 
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".LogIn_activity">
 
     <EditText
         android:id="@+id/textnume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="200dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Username"
@@ -39,7 +36,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
         android:text="LOGIN"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selectati:"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="60dp"
+        android:id="@+id/text_select"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/radioGroup"
+        >
+
+        <RadioButton
+            android:id="@+id/radio_medic"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:gravity="center"
+            android:text="Medic" />
+
+        <RadioButton
+            android:id="@+id/radio_pacient"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:gravity="center"
+            android:text="Pacient" />
+    </RadioGroup>
 
 </LinearLayout>
