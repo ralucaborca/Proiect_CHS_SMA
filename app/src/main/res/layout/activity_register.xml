@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buton_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Register_activity">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editnume"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="100dp"
+        android:ems="10"
+        android:hint="Nume complet"
+        android:gravity="center"
+        android:inputType="textEmailAddress"
+        android:layout_marginStart="100dp" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:ems="10"
+        android:hint="Enter Email"
+        android:gravity="center"
+        android:visibility="visible"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/Parola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:gravity="center"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/parola2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:ems="10"
+        android:hint="Reintroduceti parola"
+        android:gravity="center"
+        android:inputType="textPassword"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:id="@+id/signup"
+        android:text="Already have an account? SignIn here!"
+        />
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="170dp"
+        android:text="SIGN UP"
+
+        />
+
+</LinearLayout>
