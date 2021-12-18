@@ -36,7 +36,7 @@ public class LogIn_activity extends AppCompatActivity {
                 String passwordCreate = password.getText().toString().trim();
                 String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-               /* if(!emailCreate.matches(verificareMail)){
+               /*if(!emailCreate.matches(verificareMail)){
                     emailCreate.setError("Mail-ul este invalid!");
                     return;
                 }*/

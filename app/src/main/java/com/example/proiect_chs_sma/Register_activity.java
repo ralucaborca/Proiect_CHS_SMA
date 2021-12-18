@@ -91,7 +91,7 @@ public class Register_activity extends AppCompatActivity {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(Register_activity.this, "Cont creat cu success!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Register_activity.this, MainActivity.class));
+                                startActivity(new Intent(Register_activity.this, LogIn_activity.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
