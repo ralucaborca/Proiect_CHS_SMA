@@ -32,12 +32,19 @@
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_login_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="40dp"
-        android:text="LOGIN"
+        android:text="LOGIN DOCTOR"
+        />
+    <Button
+        android:id="@+id/button_login_pacient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="LOGIN PACIENT"
         />
 
     <TextView

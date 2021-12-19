@@ -35,9 +35,10 @@ public class LogIn_activity extends AppCompatActivity {
         radioGroup=findViewById(R.id.radioGroup);
         radioButton1=findViewById(R.id.radio_medic);
         radioButton2=findViewById(R.id.radio_pacient);
-        Button button_login = findViewById(R.id.button_login);
+        Button button_login_doctor = findViewById(R.id.button_login_doctor);
+        Button button_login_pacient = findViewById(R.id.button_login_pacient);
 
-        button_login.setOnClickListener(new View.OnClickListener() {
+        button_login_doctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String emailCreate = emailAddress.getText().toString().trim();
@@ -50,7 +51,7 @@ public class LogIn_activity extends AppCompatActivity {
                 }*/
 
                 mAuth.signInWithEmailAndPassword(emailCreate, passwordCreate).addOnSuccessListener(authResult -> {
-                    startActivity(new Intent(LogIn_activity.this, MainActivity.class));
+                    startActivity(new Intent(LogIn_activity.this, Doctor_activity.class));
                     finish();
                     Toast.makeText(LogIn_activity.this, "Conectare realizata cu succes!", Toast.LENGTH_SHORT).show();
                     //public void onFailure(@NonNull Exception e){
@@ -59,7 +60,30 @@ public class LogIn_activity extends AppCompatActivity {
                 });
             }
         });
-        radioGroup.setOnClickListener(new View.OnClickListener() {
+
+        button_login_pacient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String emailCreate = emailAddress.getText().toString().trim();
+                String passwordCreate = password.getText().toString().trim();
+                String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+               /*if(!emailCreate.matches(verificareMail)){
+                    emailCreate.setError("Mail-ul este invalid!");
+                    return;
+                }*/
+
+                mAuth.signInWithEmailAndPassword(emailCreate, passwordCreate).addOnSuccessListener(authResult -> {
+                    startActivity(new Intent(LogIn_activity.this, Pacient_activity.class));
+                    finish();
+                    Toast.makeText(LogIn_activity.this, "Conectare realizata cu succes!", Toast.LENGTH_SHORT).show();
+                    //public void onFailure(@NonNull Exception e){
+                    // Toast.makeText(LogIn_activity.this, e.getMessage, Toast.LENGTH_SHORT).show();
+                    //  }
+                });
+            }
+        });
+        /*radioGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int u_select= radioGroup.getCheckedRadioButtonId();
@@ -70,7 +94,7 @@ public class LogIn_activity extends AppCompatActivity {
                     result.append("\nProfesie: \n").append(radioButton1.getText().toString());
                 }
             }
-        });
+        });*/
 
     }
 }
