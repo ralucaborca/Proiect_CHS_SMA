@@ -32,45 +32,20 @@
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_login_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="40dp"
-        android:text="LOGIN"
+        android:text="LOGIN DOCTOR"
         />
-
-    <TextView
+    <Button
+        android:id="@+id/button_login_pacient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selectati:"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginTop="60dp"
-        android:id="@+id/text_select"
+        android:layout_marginBottom="40dp"
+        android:text="LOGIN PACIENT"
         />
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/radioGroup"
-        >
-
-        <RadioButton
-            android:id="@+id/radio_medic"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
-            android:gravity="center"
-            android:text="Medic" />
-
-        <RadioButton
-            android:id="@+id/radio_pacient"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
-            android:gravity="center"
-            android:text="Pacient" />
-    </RadioGroup>
 
 </LinearLayout>
