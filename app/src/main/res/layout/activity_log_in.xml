@@ -16,7 +16,7 @@
         android:layout_marginTop="200dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Enter Username"
+        android:hint="Introduceti email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />
 
@@ -27,7 +27,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Enter Password"
+        android:hint="Introduceti parola"
         android:inputType="textPassword"
         android:minHeight="48dp" />
 
@@ -37,14 +37,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="40dp"
-        android:text="LOGIN DOCTOR"
+        android:text="Intra in cont DOCTOR"
         />
     <Button
         android:id="@+id/button_login_pacient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="LOGIN PACIENT"
+        android:text="Intra in cont PACIENT"
         />
 
 

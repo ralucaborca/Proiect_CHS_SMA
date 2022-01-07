@@ -32,6 +32,7 @@ public class Doctor_activity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor);
 
        Button lista = findViewById(R.id.lista_pacienti);
+       Button feedback = findViewById(R.id.feedback_pacienti);
         lista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +40,13 @@ public class Doctor_activity extends AppCompatActivity {
                 startActivity(gotolista);
             }
         });
-
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotofeedback = new Intent(Doctor_activity.this,FeedbackPacient_activity.class);
+                startActivity(gotofeedback);
+            }
+        });
 
 
     }
