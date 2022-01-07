@@ -22,8 +22,6 @@ public class FormularPacient_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formular_pacient);
 
-
-
         Button button_formular = findViewById(R.id.button_formular);
         nume = findViewById(R.id.text_nume_prenume);
         varsta= findViewById(R.id.text_varsta);
