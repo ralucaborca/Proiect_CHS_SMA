@@ -35,12 +35,14 @@ public class FormularPacient_activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent goback = new Intent(FormularPacient_activity.this, Pacient_activity.class);
                 startActivity(goback);
+
                 String name = nume.getText().toString();
                 String age = varsta.getText().toString();
                 String weight = greutate.getText().toString();
                 String height = inaltime.getText().toString();
                 String probl = problemes.getText().toString();
                 String puls = pulsul.getText().toString();
+
                 databaseReference.child("01").setValue(name);
                 databaseReference.child("02").setValue(age);
                 databaseReference.child("03").setValue(weight);
