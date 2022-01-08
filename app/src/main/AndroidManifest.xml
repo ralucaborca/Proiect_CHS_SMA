@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proiect_CHS_SMA">
         <activity
+            android:name=".Sugestii_activity"
+            android:exported="false" />
+        <activity
+            android:name=".FeedbackPacient_activity"
+            android:exported="false" />
+        <activity
+            android:name=".ListaPacienti_activity"
+            android:exported="false" />
+        <activity
             android:name=".FormularPacient_activity"
             android:exported="false" />
         <activity
