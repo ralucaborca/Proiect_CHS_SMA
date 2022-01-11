@@ -4,9 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".Sugestii_activity">
-    <ListView
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/nume1"
+      android:layout_marginBottom="20dp"
+      android:text="Nume medic:"
+      />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list_view2"/>
+        android:id="@+id/nume2"
+        android:layout_marginBottom="20dp"
+        android:text="Nume pacient:"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sugestii"
+        android:layout_marginBottom="20dp"
+        android:text="Sugestii:"
+        />
 </LinearLayout>
