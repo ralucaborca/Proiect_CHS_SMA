@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editnume"
-        android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="Nume complet"
         android:gravity="center"
@@ -62,5 +61,13 @@
         android:text="Inregistreaza-te"
 
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login"
+        android:layout_marginTop="40dp"
+        android:text="Ai deja un cont? Intra in cont!"
+        />
+
 
 </LinearLayout>

@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LogIn_activity extends AppCompatActivity {
     FirebaseAuth mAuth;
     private TextView emailAddress, password;
+    private TextView gotoregister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class LogIn_activity extends AppCompatActivity {
 
         emailAddress=findViewById(R.id.textnume);
         password=findViewById(R.id.textparola);
+        gotoregister = findViewById(R.id.register);
         Button button_login_doctor = findViewById(R.id.button_login_doctor);
         Button button_login_pacient = findViewById(R.id.button_login_pacient);
 
@@ -94,6 +96,15 @@ public class LogIn_activity extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+        gotoregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotoReg= new Intent(LogIn_activity.this,Register_activity.class);
+                startActivity(gotoReg);
+                finish();
             }
         });
 

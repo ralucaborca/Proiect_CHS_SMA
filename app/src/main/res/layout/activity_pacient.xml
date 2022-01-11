@@ -7,6 +7,15 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Pacient_activity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date pacient"
+        android:textStyle="italic"
+        android:textSize="25dp"
+        android:textColor="@color/purple_200"
+        android:layout_marginBottom="40dp"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
