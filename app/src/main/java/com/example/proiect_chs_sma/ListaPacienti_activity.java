@@ -21,43 +21,36 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListaPacienti_activity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private DatabaseReference databaseReference;
-    private Lista_recycle_adapt listaRecycleAdapt;
-    private ArrayList<Pacients> listaPacienti;
+    private RecyclerView mrecyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_pacienti);
-
-        recyclerView = findViewById(R.id.listaEvenimente);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Date pacienti");
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        listaPacienti = new ArrayList<>();
-        listaRecycleAdapt = new Lista_recycle_adapt(this, listaPacienti);
-
-        recyclerView.setAdapter(listaRecycleAdapt);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        mrecyclerView = (RecyclerView) findViewById(R.id.recycleview_pacienti);
+        new DatabaseHelper().readPacients(new DatabaseHelper.DataStatus() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                listaPacienti.clear();
-                for(DataSnapshot snapshot1 : snapshot.getChildren()){
-                    Pacients pacients = snapshot1.getValue(Pacients.class);
-                    listaPacienti.add(pacients);
-                }
-                listaRecycleAdapt.notifyDataSetChanged();
+            public void dateIncarcate(List<Pacients> pacients, List<String> keys) {
+                new RecyclerView_Config().setConfig(mrecyclerView, ListaPacienti_activity.this, pacients, keys);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ListaPacienti_activity.this, "Eroare la procesarea datelor. Va rugam reveniti!",
-                        Toast.LENGTH_SHORT).show();
+            public void dateIntroduse() {
+
+            }
+
+            @Override
+            public void dateActualizate() {
+
+            }
+
+            @Override
+            public void dateSterse() {
+
             }
         });
     }

@@ -46,9 +46,9 @@ public class Sugestii_activity extends AppCompatActivity {
         nume_pacient.setText(nume_p);
         sugestii_medic.setText(sugestii_m);
 
-       /* listView = findViewById(R.id.list_view2);
+        //listView = findViewById(R.id.list_view2);
         ArrayList<String> arrayList = new ArrayList<>();
-        ArrayAdapter arrayAdapter = new ArrayAdapter<String >(Sugestii_activity.this, R.layout.lista_pacienti, arrayList);
+        ArrayAdapter arrayAdapter = new ArrayAdapter<String >(Sugestii_activity.this, R.layout.pacient_list, arrayList);
         listView.setAdapter(arrayAdapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -67,6 +67,6 @@ public class Sugestii_activity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.w( "Nu se pot vedea sugestiile medicului!", error.toException());
             }
-        });*/
+        });
     }
 }

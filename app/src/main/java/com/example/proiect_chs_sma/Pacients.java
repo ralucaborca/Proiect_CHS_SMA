@@ -1,13 +1,24 @@
 package com.example.proiect_chs_sma;
 
 public class Pacients {
-    String nume;
-    String varsta;
-    String greutate;
-    String puls;
-    String inaltime;
-    String sanatate;
+    private String nume;
+    private String varsta;
+    private String greutate;
+    private String puls;
+    private String inaltime;
+    private String sanatate;
 
+    public Pacients() {
+    }
+
+    public Pacients(String nume, String varsta, String greutate, String puls, String inaltime, String sanatate) {
+        this.nume = nume;
+        this.varsta = varsta;
+        this.greutate = greutate;
+        this.puls = puls;
+        this.inaltime = inaltime;
+        this.sanatate = sanatate;
+    }
 
     public String getNume() {
         return nume;
@@ -17,7 +28,6 @@ public class Pacients {
         this.nume = nume;
     }
 
-
     public String getVarsta() {
         return varsta;
     }
@@ -25,7 +35,6 @@ public class Pacients {
     public void setVarsta(String varsta) {
         this.varsta = varsta;
     }
-
 
     public String getGreutate() {
         return greutate;
@@ -35,7 +44,6 @@ public class Pacients {
         this.greutate = greutate;
     }
 
-
     public String getPuls() {
         return puls;
     }
@@ -43,16 +51,6 @@ public class Pacients {
     public void setPuls(String puls) {
         this.puls = puls;
     }
-
-
-    public String getSanatate() {
-        return sanatate;
-    }
-
-    public void setSanatate(String sanatate) {
-        this.sanatate = sanatate;
-    }
-
 
     public String getInaltime() {
         return inaltime;
@@ -62,4 +60,11 @@ public class Pacients {
         this.inaltime = inaltime;
     }
 
+    public String getSanatate() {
+        return sanatate;
+    }
+
+    public void setSanatate(String sanatate) {
+        this.sanatate = sanatate;
+    }
 }
