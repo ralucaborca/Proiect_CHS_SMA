@@ -13,7 +13,6 @@
         android:id="@+id/textnume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Introduceti email"
@@ -31,6 +30,8 @@
         android:inputType="textPassword"
         android:minHeight="48dp" />
 
+
+
     <Button
         android:id="@+id/button_login_doctor"
         android:layout_width="wrap_content"
@@ -47,5 +48,11 @@
         android:text="Intra in cont PACIENT"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/register"
+        android:text="Nu ai un cont? Inregistreaza-te!"
+        />
 
 </LinearLayout>

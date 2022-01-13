@@ -21,12 +21,14 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Register_activity extends AppCompatActivity {
     private EditText names, emails, passwords, passwords2;
     private FirebaseAuth mAuth;
+    private TextView gotologin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        gotologin = findViewById(R.id.login);
         names = findViewById(R.id.editnume);
         emails = findViewById(R.id.email);
         passwords = findViewById(R.id.Parola);
@@ -99,6 +101,15 @@ public class Register_activity extends AppCompatActivity {
                         Toast.makeText(Register_activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+
+        gotologin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotoLog= new Intent(Register_activity.this,LogIn_activity.class);
+                startActivity(gotoLog);
+                finish();
             }
         });
     }

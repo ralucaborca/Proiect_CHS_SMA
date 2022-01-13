@@ -16,7 +16,6 @@ public class FormularPacient_activity extends AppCompatActivity {
     private EditText nume, inaltime, varsta, greutate, problemes, pulsul;
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = mDatabase.getReference().child("Date pacienti");
-    private DatabaseReference databaseReference1 = mDatabase.getReference().child("Date");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,19 +42,13 @@ public class FormularPacient_activity extends AppCompatActivity {
                 String probl = problemes.getText().toString();
                 String puls = pulsul.getText().toString();
 
-                databaseReference.child("01").setValue(name);
-                databaseReference.child("02").setValue(age);
-                databaseReference.child("03").setValue(weight);
-                databaseReference.child("04").setValue(height);
-                databaseReference.child("05").setValue(probl);
-                databaseReference.child("06").setValue(puls);
+                databaseReference.child("nume").setValue(name);
+                databaseReference.child("varsta").setValue(age);
+                databaseReference.child("greutate").setValue(weight);
+                databaseReference.child("inaltime").setValue(height);
+                databaseReference.child("sanatate").setValue(probl);
+                databaseReference.child("puls").setValue(puls);
 
-                databaseReference1.child("01").setValue(name);
-                databaseReference1.child("02").setValue(age);
-                databaseReference1.child("03").setValue(weight);
-                databaseReference1.child("04").setValue(height);
-                databaseReference1.child("05").setValue(probl);
-                databaseReference1.child("06").setValue(puls);
             }
         });
     }

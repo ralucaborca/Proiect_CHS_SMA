@@ -7,7 +7,16 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Doctor_activity">
+
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date medic"
+        android:textStyle="italic"
+        android:textSize="25dp"
+        android:textColor="@color/purple_200"
+        android:layout_marginBottom="40dp"/>
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -16,7 +25,7 @@
         android:textSize="20dp"
         android:text="Nume:"
         />
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -25,7 +34,7 @@
         android:textSize="20dp"
         android:text="Prenume:"
         />
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -34,7 +43,7 @@
         android:textSize="20dp"
         android:text="Specializare:"
         />
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
