@@ -10,25 +10,36 @@
     tools:context=".Register_activity">
 
     <EditText
+        android:id="@+id/editnume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editnume"
         android:ems="10"
-        android:hint="Nume complet"
         android:gravity="center"
-        android:inputType="textEmailAddress"/>
+        android:hint="Nume complet"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
 
     <EditText
+        android:id="@+id/editcnp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="CNP"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
+    <EditText
         android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Email"
         android:gravity="center"
-        android:visibility="visible"
+        android:hint="Email"
         android:inputType="textEmailAddress"
-        />
+        android:minHeight="48dp"
+        android:visibility="visible" />
 
     <EditText
         android:id="@+id/Parola"
@@ -36,10 +47,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Parola"
         android:gravity="center"
+        android:hint="Parola"
         android:inputType="textPassword"
-        />
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/parola2"
@@ -47,11 +58,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Reintroduceti parola"
         android:gravity="center"
+        android:hint="Reintroduceti parola"
         android:inputType="textPassword"
-        />
+        android:minHeight="48dp" />
 
+
+    <Spinner
+        android:id="@+id/alegerecategorie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:entries="@array/categorii"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/button_register"
