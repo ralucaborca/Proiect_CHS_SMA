@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,39 +21,59 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Register_activity extends AppCompatActivity {
-    private EditText names, emails, passwords, passwords2;
+public class Register_activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private EditText names, emails, passwords, passwords2,CNP;
     private FirebaseAuth mAuth;
     private TextView gotologin;
+    private Spinner spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        spinner = findViewById(R.id.alegerecategorie);
         gotologin = findViewById(R.id.login);
+        CNP = findViewById(R.id.editcnp);
         names = findViewById(R.id.editnume);
         emails = findViewById(R.id.email);
         passwords = findViewById(R.id.Parola);
         passwords2 = findViewById(R.id.parola2);
         Button button_signup = findViewById(R.id.button_register);
 
-        //mAuth=FirebaseAuth.getInstance();
-        //FirebaseDatabase database = FirebaseDatabase.getInstance();
-       // DatabaseReference databaseReference = database.getReference();
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categorii, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(this);
 
 
         button_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String namess = names.getText().toString().trim();
+                String CNP1 = CNP.getText().toString().trim();
                 String emailss = emails.getText().toString().trim();
                 String passwordss = passwords.getText().toString().trim();
                 String passwordss2 = passwords2.getText().toString().trim();
+                String spinner1 = spinner.getSelectedItem().toString().trim();
                 String verificareParola = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+
 
                 if (namess.isEmpty()) {
                     emails.setError("Introduceti un nume!");
+                    emails.requestFocus();
+                    return;
+                }
+                if (CNP1.isEmpty()) {
+                    emails.setError("Introduceti codul numeric personal!");
+                    emails.requestFocus();
+                    return;
+                }
+                if (CNP1.length() != 13) {
+                    emails.setError("CNP-ul contine 13 caractere!");
                     emails.requestFocus();
                     return;
                 }
@@ -112,5 +135,16 @@ public class Register_activity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String alegere = parent.getItemAtPosition(position).toString();
+        Toast.makeText(getApplicationContext(),alegere,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

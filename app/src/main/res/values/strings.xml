@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Proiect_CHS_SMA</string>
+    <string-array name="categorii">
+        <item>Selectati tipul de utilizator</item>
+        <item>Doctor</item>
+        <item>Pacient</item>
+    </string-array>
 </resources>

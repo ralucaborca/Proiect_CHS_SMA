@@ -42,6 +42,8 @@ public class LogIn_activity extends AppCompatActivity {
                 String passwordCreate = password.getText().toString().trim();
                 String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+
+
                 if (emailCreate.isEmpty()) {
                     emailAddress.setError("Introduceti adresa de e-mail!");
                     emailAddress.requestFocus();
@@ -73,6 +75,7 @@ public class LogIn_activity extends AppCompatActivity {
                 String emailCreate = emailAddress.getText().toString().trim();
                 String passwordCreate = password.getText().toString().trim();
                 String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
 
                 if (emailCreate.isEmpty()) {
                     emailAddress.setError("Introduceti adresa de e-mail!");
