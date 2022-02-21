@@ -7,8 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Pacient_activity extends AppCompatActivity {
     private TextInputLayout nume1, nume2, feedback;
+    private FirebaseUser user;
+    private DatabaseReference databaseReference;
+    private String userId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +33,33 @@ public class Pacient_activity extends AppCompatActivity {
         Button button_completati_formular = findViewById(R.id.button_completati_fomular);
         Button button_sugestii = findViewById(R.id.button_sugestii);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Sugestii");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        userId = user.getUid();
+
+        final TextView fullnameView = findViewById(R.id.nume_prenume);
+        final TextView emailView = findViewById(R.id.email);
+
+        databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userprofile = snapshot.getValue(User.class);
+
+                if(userprofile != null){
+                    String fullname = userprofile.fullname;
+                    String email = userprofile.email;
+
+                    fullnameView.setText(fullname);
+                    emailView.setText(email);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Pacient_activity.this, "Ceva neasteptat s-a intamplat!", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
 
         button_completati_formular.setOnClickListener(new View.OnClickListener() {

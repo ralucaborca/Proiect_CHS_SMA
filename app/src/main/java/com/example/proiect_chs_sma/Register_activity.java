@@ -14,19 +14,23 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Register_activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private EditText names, emails, passwords, passwords2,CNP;
+    private EditText names, emails, passwords, passwords2;
     private FirebaseAuth mAuth;
     private TextView gotologin;
     private Spinner spinner;
 
+    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,6 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
 
         spinner = findViewById(R.id.alegerecategorie);
         gotologin = findViewById(R.id.login);
-        CNP = findViewById(R.id.editcnp);
         names = findViewById(R.id.editnume);
         emails = findViewById(R.id.email);
         passwords = findViewById(R.id.Parola);
@@ -53,7 +56,6 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
             @Override
             public void onClick(View v) {
                 String namess = names.getText().toString().trim();
-                String CNP1 = CNP.getText().toString().trim();
                 String emailss = emails.getText().toString().trim();
                 String passwordss = passwords.getText().toString().trim();
                 String passwordss2 = passwords2.getText().toString().trim();
@@ -61,22 +63,12 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                 String verificareParola = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
-
                 if (namess.isEmpty()) {
                     emails.setError("Introduceti un nume!");
                     emails.requestFocus();
                     return;
                 }
-                if (CNP1.isEmpty()) {
-                    emails.setError("Introduceti codul numeric personal!");
-                    emails.requestFocus();
-                    return;
-                }
-                if (CNP1.length() != 13) {
-                    emails.setError("CNP-ul contine 13 caractere!");
-                    emails.requestFocus();
-                    return;
-                }
+
                 if (emailss.isEmpty()) {
                     emails.setError("Introduceti adresa de e-mail!");
                     emails.requestFocus();
@@ -111,7 +103,7 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                 }
                 mAuth=FirebaseAuth.getInstance();
 
-                mAuth.createUserWithEmailAndPassword(emailss, passwordss)
+                /*mAuth.createUserWithEmailAndPassword(emailss, passwordss)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
@@ -123,9 +115,36 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(Register_activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
+                });*/
+
+                mAuth.createUserWithEmailAndPassword(emailss, passwordss).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            User user = new User(namess, emailss);
+
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(Register_activity.this, "User creat cu succes!",Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(Register_activity.this, "A aparut o eroare!",Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                        }else{
+                            Toast.makeText(Register_activity.this, "A aparut o eroare!",Toast.LENGTH_LONG).show();
+                        }
+
+                    }
                 });
             }
         });
+
+
 
         gotologin.setOnClickListener(new View.OnClickListener() {
             @Override
