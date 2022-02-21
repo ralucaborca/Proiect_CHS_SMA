@@ -4,15 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Config.mViewHolder> {
 
@@ -27,14 +23,14 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
     public static class mViewHolder extends RecyclerView.ViewHolder{
         TextView CNP, puls, greutate, varsta, inaltime, probleme_sanatate;
 
-        public mViewHolder(@NonNull android.view.View itemView) {
+        public mViewHolder(@NonNull View itemView) {
             super(itemView);
-            CNP = itemView.findViewById(R.id.editcnp);
-            puls = itemView.findViewById(R.id.alegerepuls);
-            greutate = itemView.findViewById(R.id.alegeregreutate);
-            varsta = itemView.findViewById(R.id.alegerevarsta);
-            inaltime = itemView.findViewById(R.id.alegereinaltime);
-            probleme_sanatate = itemView.findViewById(R.id.editprobleme);
+            CNP = itemView.findViewById(R.id.valoare_cnp);
+            varsta = itemView.findViewById(R.id.valoare_varsta);
+            inaltime = itemView.findViewById(R.id.valoare_inaltime);
+            greutate = itemView.findViewById(R.id.valoare_greutate);
+            puls = itemView.findViewById(R.id.valoare_puls);
+            probleme_sanatate = itemView.findViewById(R.id.valoare_sanatate);
 
         }
     }
@@ -52,7 +48,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
         holder.CNP.setText(lista.getCNP());
         holder.puls.setText(lista.getPuls());
         holder.greutate.setText(lista.getGreutate());
-        holder.inaltime.setText((lista.getInaltime()));
+        holder.inaltime.setText(lista.getInaltime());
         holder.varsta.setText(lista.getVarsta());
         holder.probleme_sanatate.setText(lista.getSanatate());
     }
