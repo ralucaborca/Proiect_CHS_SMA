@@ -41,8 +41,6 @@ public class ListaPacienti_activity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_pacienti);
 
         mrecyclerView = findViewById(R.id.recycleview_pacienti);
-
-
         databaseReference = FirebaseDatabase.getInstance().getReference("Despre pacienti");
         mrecyclerView.setHasFixedSize(true);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
