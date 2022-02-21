@@ -12,46 +12,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date medic"
-        android:textStyle="italic"
-        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textSize="40dp"
         android:textColor="@color/purple_200"
         android:layout_marginBottom="40dp"/>
-    <EditText
+    <TextView
+        android:id="@+id/nume_prenume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/text_numepacient"
-        android:textStyle="bold"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Nume complet:"
         android:textSize="20dp"
-        android:text="Nume:"
-        />
-    <EditText
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+    <TextView
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/text_prenumepacient"
-        android:textStyle="bold"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Email:"
         android:textSize="20dp"
-        android:text="Prenume:"
-        />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/text_specializare"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Specializare:"
-        />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/text_oras"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Oras:"
-        />
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
