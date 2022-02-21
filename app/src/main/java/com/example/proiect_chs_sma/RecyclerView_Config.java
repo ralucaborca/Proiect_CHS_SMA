@@ -2,73 +2,68 @@ package com.example.proiect_chs_sma;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerView_Config {
+public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Config.mViewHolder> {
+
     private Context mContext;
-    private PacientsAdapter pacientsAdapter;
+    ArrayList<Pacients> lista_pacients;
 
-    public void setConfig(RecyclerView recyclerView, Context context, List<Pacients> pacients, List<String> keys){
-        mContext = context;
-        pacientsAdapter = new PacientsAdapter(pacients,keys);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(pacientsAdapter);
+    public  RecyclerView_Config(Context mContext, ArrayList<Pacients> lista_pacients){
+        this.mContext = mContext;
+        this.lista_pacients = lista_pacients;
     }
 
-    class PacientsView extends RecyclerView.ViewHolder {
-        private TextView cNume, cGreutate, cInaltime, cVarsta, cSanatate, cPuls;
-        private String key;
+    public static class mViewHolder extends RecyclerView.ViewHolder{
+        TextView CNP, puls, greutate, varsta, inaltime, probleme_sanatate;
 
-        public PacientsView(ViewGroup parent){
-            super(LayoutInflater.from(mContext).inflate(R.layout.pacient_list,parent,false));
+        public mViewHolder(@NonNull android.view.View itemView) {
+            super(itemView);
+            CNP = itemView.findViewById(R.id.editcnp);
+            puls = itemView.findViewById(R.id.alegerepuls);
+            greutate = itemView.findViewById(R.id.alegeregreutate);
+            varsta = itemView.findViewById(R.id.alegerevarsta);
+            inaltime = itemView.findViewById(R.id.alegereinaltime);
+            probleme_sanatate = itemView.findViewById(R.id.editprobleme);
 
-            cNume = (TextView) itemView.findViewById(R.id.nume_txt);
-            cGreutate = (TextView) itemView.findViewById(R.id.greutate_txt);
-            cInaltime = (TextView) itemView.findViewById(R.id.inaltime_txt);
-            cVarsta = (TextView) itemView.findViewById(R.id.varsta_txt);
-            cSanatate = (TextView) itemView.findViewById(R.id.sanatate_txt);
-            cPuls = (TextView) itemView.findViewById(R.id.puls_txt);
-        }
-        public void bind(Pacients pacients, String key){
-            cNume.setText(pacients.getNume());
-            cGreutate.setText(pacients.getGreutate());
-            cInaltime.setText(pacients.getInaltime());
-            cVarsta.setText(pacients.getVarsta());
-            cSanatate.setText(pacients.getSanatate());
-            cPuls.setText(pacients.getPuls());
-            this.key = key;
         }
     }
-    class PacientsAdapter extends RecyclerView.Adapter<PacientsView>{
-        private List<Pacients> pacientsList;
-        private List<String> ckeys;
 
-        public PacientsAdapter(List<Pacients> pacientsList, List<String> ckeys) {
-            this.pacientsList = pacientsList;
-            this.ckeys = ckeys;
-        }
-
-        @NonNull
-        @Override
-        public PacientsView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new PacientsView(parent);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull PacientsView holder, int position) {
-            holder.bind(pacientsList.get(position), ckeys.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return pacientsList.size();
-        }
+    @NonNull
+    @Override
+    public mViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(mContext).inflate(R.layout.pacient_list, parent, false);
+        return new mViewHolder(v);
     }
+
+    @Override
+    public void onBindViewHolder(@NonNull mViewHolder holder, int position) {
+        Pacients lista= lista_pacients.get(position);
+        holder.CNP.setText(lista.getCNP());
+        holder.puls.setText(lista.getPuls());
+        holder.greutate.setText(lista.getGreutate());
+        holder.inaltime.setText((lista.getInaltime()));
+        holder.varsta.setText(lista.getVarsta());
+        holder.probleme_sanatate.setText(lista.getSanatate());
+    }
+
+    @Override
+    public int getItemCount() {
+
+        return lista_pacients.size();
+    }
+
+
 }
+
+

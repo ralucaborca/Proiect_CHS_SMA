@@ -77,6 +77,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.156"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button

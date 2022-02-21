@@ -5,15 +5,20 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,34 +29,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaPacienti_activity extends AppCompatActivity {
-    private RecyclerView mrecyclerView;
+    RecyclerView mrecyclerView;
+    RecyclerView_Config recyclerView_config;
+    DatabaseReference databaseReference;
+    ArrayList<Pacients> pacientsArrayList;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_pacienti);
-        mrecyclerView = (RecyclerView) findViewById(R.id.recycleview_pacienti);
-        new DatabaseHelper().readPacients(new DatabaseHelper.DataStatus() {
+
+        mrecyclerView = findViewById(R.id.recycleview_pacienti);
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Despre pacienti");
+        mrecyclerView.setHasFixedSize(true);
+        mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        pacientsArrayList = new ArrayList<>();
+        recyclerView_config = new RecyclerView_Config(this, pacientsArrayList);
+        mrecyclerView.setAdapter(recyclerView_config);
+
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT
+                | ItemTouchHelper.RIGHT) {
             @Override
-            public void dateIncarcate(List<Pacients> pacients, List<String> keys) {
-                new RecyclerView_Config().setConfig(mrecyclerView, ListaPacienti_activity.this, pacients, keys);
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder target) {
+                return false;
             }
 
             @Override
-            public void dateIntroduse() {
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                pacientsArrayList.remove(position);
+                recyclerView_config.notifyDataSetChanged();
+                Toast.makeText(ListaPacienti_activity.this, "A fost sters cu succes!", Toast.LENGTH_SHORT).show();
+            }
+        };
 
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(mrecyclerView);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                pacientsArrayList.clear();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Pacients pacients= dataSnapshot.getValue(Pacients.class);
+                    pacientsArrayList.add(pacients);
+                }
+                recyclerView_config.notifyDataSetChanged();
             }
 
             @Override
-            public void dateActualizate() {
-
-            }
-
-            @Override
-            public void dateSterse() {
-
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ListaPacienti_activity.this,"Eroare! Va rugam reeniti!", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }

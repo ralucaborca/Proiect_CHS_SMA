@@ -1,8 +1,49 @@
 <resources>
     <string name="app_name">Proiect_CHS_SMA</string>
+    <string name="nume_CNP">CNP</string>
+    <string name="valoare_cnp">2556738667286</string>
+    <string name="nume_varsta">Varsta</string>
+    <string name="valoare_varsta">18-30</string>
+    <string name="nume_greutate">Greutate</string>
+    <string name="valoare_greutate">55-70</string>
+    <string name="nume_inaltime">Inaltime</string>
+    <string name="valoare_inaltime">1.60-1.70</string>
+    <string name="nume_puls">Puls</string>
+    <string name="valoare_puls">80-100</string>
+    <string name="nume_sanatate">Probleme sanatate</string>
+    <string name="valoare_sanatate">nu</string>
     <string-array name="categorii">
         <item>Selectati tipul de utilizator</item>
         <item>Doctor</item>
         <item>Pacient</item>
+    </string-array>
+    <string-array name="varsta">
+        <item>Selectati varsta</item>
+        <item>18-30</item>
+        <item>31-45</item>
+        <item>46-65</item>
+        <item>66+</item>
+    </string-array>
+    <string-array name="inaltime">
+        <item>Selectati inaltime</item>
+        <item>1.40-1.50</item>
+        <item>1.50-1.60</item>
+        <item>1.60-1.70</item>
+        <item>1.70-1.85</item>
+        <item>1.85+</item>
+    </string-array>
+    <string-array name="greutate">
+        <item>Selectati greutate</item>
+        <item>40-55</item>
+        <item>55-70</item>
+        <item>70-90</item>
+        <item>90-120</item>
+        <item>120+</item>
+    </string-array>
+    <string-array name="puls">
+        <item>Selectati puls</item>
+        <item>70-80</item>
+        <item>80-100</item>
+        <item>100-120</item>
     </string-array>
 </resources>

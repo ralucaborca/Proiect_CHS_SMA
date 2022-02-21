@@ -1,7 +1,7 @@
 package com.example.proiect_chs_sma;
 
 public class Pacients {
-    private String nume;
+    private String CNP;
     private String varsta;
     private String greutate;
     private String puls;
@@ -11,8 +11,8 @@ public class Pacients {
     public Pacients() {
     }
 
-    public Pacients(String nume, String varsta, String greutate, String puls, String inaltime, String sanatate) {
-        this.nume = nume;
+    public Pacients(String CNP, String varsta, String greutate, String puls, String inaltime, String sanatate) {
+        this.CNP = CNP;
         this.varsta = varsta;
         this.greutate = greutate;
         this.puls = puls;
@@ -20,12 +20,12 @@ public class Pacients {
         this.sanatate = sanatate;
     }
 
-    public String getNume() {
-        return nume;
+    public String getCNP() {
+        return CNP;
     }
 
-    public void setNume(String nume) {
-        this.nume = nume;
+    public void setCNP(String CNP) {
+        this.CNP = CNP;
     }
 
     public String getVarsta() {
