@@ -9,31 +9,58 @@
     tools:context=".FeedbackPacient_activity">
 
     <EditText
+        android:id="@+id/feedback_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:maxLength="13"
+        android:gravity="center"
+        android:hint="ID medic"
+        android:layout_marginBottom="20dp"
+        android:minHeight="48dp"
+        />
+    <EditText
         android:id="@+id/feedback_nume_prenume_medic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Nume medic:"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/feedback_nume_prenume_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Nume si Prenume pacient:"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+        android:ems="10"
+        android:maxLength="13"
+        android:gravity="center"
+        android:hint="Nume complet"
+        android:layout_marginBottom="20dp"
+        android:minHeight="48dp"
+        />
+    <Spinner
+        android:id="@+id/alegerecazpuls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:entries="@array/caz_puls"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        tools:ignore="SpeakableTextPresentCheck">
+    </Spinner>
 
     <EditText
         android:id="@+id/sugestii"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Sugestii:"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:ems="10"
+        android:maxLength="13"
+        android:gravity="center"
+        android:hint="Sugestii"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="20dp"
+        android:minHeight="48dp"
+        />
     <Button
         android:id="@+id/button_feedback"
         android:layout_width="wrap_content"
