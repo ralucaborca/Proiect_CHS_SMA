@@ -7,38 +7,64 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FeedbackPacient_activity extends AppCompatActivity {
-    private EditText nume_medic, nume_pacient, feedback;
-    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference = mDatabase.getReference().child("Sugestii:");
+    private EditText id, nume, sugestii;
+    private Spinner caz;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference database;
+    Feedback feedback;
+    private Button button_feedback;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback_pacient);
 
-        Button button_sugestii = findViewById(R.id.button_feedback);
-        nume_medic = findViewById(R.id.feedback_nume_prenume_medic);
-        nume_pacient = findViewById(R.id.feedback_nume_prenume_pacient);
-        feedback = findViewById(R.id.sugestii);
+        button_feedback = findViewById(R.id.button_feedback);
+        id = findViewById(R.id.feedback_id);
+        nume = findViewById(R.id.feedback_nume_prenume_medic);
+        caz = (Spinner) findViewById(R.id.alegerecazpuls);
+        sugestii = findViewById(R.id.sugestii);
+        feedback = new Feedback();
 
-        button_sugestii.setOnClickListener(new View.OnClickListener() {
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        database = firebaseDatabase.getReference().child("Sugestii medic");
+
+        button_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goback = new Intent(FeedbackPacient_activity.this, Doctor_activity.class);
-                startActivity(goback);
+                try{
+                    String id_medic = id.getText().toString().trim();
+                    String nume_medic = nume.getText().toString().trim();
+                    String caz_puls = caz.getSelectedItem().toString();
+                    String sugestii_medic = sugestii.getText().toString().trim();
 
-                String nume1 = nume_medic.getText().toString();
-                String nume2 = nume_pacient.getText().toString();
-                String sugestiuni = feedback.getText().toString();
-                databaseReference.child("s1").setValue(nume1);
-                databaseReference.child("s2").setValue(nume2);
-                databaseReference.child("s3").setValue(sugestiuni);
+                    if(id_medic.isEmpty()){
+                        id.setError("Introduceti id!");
+                        return;
+                    }
+
+                    feedback.setID(id_medic);
+                    feedback.setNume(nume_medic);
+                    feedback.setCaz(caz_puls);
+                    feedback.setFeedback(sugestii_medic);
+
+                    database.child(id_medic).setValue(feedback);
+                    Toast.makeText(FeedbackPacient_activity.this, "Sugestiile medicului adaugate cu succes!", Toast.LENGTH_LONG).show();
+                        Intent goBack = new Intent(FeedbackPacient_activity.this,Doctor_activity.class);
+                        startActivity(goBack);
+
+                }catch (Exception e){
+                    Toast.makeText(FeedbackPacient_activity.this, "Informatii introduse gresit!",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
+
 }
