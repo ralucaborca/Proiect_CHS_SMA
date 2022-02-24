@@ -12,6 +12,14 @@
     <string name="valoare_puls">80-100</string>
     <string name="nume_sanatate">Probleme sanatate</string>
     <string name="valoare_sanatate">nu</string>
+    <string name="sugestii_id">ID Medic</string>
+    <string name="nume_id">1234</string>
+    <string name="sugestie_nume">Nume Medic</string>
+    <string name="nume_prenume">Raluca Borca</string>
+    <string name="sugestii_caz">Caz-puls</string>
+    <string name="nume_caz">Puls normal</string>
+    <string name="sugestii_sugestie">Sugestii</string>
+    <string name="nume_sugestii">Totul bun</string>
     <string-array name="categorii">
         <item>Selectati tipul de utilizator</item>
         <item>Doctor</item>

@@ -2,6 +2,9 @@ package com.example.proiect_chs_sma;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -22,10 +26,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Sugestii_activity extends AppCompatActivity {
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference = firebaseDatabase.getReference().child("Sugestii:");
-    private ListView listView;
-    private TextView nume_medic, nume_pacient, sugestii_medic;
+    RecyclerView mrecyclerView;
+    RecyclerVi_Config recyclerVi_config;
+    DatabaseReference databaseReference;
+    ArrayList<Feedback> feedbackArrayList;
 
 
     @Override
@@ -33,39 +37,49 @@ public class Sugestii_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugestii);
 
-       nume_medic = findViewById(R.id.nume1);
-       nume_pacient = findViewById(R.id.nume2);
-       sugestii_medic = findViewById(R.id.sugestii);
+        mrecyclerView = findViewById(R.id.recycleview_sugestii);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Sugestii medic");
+        mrecyclerView.setHasFixedSize(true);
+        mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-       Intent intent = getIntent();
-       String nume_m = intent.getStringExtra("Nume medic");
-        String nume_p = intent.getStringExtra("Nume pacient");
-        String sugestii_m = intent.getStringExtra("Sugestii");
+        feedbackArrayList = new ArrayList<>();
+        recyclerVi_config = new RecyclerVi_Config(this, feedbackArrayList);
+        mrecyclerView.setAdapter(recyclerVi_config);
 
-        nume_medic.setText(nume_m);
-        nume_pacient.setText(nume_p);
-        sugestii_medic.setText(sugestii_m);
-
-        //listView = findViewById(R.id.list_view2);
-        ArrayList<String> arrayList = new ArrayList<>();
-        ArrayAdapter arrayAdapter = new ArrayAdapter<String >(Sugestii_activity.this, R.layout.pacient_list, arrayList);
-        listView.setAdapter(arrayAdapter);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT
+                | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
             @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                feedbackArrayList.remove(position);
+                recyclerVi_config.notifyDataSetChanged();
+                Toast.makeText(Sugestii_activity.this, "A fost sters cu succes!", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(mrecyclerView);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                arrayList.clear();
-                for(DataSnapshot snapshot1 : snapshot.getChildren()){
-                    arrayList.add(snapshot1.getValue().toString());
-                    Log.d("Lista sugestiilor este:", snapshot1.getValue().toString());
+                feedbackArrayList.clear();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Feedback feedback = dataSnapshot.getValue(Feedback.class);
+                    feedbackArrayList.add(feedback);
                 }
-                arrayAdapter.notifyDataSetChanged();
+                recyclerVi_config.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.w( "Nu se pot vedea sugestiile medicului!", error.toException());
+                Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reeniti!", Toast.LENGTH_SHORT).show();
             }
         });
     }
