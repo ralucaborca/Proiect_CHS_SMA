@@ -20,7 +20,7 @@ public class FormularPacient_activity extends AppCompatActivity{
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference;
     Pacients pacients;
-    private Button button_formular;
+    private Button button_formular, button_puls;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +32,8 @@ public class FormularPacient_activity extends AppCompatActivity{
         varstaSpinner = (Spinner) findViewById(R.id.alegerevarsta);
         inaltimeSpinner = (Spinner) findViewById(R.id.alegereinaltime);
         greutateSpinner = (Spinner) findViewById(R.id.alegeregreutate);
-        pulsSpinner = (Spinner) findViewById(R.id.alegerepuls);
         pacients = new Pacients();
+        button_puls = findViewById(R.id.button_puls);
 
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference().child("Despre pacienti");
@@ -47,7 +47,6 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String varsta = varstaSpinner.getSelectedItem().toString();
                 String inaltime = inaltimeSpinner.getSelectedItem().toString();
                 String greutate = greutateSpinner.getSelectedItem().toString();
-                String puls = pulsSpinner.getSelectedItem().toString();
                 String probleme_sanatate = problemes.getText().toString().trim();
 
                 if (cnp.isEmpty()) {
@@ -59,7 +58,6 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setInaltime(inaltime);
                 pacients.setVarsta(varsta);
                 pacients.setCNP(cnp);
-                pacients.setPuls(puls);
                 pacients.setSanatate(probleme_sanatate);
 
                 databaseReference.child(cnp).setValue(pacients);
@@ -76,6 +74,14 @@ public class FormularPacient_activity extends AppCompatActivity{
 
 
           }
+        });
+        button_puls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotoPulse= new Intent(FormularPacient_activity.this,Pulse_activity.class);
+                startActivity(gotoPulse);
+                finish();
+            }
         });
     }
 }
