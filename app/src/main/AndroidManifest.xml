@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proiect_CHS_SMA">
         <activity
+            android:name=".Pulse_activity"
+            android:exported="false" />
+        <activity
             android:name=".Sugestii_activity"
             android:exported="false" />
         <activity
