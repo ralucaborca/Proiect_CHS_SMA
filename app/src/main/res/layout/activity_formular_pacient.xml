@@ -8,8 +8,6 @@
     android:gravity="center"
     tools:context=".FormularPacient_activity">
 
-
-
     <EditText
         android:id="@+id/editcnp"
         android:layout_width="wrap_content"
@@ -76,7 +74,57 @@
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         tools:ignore="SpeakableTextPresentCheck" />
-
+    <Spinner
+        android:id="@+id/alegerepuls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:entries="@array/puls"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <Spinner
+        android:id="@+id/alegerefumat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:entries="@array/fumat"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <Spinner
+        android:id="@+id/alegeresport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:entries="@array/sport"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        tools:ignore="SpeakableTextPresentCheck" />
     <EditText
         android:id="@+id/editprobleme"
         android:layout_width="wrap_content"
@@ -87,12 +135,6 @@
         android:hint="Probleme de sanatate"
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />
-    <Button
-        android:id="@+id/button_puls"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Luati pulsul" />
 
     <Button
         android:id="@+id/button_formular"

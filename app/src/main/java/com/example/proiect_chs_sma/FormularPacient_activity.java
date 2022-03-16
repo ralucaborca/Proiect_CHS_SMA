@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class FormularPacient_activity extends AppCompatActivity{
     private EditText  problemes, CNP;
-    private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, pulsSpinner;
+    private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, pulsSpinner, fumatSpinner, sportSpinner;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference;
     Pacients pacients;
@@ -32,8 +32,10 @@ public class FormularPacient_activity extends AppCompatActivity{
         varstaSpinner = (Spinner) findViewById(R.id.alegerevarsta);
         inaltimeSpinner = (Spinner) findViewById(R.id.alegereinaltime);
         greutateSpinner = (Spinner) findViewById(R.id.alegeregreutate);
+        pulsSpinner = (Spinner) findViewById(R.id.alegerepuls);
+        fumatSpinner = (Spinner) findViewById(R.id.alegerefumat);
+        sportSpinner = (Spinner) findViewById(R.id.alegeresport);
         pacients = new Pacients();
-        button_puls = findViewById(R.id.button_puls);
 
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference().child("Despre pacienti");
@@ -47,6 +49,9 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String varsta = varstaSpinner.getSelectedItem().toString();
                 String inaltime = inaltimeSpinner.getSelectedItem().toString();
                 String greutate = greutateSpinner.getSelectedItem().toString();
+                String puls = pulsSpinner.getSelectedItem().toString();
+                String fumat = fumatSpinner.getSelectedItem().toString();
+                String sport = sportSpinner.getSelectedItem().toString();
                 String probleme_sanatate = problemes.getText().toString().trim();
 
                 if (cnp.isEmpty()) {
@@ -58,6 +63,9 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setInaltime(inaltime);
                 pacients.setVarsta(varsta);
                 pacients.setCNP(cnp);
+                pacients.setPuls(puls);
+                pacients.setFumat(fumat);
+                pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);
 
                 databaseReference.child(cnp).setValue(pacients);
@@ -75,13 +83,6 @@ public class FormularPacient_activity extends AppCompatActivity{
 
           }
         });
-        button_puls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent gotoPulse= new Intent(FormularPacient_activity.this,Pulse_activity.class);
-                startActivity(gotoPulse);
-                finish();
-            }
-        });
+
     }
 }

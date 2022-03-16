@@ -6,17 +6,21 @@ public class Pacients {
     private String greutate;
     private String puls;
     private String inaltime;
+    private String fumat;
+    private String sport;
     private String sanatate;
 
     public Pacients() {
     }
 
-    public Pacients(String CNP, String varsta, String greutate, String puls, String inaltime, String sanatate) {
+    public Pacients(String CNP, String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate) {
         this.CNP = CNP;
         this.varsta = varsta;
         this.greutate = greutate;
         this.puls = puls;
         this.inaltime = inaltime;
+        this.fumat = fumat;
+        this.sport = sport;
         this.sanatate = sanatate;
     }
 
@@ -59,6 +63,14 @@ public class Pacients {
     public void setInaltime(String inaltime) {
         this.inaltime = inaltime;
     }
+
+    public String getFumat() { return fumat;}
+
+    public void setFumat(String fumat) { this.fumat = fumat;}
+
+    public String getSport() { return sport;}
+
+    public void setSport(String sport) {this.sport = sport;}
 
     public String getSanatate() {
         return sanatate;
