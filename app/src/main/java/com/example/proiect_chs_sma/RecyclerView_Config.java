@@ -21,7 +21,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
     }
 
     public static class mViewHolder extends RecyclerView.ViewHolder{
-        TextView CNP, puls, greutate, varsta, inaltime, probleme_sanatate;
+        TextView CNP, puls, greutate, varsta, inaltime, fumat, sport, probleme_sanatate;
 
         public mViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -29,6 +29,8 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
             varsta = itemView.findViewById(R.id.valoare_varsta);
             inaltime = itemView.findViewById(R.id.valoare_inaltime);
             greutate = itemView.findViewById(R.id.valoare_greutate);
+            fumat = itemView.findViewById(R.id.valoare_fumat);
+            sport = itemView.findViewById(R.id.valoare_sport);
             puls = itemView.findViewById(R.id.valoare_puls);
             probleme_sanatate = itemView.findViewById(R.id.valoare_sanatate);
 
@@ -50,6 +52,8 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
         holder.greutate.setText(lista.getGreutate());
         holder.inaltime.setText(lista.getInaltime());
         holder.varsta.setText(lista.getVarsta());
+        holder.fumat.setText(lista.getFumat());
+        holder.sport.setText(lista.getSport());
         holder.probleme_sanatate.setText(lista.getSanatate());
     }
 

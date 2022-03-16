@@ -10,6 +10,10 @@
     <string name="valoare_inaltime">1.60-1.70</string>
     <string name="nume_puls">Puls</string>
     <string name="valoare_puls">80-100</string>
+    <string name="nume_fumat">Fumator</string>
+    <string name="valoare_fumat">Da</string>
+    <string name="nume_sport">Practica sport</string>
+    <string name="valoare_sport">Da</string>
     <string name="nume_sanatate">Probleme sanatate</string>
     <string name="valoare_sanatate">nu</string>
     <string name="sugestii_id">ID Medic</string>
@@ -53,6 +57,16 @@
         <item>70-80</item>
         <item>80-100</item>
         <item>100-120</item>
+    </string-array>
+    <string-array name="fumat">
+        <item>Fumator?</item>
+        <item>Da</item>
+        <item>Nu</item>
+    </string-array>
+    <string-array name="sport">
+        <item>Practic sport</item>
+        <item>Da</item>
+        <item>Nu</item>
     </string-array>
     <string-array name="caz_puls">
         <item>Selectati caz</item>
