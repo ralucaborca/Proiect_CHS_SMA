@@ -103,25 +103,12 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                 }
                 mAuth=FirebaseAuth.getInstance();
 
-                /*mAuth.createUserWithEmailAndPassword(emailss, passwordss)
-                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                Toast.makeText(Register_activity.this, "Cont creat cu success!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Register_activity.this, LogIn_activity.class));
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Register_activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });*/
 
                 mAuth.createUserWithEmailAndPassword(emailss, passwordss).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user = new User(namess, emailss);
+                            User user = new User(namess, emailss,"pacient");
 
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
@@ -129,6 +116,7 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
+
                                         Toast.makeText(Register_activity.this, "User creat cu succes!",Toast.LENGTH_LONG).show();
                                     }else{
                                         Toast.makeText(Register_activity.this, "A aparut o eroare!",Toast.LENGTH_LONG).show();
