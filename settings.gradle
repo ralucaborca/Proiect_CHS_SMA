@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Proiect_CHS_SMA"
 include ':app'
+include ':doctor'
