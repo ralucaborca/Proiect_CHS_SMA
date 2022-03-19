@@ -57,6 +57,11 @@ public class LogIn_activity extends AppCompatActivity {
                         return;
                     }
                 }
+                if(passwordCreate.isEmpty()){
+                    password.setError("Introduceti parola!");
+                    password.requestFocus();
+                    return;
+                }
 
                 mAuth.signInWithEmailAndPassword(emailCreate, passwordCreate).addOnSuccessListener(authResult -> {
 
