@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:backgroundTint="@color/purple_700"
     android:layout_width="match_parent"
-    android:layout_height="280dp"
+    android:layout_height="250dp"
     android:layout_margin="20dp"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp">
@@ -20,26 +20,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/nume_CNP"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/valoare_cnp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/valoare_cnp"
-                android:textColor="@color/white"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
         </LinearLayout>
 
         <LinearLayout

@@ -1,20 +1,18 @@
 package com.example.proiect_chs_sma;
 
 public class Pacients {
-    private String CNP;
-    private String varsta;
-    private String greutate;
-    private String puls;
-    private String inaltime;
-    private String fumat;
-    private String sport;
-    private String sanatate;
+    protected String varsta;
+    protected String greutate;
+    protected String puls;
+    protected String inaltime;
+    protected String fumat;
+    protected String sport;
+    protected String sanatate;
 
     public Pacients() {
     }
 
-    public Pacients(String CNP, String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate) {
-        this.CNP = CNP;
+    public Pacients(String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate) {
         this.varsta = varsta;
         this.greutate = greutate;
         this.puls = puls;
@@ -22,14 +20,6 @@ public class Pacients {
         this.fumat = fumat;
         this.sport = sport;
         this.sanatate = sanatate;
-    }
-
-    public String getCNP() {
-        return CNP;
-    }
-
-    public void setCNP(String CNP) {
-        this.CNP = CNP;
     }
 
     public String getVarsta() {

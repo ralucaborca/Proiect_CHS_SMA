@@ -4,9 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".Doctor_activity">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/logo1"
+        android:layout_marginBottom="80dp"
+        >
+    </ImageView>
 
     <TextView
         android:layout_width="wrap_content"

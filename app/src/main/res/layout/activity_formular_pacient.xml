@@ -8,18 +8,6 @@
     android:gravity="center"
     tools:context=".FormularPacient_activity">
 
-    <EditText
-        android:id="@+id/editcnp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:maxLength="13"
-        android:gravity="center"
-        android:hint="CNP"
-        android:inputType="text"
-        android:layout_marginBottom="20dp"
-        android:minHeight="48dp"
-        />
 
     <Spinner
         android:id="@+id/alegerevarsta"

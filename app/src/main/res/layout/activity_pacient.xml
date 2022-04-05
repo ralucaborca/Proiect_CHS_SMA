@@ -8,6 +8,14 @@
     android:orientation="vertical"
     tools:context=".Pacient_activity">
 
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/logo1"
+        android:layout_marginBottom="80dp"
+        >
+    </ImageView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,14 +48,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Completati, va rog, formularul!"
+        android:text="Completati, va rog, formularul"
         android:id="@+id/button_completati_fomular"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Sugestiile medicului!"
+        android:text="Sugestiile medicului"
         android:id="@+id/button_sugestii"
         />
+
 </LinearLayout>

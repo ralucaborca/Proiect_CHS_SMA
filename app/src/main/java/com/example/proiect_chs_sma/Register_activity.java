@@ -37,7 +37,6 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        spinner = findViewById(R.id.alegerecategorie);
         gotologin = findViewById(R.id.login);
         names = findViewById(R.id.editnume);
         emails = findViewById(R.id.email);
@@ -47,9 +46,9 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categorii, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        //spinner.setAdapter(adapter);
 
-        spinner.setOnItemSelectedListener(this);
+        //spinner.setOnItemSelectedListener(this);
 
 
         button_signup.setOnClickListener(new View.OnClickListener() {
@@ -59,13 +58,11 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                 String emailss = emails.getText().toString().trim();
                 String passwordss = passwords.getText().toString().trim();
                 String passwordss2 = passwords2.getText().toString().trim();
-                String spinner1 = spinner.getSelectedItem().toString().trim();
                 String verificareParola = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-
                 if (namess.isEmpty()) {
-                    emails.setError("Introduceti un nume!");
-                    emails.requestFocus();
+                    names.setError("Introduceti un nume!");
+                    names.requestFocus();
                     return;
                 }
 
@@ -81,8 +78,8 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                     }
                 }
                 if (passwordss.isEmpty()) {
-                    emails.setError("Introduceti parola!");
-                    emails.requestFocus();
+                    passwords.setError("Introduceti parola!");
+                    passwords.requestFocus();
                     return;
                 }
                 if (passwordss.length() < 6) {
@@ -91,13 +88,13 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                     return;
                 }
                 if (passwordss2.isEmpty()) {
-                    emails.setError("Reintroduceti parola!");
-                    emails.requestFocus();
+                    passwords2.setError("Reintroduceti parola!");
+                    passwords2.requestFocus();
                     return;
                 } else {
                     if (!passwordss2.equals(passwordss)) {
-                        emails.setError("Ati introdus o parola diferita fata de cea initiala!");
-                        emails.requestFocus();
+                        passwords2.setError("Ati introdus o parola diferita fata de cea initiala!");
+                        passwords2.requestFocus();
                         return;
                     }
                 }
