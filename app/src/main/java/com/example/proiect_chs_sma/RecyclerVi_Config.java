@@ -21,11 +21,10 @@ public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.m
         this.lista_feedbacks = lista_feedbacks;
     }
     public static class mViewHold extends RecyclerView.ViewHolder {
-        TextView id_medic, nume_medic,caz_puls, sugestie;
+        TextView nume_medic,caz_puls, sugestie;
 
         public mViewHold(@NonNull View itemView){
             super(itemView);
-            id_medic = itemView.findViewById(R.id.valoare_id);
             nume_medic = itemView.findViewById(R.id.valoare_nume);
             caz_puls = itemView.findViewById(R.id.valoare_caz_puls);
             sugestie = itemView.findViewById(R.id.valoare_sugestie);
@@ -42,7 +41,6 @@ public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.m
     @Override
     public void onBindViewHolder(@NonNull RecyclerVi_Config.mViewHold holder, int position) {
         Feedback lista= lista_feedbacks.get(position);
-        holder.id_medic.setText(lista.getID());
         holder.nume_medic.setText(lista.getNume());
         holder.caz_puls.setText(lista.getCaz());
         holder.sugestie.setText(lista.getFeedback());

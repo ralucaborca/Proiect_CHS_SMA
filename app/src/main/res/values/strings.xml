@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Proiect_CHS_SMA</string>
-    <string name="nume_CNP">CNP</string>
-    <string name="valoare_cnp">2556738667286</string>
     <string name="nume_varsta">Varsta</string>
     <string name="valoare_varsta">18-30</string>
     <string name="nume_greutate">Greutate</string>

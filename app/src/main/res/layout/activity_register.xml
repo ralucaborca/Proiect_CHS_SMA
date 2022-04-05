@@ -9,6 +9,13 @@
     android:gravity="center"
     tools:context=".Register_activity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:src="@drawable/logo1"
+        android:layout_marginBottom="40dp">
+
+    </ImageView>
     <EditText
         android:id="@+id/editnume"
         android:layout_width="wrap_content"
