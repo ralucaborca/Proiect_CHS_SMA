@@ -1,6 +1,7 @@
 package com.example.proiect_chs_sma;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,19 +16,23 @@ public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.m
 
     private Context mContext;
     ArrayList<Feedback> lista_feedbacks;
+    public interface OnItemClickListener{
+        void OnItemClick(int position);
+    }
 
     public RecyclerVi_Config(Context mContext, ArrayList<Feedback> lista_feedbacks){
         this.mContext = mContext;
         this.lista_feedbacks = lista_feedbacks;
     }
     public static class mViewHold extends RecyclerView.ViewHolder {
-        TextView nume_medic,caz_puls, sugestie;
+        TextView nume_medic,caz_puls, sugestie,button_like;
 
         public mViewHold(@NonNull View itemView){
             super(itemView);
             nume_medic = itemView.findViewById(R.id.valoare_nume);
             caz_puls = itemView.findViewById(R.id.valoare_caz_puls);
             sugestie = itemView.findViewById(R.id.valoare_sugestie);
+
         }
     }
 

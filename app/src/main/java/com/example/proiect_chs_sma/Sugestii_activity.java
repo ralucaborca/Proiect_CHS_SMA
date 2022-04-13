@@ -1,5 +1,7 @@
 package com.example.proiect_chs_sma;
 
+import static java.lang.String.valueOf;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,13 +27,17 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Sugestii_activity extends AppCompatActivity {
     RecyclerView mrecyclerView;
     RecyclerVi_Config recyclerVi_config;
     DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     ArrayList<Feedback> feedbackArrayList;
-
+    private String currentUserID = firebaseAuth.getCurrentUser().getUid();
+    private String count1;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,14 +80,16 @@ public class Sugestii_activity extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Feedback feedback = dataSnapshot.getValue(Feedback.class);
                     feedbackArrayList.add(feedback);
+
                 }
                 recyclerVi_config.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reeniti!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }
