@@ -1,5 +1,6 @@
 package com.example.proiect_chs_sma;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,8 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FeedbackPacient_activity extends AppCompatActivity {
     private EditText nume, sugestii;
@@ -22,6 +26,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
     private DatabaseReference database;
     Feedback feedback;
     private Button button_feedback;
+    private long maxid=0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,19 @@ public class FeedbackPacient_activity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         database = firebaseDatabase.getReference("Sugestii medic");
 
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    maxid = (snapshot.getChildrenCount());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         button_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +66,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
                     feedback.setCaz(caz_puls);
                     feedback.setFeedback(sugestii_medic);
 
-                    database.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(feedback);
+                    database.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(maxid+1)).setValue(feedback);
                     Toast.makeText(FeedbackPacient_activity.this, "Sugestiile medicului adaugate cu succes!", Toast.LENGTH_LONG).show();
                         Intent goBack = new Intent(FeedbackPacient_activity.this,Doctor_activity.class);
                         startActivity(goBack);

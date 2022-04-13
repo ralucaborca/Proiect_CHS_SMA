@@ -28,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaPacienti_activity extends AppCompatActivity {
+public class ListaPacienti_activity extends AppCompatActivity implements RecyclerInterface {
     RecyclerView mrecyclerView;
     RecyclerView_Config recyclerView_config;
     DatabaseReference databaseReference;
@@ -46,7 +46,7 @@ public class ListaPacienti_activity extends AppCompatActivity {
         mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         pacientsArrayList = new ArrayList<>();
-        recyclerView_config = new RecyclerView_Config(this, pacientsArrayList);
+        recyclerView_config = new RecyclerView_Config(this, pacientsArrayList,this);
         mrecyclerView.setAdapter(recyclerView_config);
 
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT
@@ -86,5 +86,21 @@ public class ListaPacienti_activity extends AppCompatActivity {
             }
         });
 
+    mrecyclerView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent xxx = new Intent(ListaPacienti_activity.this, FeedbackPacient_activity.class);
+            startActivity(xxx);
+            finish();
+        }
+    });
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
+            Intent aaa =  new Intent(ListaPacienti_activity.this,FeedbackPacient_activity.class);
+            startActivity(aaa);
+            finish();
     }
 }
