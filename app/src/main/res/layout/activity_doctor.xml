@@ -52,11 +52,5 @@
         android:id="@+id/lista_pacienti"
         android:text="Verificati lista pacientilor"
         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:id="@+id/feedback_pacienti"
-        android:text="Lasati un feedback pacientilor"
-        />
+
 </LinearLayout>
