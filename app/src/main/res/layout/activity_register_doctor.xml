@@ -2,12 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/buton_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Register_activity">
+    tools:context=".Register_activity_doctor">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -17,7 +16,7 @@
 
     </ImageView>
     <EditText
-        android:id="@+id/editnume"
+        android:id="@+id/editnume_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -27,7 +26,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/email_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -38,7 +37,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/Parola"
+        android:id="@+id/Parola_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -49,7 +48,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/parola2"
+        android:id="@+id/parola2_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -60,7 +59,7 @@
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/button_register"
+        android:id="@+id/button_register_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -70,10 +69,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/login"
+        android:id="@+id/login_doctor"
         android:layout_marginTop="40dp"
         android:text="Ai deja un cont? Intra in cont!"
         />
-
 
 </LinearLayout>

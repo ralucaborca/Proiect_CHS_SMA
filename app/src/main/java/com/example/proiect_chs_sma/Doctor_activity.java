@@ -73,6 +73,7 @@ public class Doctor_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent gotolista = new Intent(Doctor_activity.this,ListaPacienti_activity.class);
+
                 startActivity(gotolista);
             }
         });

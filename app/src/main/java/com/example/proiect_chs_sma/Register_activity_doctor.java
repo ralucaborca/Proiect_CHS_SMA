@@ -16,15 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,11 +28,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.concurrent.ExecutionException;
 
-import io.grpc.internal.JsonParser;
-
-public class Register_activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class Register_activity_doctor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private EditText names, emails, passwords, passwords2;
     private FirebaseAuth mAuth;
     private TextView gotologin;
@@ -44,25 +37,19 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
 
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
-        gotologin = findViewById(R.id.login);
-        names = findViewById(R.id.editnume);
-        emails = findViewById(R.id.email);
-        passwords = findViewById(R.id.Parola);
-        passwords2 = findViewById(R.id.parola2);
-        Button button_signup = findViewById(R.id.button_register);
+        setContentView(R.layout.activity_register_doctor);
+        gotologin = findViewById(R.id.login_doctor);
+        names = findViewById(R.id.editnume_doctor);
+        emails = findViewById(R.id.email_doctor);
+        passwords = findViewById(R.id.Parola_doctor);
+        passwords2 = findViewById(R.id.parola2_doctor);
+        Button button_signup = findViewById(R.id.button_register_doctor);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categorii, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //spinner.setAdapter(adapter);
-
-        //spinner.setOnItemSelectedListener(this);
-
 
         button_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,14 +114,14 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
 
-                                                Toast.makeText(Register_activity.this, "User creat cu succes!", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(Register_activity_doctor.this, "User creat cu succes!", Toast.LENGTH_LONG).show();
                                             } else {
-                                                Toast.makeText(Register_activity.this, "A aparut o eroare!", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(Register_activity_doctor.this, "A aparut o eroare!", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     });
                         } else {
-                            Toast.makeText(Register_activity.this, "A aparut o eroare!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Register_activity_doctor.this, "A aparut o eroare!", Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -142,11 +129,10 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
             }
         });
 
-
         gotologin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gotoLog = new Intent(Register_activity.this, LogIn_activity.class);
+                Intent gotoLog = new Intent(Register_activity_doctor.this, LogIn_activity.class);
                 startActivity(gotoLog);
                 finish();
             }
@@ -187,6 +173,7 @@ public class Register_activity extends AppCompatActivity implements AdapterView.
         }
     */
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String alegere = parent.getItemAtPosition(position).toString();

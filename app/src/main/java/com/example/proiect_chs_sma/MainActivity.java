@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         but_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gotoregister = new Intent(MainActivity.this,Register_activity.class);
+                Intent gotoregister = new Intent(MainActivity.this,Register_activity_home.class);
                 startActivity(gotoregister);
 
             }
