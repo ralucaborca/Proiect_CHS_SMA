@@ -25,22 +25,42 @@
         android:textColor="@color/purple_200"
         android:layout_marginBottom="40dp"/>
     <TextView
-        android:id="@+id/nume_prenume"
+        android:id="@+id/nume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:hint="Nume complet:"
+        android:hint="Nume:"
         android:textSize="20dp"
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/prenume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:hint="Email:"
+        android:hint="Prenume:"
+        android:textSize="20dp"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+    <TextView
+        android:id="@+id/specializare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Specializare:"
+        android:textSize="20dp"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+    <TextView
+        android:id="@+id/adresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Adresa cabinet:"
         android:textSize="20dp"
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />

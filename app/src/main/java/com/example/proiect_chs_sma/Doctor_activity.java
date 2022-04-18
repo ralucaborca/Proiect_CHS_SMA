@@ -45,21 +45,27 @@ public class Doctor_activity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         userId = user.getUid();
 
-        final TextView fullnameView = findViewById(R.id.nume_prenume);
-        final TextView emailView = findViewById(R.id.email);
+        final TextView nameView = findViewById(R.id.nume);
+        final TextView prenumeView = findViewById(R.id.prenume);
+        final TextView specializareView = findViewById(R.id.specializare);
+        final TextView adresaView = findViewById(R.id.adresa);
 
 
         databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User userprofile = snapshot.getValue(User.class);
+                Doctor_details userprofile = snapshot.getValue(Doctor_details.class);
 
                 if(userprofile != null){
-                    String fullname = userprofile.fullname;
-                    String email = userprofile.email;
+                    String name = userprofile.name;
+                    String prenume = userprofile.prenume;
+                    String specializare = userprofile.specializare;
+                    String adress = userprofile.adresa_cabinet;
 
-                    fullnameView.setText(fullname);
-                    emailView.setText(email);
+                    nameView.setText(name);
+                    prenumeView.setText(prenume);
+                    specializareView.setText(specializare);
+                    adresaView.setText(adress);
                 }
             }
 
@@ -73,7 +79,6 @@ public class Doctor_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent gotolista = new Intent(Doctor_activity.this,ListaPacienti_activity.class);
-
                 startActivity(gotolista);
             }
         });

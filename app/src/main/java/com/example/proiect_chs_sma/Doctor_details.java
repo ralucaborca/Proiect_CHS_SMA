@@ -44,7 +44,7 @@ public class Doctor_details {
     }
 
     public void setAdresaCabinet(String adresa_cabinet){
-        this.name = adresa_cabinet;
+        this.adresa_cabinet = adresa_cabinet;
     }
 
     public String getEmail() {
