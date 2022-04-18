@@ -8,6 +8,16 @@
     android:orientation="vertical"
     tools:context=".FeedbackPacient_activity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_pacient"
+        android:hint="ID pacient"
+        >
+
+    </TextView>
+
+
     <EditText
         android:id="@+id/feedback_nume_prenume_medic"
         android:layout_width="wrap_content"
@@ -47,6 +57,17 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Sugestii"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        />
+    <EditText
+        android:id="@+id/data_ora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Data/Ora"
         android:inputType="textMultiLine"
         android:minHeight="48dp"
         />
