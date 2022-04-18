@@ -32,7 +32,7 @@ public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.m
             nume_medic = itemView.findViewById(R.id.valoare_nume);
             caz_puls = itemView.findViewById(R.id.valoare_caz_puls);
             sugestie = itemView.findViewById(R.id.valoare_sugestie);
-            dataora = itemView.findViewById(R.id.valoare_data_ora);
+           // dataora = itemView.findViewById(R.id.valoare_data_ora);
 
         }
     }
@@ -50,7 +50,7 @@ public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.m
         holder.nume_medic.setText(lista.getNume());
         holder.caz_puls.setText(lista.getCaz());
         holder.sugestie.setText(lista.getFeedback());
-        holder.dataora.setText(lista.getDataOra());
+        //holder.dataora.setText(lista.getDataOra());
     }
 
     @Override
