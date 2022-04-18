@@ -20,21 +20,30 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class FeedbackPacient_activity extends AppCompatActivity {
-    private EditText nume, sugestii;
+    private EditText nume, sugestii, dataora;
     private Spinner caz;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference database;
     Feedback feedback;
     private Button button_feedback;
-    private long maxid=0;
+    private long maxid;
+    private TextView id_p, nume_m;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback_pacient);
 
+        String id = getIntent().getStringExtra("pacient");
+        id_p = findViewById(R.id.id_pacient);
+        id_p.setText(id);
+        /*String numem = getIntent().getStringExtra("nume");
+        nume_m = findViewById(R.id.id_pacient);
+        nume_m.setText(numem);*/
+
         button_feedback = findViewById(R.id.button_feedback);
         nume = findViewById(R.id.feedback_nume_prenume_medic);
         caz = (Spinner) findViewById(R.id.alegerecazpuls);
+        dataora = findViewById(R.id.data_ora);
         sugestii = findViewById(R.id.sugestii);
         feedback = new Feedback();
 
@@ -45,7 +54,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    maxid = (snapshot.getChildrenCount());
+                    maxid = snapshot.getChildrenCount()+1;
                 }
             }
 
@@ -58,15 +67,17 @@ public class FeedbackPacient_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try{
+
                     String nume_medic = nume.getText().toString().trim();
                     String caz_puls = caz.getSelectedItem().toString();
                     String sugestii_medic = sugestii.getText().toString().trim();
-
+                    String data_ora = dataora.getText().toString().trim();
                     feedback.setNume(nume_medic);
                     feedback.setCaz(caz_puls);
                     feedback.setFeedback(sugestii_medic);
+                    feedback.setDataOra(data_ora);
 
-                    database.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(maxid+1)).setValue(feedback);
+                    database.child(data_ora).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(feedback);
                     Toast.makeText(FeedbackPacient_activity.this, "Sugestiile medicului adaugate cu succes!", Toast.LENGTH_LONG).show();
                         Intent goBack = new Intent(FeedbackPacient_activity.this,Doctor_activity.class);
                         startActivity(goBack);

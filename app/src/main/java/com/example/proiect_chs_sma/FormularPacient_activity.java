@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FormularPacient_activity extends AppCompatActivity{
-    private EditText  problemes;
+    private EditText  problemes, id_pacient;
     private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, pulsSpinner, fumatSpinner, sportSpinner;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference;
@@ -54,6 +54,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String fumat = fumatSpinner.getSelectedItem().toString();
                 String sport = sportSpinner.getSelectedItem().toString();
                 String probleme_sanatate = problemes.getText().toString().trim();
+                String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
 
                 pacients.setGreutate(greutate);
                 pacients.setInaltime(inaltime);
@@ -62,6 +63,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setFumat(fumat);
                 pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);
+                pacients.setIdPacient(idpacient);
 
                 databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",

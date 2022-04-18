@@ -3,12 +3,14 @@ package com.example.proiect_chs_sma;
 import static java.lang.String.valueOf;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.AdapterView;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,16 +36,17 @@ public class Sugestii_activity extends AppCompatActivity {
     RecyclerView mrecyclerView;
     RecyclerVi_Config recyclerVi_config;
     DatabaseReference databaseReference;
-    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseAuth firebaseAuth;
     ArrayList<Feedback> feedbackArrayList;
-    private String currentUserID = firebaseAuth.getCurrentUser().getUid();
-    private String count1;
-    private int count = 0;
+    private String currentUserID;
+    private int maxcount=0;
+    Feedback data_ora;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugestii);
+        data_ora = new Feedback();
 
         mrecyclerView = findViewById(R.id.recycleview_sugestii);
         databaseReference = FirebaseDatabase.getInstance().getReference("Sugestii medic");
@@ -73,14 +77,13 @@ public class Sugestii_activity extends AppCompatActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mrecyclerView);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        /*databaseReference.orderByChild("17 aprilie 2022").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 feedbackArrayList.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Feedback feedback = dataSnapshot.getValue(Feedback.class);
-                    feedbackArrayList.add(feedback);
-
+                        Feedback feedback = dataSnapshot.getValue(Feedback.class);
+                        feedbackArrayList.add(feedback);
                 }
                 recyclerVi_config.notifyDataSetChanged();
             }
@@ -89,7 +92,38 @@ public class Sugestii_activity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
+        databaseReference.orderByChild("Sugestii medic/caz").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                feedbackArrayList.clear();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Feedback feedback = dataSnapshot.getValue(Feedback.class);
+                    feedbackArrayList.add(feedback);
+                }
+               recyclerVi_config.notifyDataSetChanged();
+            }
 
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

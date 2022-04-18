@@ -53,8 +53,6 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
                             recyclerInterface.onItemClick(pos);
                         }
                     }
-                  Log.d("demo","item e clickeed");
-
                 }
             });
             button_like.setOnClickListener(new View.OnClickListener() {

@@ -1,6 +1,7 @@
 package com.example.proiect_chs_sma;
 
 public class Pacients {
+    protected String idPacient;
     protected String varsta;
     protected String greutate;
     protected String puls;
@@ -12,7 +13,8 @@ public class Pacients {
     public Pacients() {
     }
 
-    public Pacients(String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate) {
+    public Pacients(String idPacient, String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate) {
+        this.idPacient = idPacient;
         this.varsta = varsta;
         this.greutate = greutate;
         this.puls = puls;
@@ -20,6 +22,13 @@ public class Pacients {
         this.fumat = fumat;
         this.sport = sport;
         this.sanatate = sanatate;
+    }
+    public String getIdPacient() {
+        return idPacient;
+    }
+
+    public void setIdPacient(String idPacient) {
+        this.idPacient = idPacient;
     }
 
     public String getVarsta() {

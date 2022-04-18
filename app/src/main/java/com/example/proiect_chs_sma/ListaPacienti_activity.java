@@ -89,7 +89,7 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
 
     mrecyclerView.setOnClickListener(new View.OnClickListener() {
         @Override
-        public void onClick(View v) {
+        public void onClick(View view) {
             Intent xxx = new Intent(ListaPacienti_activity.this, FeedbackPacient_activity.class);
             startActivity(xxx);
             finish();
@@ -101,7 +101,12 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
     @Override
     public void onItemClick(int position) {
             Intent aaa =  new Intent(ListaPacienti_activity.this,FeedbackPacient_activity.class);
+            Pacients pacient = pacientsArrayList.get(position);
+            aaa.putExtra("pacient", pacient.getIdPacient());
+
+            Log.d("myactivity", pacient.getIdPacient());
             startActivity(aaa);
             finish();
-    }
+
+}
 }

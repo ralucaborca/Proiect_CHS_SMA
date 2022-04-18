@@ -51,6 +51,8 @@
         android:layout_marginTop="60dp"
         android:id="@+id/lista_pacienti"
         android:text="Verificati lista pacientilor"
+        android:backgroundTint="@color/pink1"
+        android:textColor="@color/black"
         />
 
 </LinearLayout>
