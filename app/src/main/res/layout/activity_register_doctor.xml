@@ -10,7 +10,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="140dp"
+        android:layout_height="120dp"
         android:src="@drawable/logo1"
         android:layout_marginBottom="40dp">
 
@@ -21,7 +21,34 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:hint="Nume complet"
+        android:hint="Num"
+        android:inputType="text"
+        android:minHeight="48dp" />
+    <EditText
+        android:id="@+id/editprenume_doctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Prenume"
+        android:inputType="text"
+        android:minHeight="48dp" />
+    <EditText
+        android:id="@+id/specializare_doctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Specializare"
+        android:inputType="text"
+        android:minHeight="48dp" />
+    <EditText
+        android:id="@+id/adresa_doctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Adresa cabinet"
         android:inputType="text"
         android:minHeight="48dp" />
 

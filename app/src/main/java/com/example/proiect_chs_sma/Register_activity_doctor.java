@@ -30,7 +30,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Register_activity_doctor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private EditText names, emails, passwords, passwords2;
+    private EditText names, prenumes, emails, passwords, passwords2, specializare, adresa;
     private FirebaseAuth mAuth;
     private TextView gotologin;
     private Spinner spinner;
@@ -43,9 +43,13 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
         setContentView(R.layout.activity_register_doctor);
         gotologin = findViewById(R.id.login_doctor);
         names = findViewById(R.id.editnume_doctor);
+        prenumes = findViewById(R.id.editprenume_doctor);
+        specializare = findViewById(R.id.specializare_doctor);
+        adresa = findViewById(R.id.adresa_doctor);
         emails = findViewById(R.id.email_doctor);
         passwords = findViewById(R.id.Parola_doctor);
         passwords2 = findViewById(R.id.parola2_doctor);
+
         Button button_signup = findViewById(R.id.button_register_doctor);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categorii, android.R.layout.simple_spinner_dropdown_item);
@@ -55,17 +59,34 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
             @Override
             public void onClick(View v) {
                 String namess = names.getText().toString().trim();
+                String prenumess = prenumes.getText().toString().trim();
+                String specializares = specializare.getText().toString().trim();
+                String adresas = adresa.getText().toString().trim();
                 String emailss = emails.getText().toString().trim();
                 String passwordss = passwords.getText().toString().trim();
                 String passwordss2 = passwords2.getText().toString().trim();
                 String verificareParola = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 if (namess.isEmpty()) {
-                    names.setError("Introduceti un nume!");
+                    names.setError("Introduceti numele dumneavoastra!");
                     names.requestFocus();
                     return;
                 }
-
+                if (prenumess.isEmpty()) {
+                    prenumes.setError("Introduceti prenumele dumneavoastra!");
+                    prenumes.requestFocus();
+                    return;
+                }
+                if (specializares.isEmpty()) {
+                    specializare.setError("Introduceti specializarea dumneavoastra!");
+                    specializare.requestFocus();
+                    return;
+                }
+                if (adresas.isEmpty()) {
+                    adresa.setError("Introduceti adresa cabinetului!");
+                    adresa.requestFocus();
+                    return;
+                }
                 if (emailss.isEmpty()) {
                     emails.setError("Introduceti adresa de e-mail!");
                     emails.requestFocus();
@@ -105,10 +126,10 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            User user = new User(namess, emailss, "pacient");
+                            Doctor_details doctor_details = new Doctor_details(namess, prenumess, specializares, adresas, emailss, "doctor");
 
                             FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(doctor_details)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
