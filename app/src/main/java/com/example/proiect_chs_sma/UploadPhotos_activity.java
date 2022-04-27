@@ -99,7 +99,9 @@ public class UploadPhotos_activity extends AppCompatActivity {
                     pozaRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-
+                            PhotoDatas data = new PhotoDatas();
+                            data.setLinkImagine(uri.toString());
+                            databaseRef.child(setNumePozaDb).setValue(data);
 
                             Intent goToMenuP = new Intent(UploadPhotos_activity.this, FormularPacient_activity.class);
                             startActivity(goToMenuP);
