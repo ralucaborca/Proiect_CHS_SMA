@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proiect_CHS_SMA">
         <activity
+            android:name=".UploadPhotos_activity"
+            android:exported="false" />
+        <activity
             android:name=".Register_activity_doctor"
             android:exported="false" />
         <activity

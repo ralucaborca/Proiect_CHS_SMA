@@ -22,14 +22,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
-public class Register_activity_doctor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+import io.grpc.internal.JsonParser;
+
+public class Register_activity_doctor extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private EditText names, prenumes, emails, passwords, passwords2, specializare, adresa;
     private FirebaseAuth mAuth;
     private TextView gotologin;
@@ -37,6 +43,7 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
 
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,47 +165,20 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                 finish();
             }
         });
-        /*try{
-            String result = new JsonTask().execute("https://regmed.cmr.ro/api/v1/public/cautare/"+names).get();
-            String totalResults = result.split(",")[0].replaceAll("[^0-9]", "");
-            int numberOfResults = Integer.parseInt(totalResults);
-            if(numberOfResults == 0){
-                names.requestFocus();
-                names.setError("Doctorul cu acest nume nu exista.");
-                names.setError("");
-                return;
-            }
 
-            JSONObject doctorDetails = JsonParser(result).getAsJsonObject().get("results").getAsJosnArray().get(0).getAsJsonObject();
-            String status = doctorDetails.get("status").toString().toLowerCase().replace("\"","");
-            String specialitate = doctorDetails.get("specialitati").getAsJsonArray().get(0).getAsJsonObject().get("name").toString().toLowerCase().replace("\"","");
-            if(!status.equals("activ")){
-                names.requestFocus();
-                names.setError("Doctorul nu mai profeseaza.");
-                names.setError("");
-                return;
-            }
-            if(! specialitate.equals("cardiologie")){
-                names.requestFocus();
-                names.setError("Doctorul nu este cardiolog.");
-                names.setError("");
-                return;
-            }
-
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    */
+        //private void disableControllers(boolean isEnabled){
+        // names.setEnabled(! isEnabled);
+        // prenumes.setEnabled(! isEnabled);
+        //adresa.setEnabled(! isEnabled);
+        //specializare.setEnabled(! isEnabled);
+        // gotologin.setEnabled(! isEnabled);
+        //}
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String alegere = parent.getItemAtPosition(position).toString();
-        Toast.makeText(getApplicationContext(),alegere,Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), alegere, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -206,6 +186,38 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
 
     }
 
+    private boolean validareMedic() throws ExecutionException, InterruptedException {
+        /*String result = new JsonTask().execute("https://regmed.cmr.ro/api/v1/public/cautare/" + names + prenumes).get();
+        String totalResults = result.split(",")[0].replaceAll("[^0-9]", "");
+        try {
+            int numberOfResults = Integer.parseInt(totalResults);
+            if (numberOfResults == 0) {
+                names.requestFocus();
+                names.setError("Doctorul cu acest nume nu exista.");
+                names.setError("");
+                return true;
+            }
+
+           // JSONObject doctorDetails = new JsonParser(result).getAsJsonObject().get("results").getAsJosnArray().get(0).getAsJsonObject();
+           // String status = doctorDetails.get("status").toString().toLowerCase().replace("\"", "");
+            //String specialitate = doctorDetails.get("specializare").getAsJsonArray().get(0).getAsJsonObject().get("name").toString().toLowerCase().replace("\"", "");
+            //if (!status.equals("activ")) {
+                names.requestFocus();
+                names.setError("Doctorul nu mai profeseaza.");
+                names.setError("");
+                return true;
+            }
+            //if (!specialitate.equals("cardiologie")) {
+                names.requestFocus();
+                names.setError("Doctorul nu este cardiolog.");
+                names.setError("");
+                return true;
+            }
+        } catch (NumberFormatException | JSONException nnn) {
+            nnn.printStackTrace();
+        }*/
+        return false;
+    }
 
     private class JsonTask extends AsyncTask<String, String, String> {
 
@@ -217,7 +229,7 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
         protected String doInBackground(String... strings) {
             HttpURLConnection connection = null;
             BufferedReader bufferedReader = null;
-            try{
+            try {
                 URL url = new URL(strings[0]);
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
@@ -227,22 +239,23 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                 StringBuilder buffer = new StringBuilder();
                 String line = "";
 
-                while ((line = bufferedReader.readLine()) != null){
+                while ((line = bufferedReader.readLine()) != null) {
                     buffer.append(line).append("\n");
                 }
                 return buffer.toString();
 
 
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
-            }finally {
-                if(connection != null){
+            } finally {
+                if (connection != null) {
                     connection.disconnect();
-                }try{
-                    if(bufferedReader != null){
+                }
+                try {
+                    if (bufferedReader != null) {
                         bufferedReader.close();
                     }
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -250,5 +263,5 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
         }
 
     }
-
 }
+
