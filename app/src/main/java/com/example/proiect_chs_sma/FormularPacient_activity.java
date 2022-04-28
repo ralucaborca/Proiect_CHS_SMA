@@ -21,7 +21,7 @@ public class FormularPacient_activity extends AppCompatActivity{
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference;
     Pacients pacients;
-    private Button button_formular, button_puls;
+    private Button button_formular, button_puls, button_imagine;
     private FirebaseUser user;
     private String userId;
 
@@ -31,6 +31,7 @@ public class FormularPacient_activity extends AppCompatActivity{
         setContentView(R.layout.activity_formular_pacient);
 
         button_formular = findViewById(R.id.button_formular);
+        button_imagine = findViewById(R.id.button_imagine);
         problemes = findViewById(R.id.editprobleme);
         varstaSpinner = (Spinner) findViewById(R.id.alegerevarsta);
         inaltimeSpinner = (Spinner) findViewById(R.id.alegereinaltime);
@@ -79,6 +80,14 @@ public class FormularPacient_activity extends AppCompatActivity{
 
 
           }
+        });
+
+        button_imagine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goImage = new Intent(FormularPacient_activity.this, UploadPhotos_activity.class);
+                startActivity(goImage);
+            }
         });
 
     }
