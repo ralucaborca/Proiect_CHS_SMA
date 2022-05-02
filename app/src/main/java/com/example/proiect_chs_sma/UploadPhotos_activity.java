@@ -28,7 +28,7 @@ import java.util.Locale;
 public class UploadPhotos_activity extends AppCompatActivity {
     Button home, rasfoieste, incarca;
     ImageView imageView;
-    DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Fotografii");
+    DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Fotografii puls");
     StorageReference pozaRef;
     Uri imagineURI;
 
@@ -91,7 +91,7 @@ public class UploadPhotos_activity extends AppCompatActivity {
             Date dataCurenta = new Date();
             String numePoza = datePoza.format(dataCurenta);
             String setNumePozaDb = numePoza ;
-            pozaRef = FirebaseStorage.getInstance().getReference("Fotografii probleme/" + numePoza);
+           pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + numePoza);
 
             pozaRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
