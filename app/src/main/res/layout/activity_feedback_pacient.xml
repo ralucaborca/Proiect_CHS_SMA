@@ -60,17 +60,7 @@
         android:inputType="textMultiLine"
         android:minHeight="48dp"
         />
-    <EditText
-        android:id="@+id/data_ora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Data/Ora"
-        android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        />
+
     <Button
         android:id="@+id/button_feedback"
         android:layout_width="wrap_content"
