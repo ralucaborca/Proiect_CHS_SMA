@@ -19,6 +19,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class FeedbackPacient_activity extends AppCompatActivity {
     private EditText nume, sugestii, dataora;
     private Spinner caz;
@@ -50,6 +54,11 @@ public class FeedbackPacient_activity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         database = firebaseDatabase.getReference("Sugestii medic");
 
+        SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
+        Date dataCurenta = new Date();
+        String numePozaPuls = datePoza.format(dataCurenta);
+        String x = numePozaPuls;
+
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -77,7 +86,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
                     feedback.setFeedback(sugestii_medic);
                     feedback.setDataOra(data_ora);
 
-                    database.child(data_ora).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(feedback);
+                    database.child(x).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(feedback);
                     Toast.makeText(FeedbackPacient_activity.this, "Sugestiile medicului adaugate cu succes!", Toast.LENGTH_LONG).show();
                         Intent goBack = new Intent(FeedbackPacient_activity.this,Doctor_activity.class);
                         startActivity(goBack);
