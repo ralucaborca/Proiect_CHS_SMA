@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/id_pacient"
         android:hint="ID pacient"
+        android:visibility="gone"
         >
 
     </TextView>

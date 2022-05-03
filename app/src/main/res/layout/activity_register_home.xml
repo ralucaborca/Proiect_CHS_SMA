@@ -9,11 +9,11 @@
     tools:context=".Register_activity_home">
 
     <ImageView
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layout_width="120dp"
         android:layout_height="160dp"
         android:src="@drawable/logo1"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         ></ImageView>
     <TextView
         android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_marginBottom="40dp"
         android:text="Activitatea de inregistrare"
         android:textColor="@color/purple_200"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textStyle="bold" />
 
     <TextView
@@ -33,23 +33,32 @@
         android:text="Va rugam sa va creati cont in functie de tipul de utilizator pe care doriti sa il utilizati ulterior."
         android:textSize="20dp"
         android:layout_marginBottom="40dp"/>
-    <Button
-        android:id="@+id/register_medic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Medic"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="164dp" />
-    <Button
-        android:id="@+id/register_pacient"
-        android:layout_width="wrap_content"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Pacient"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="164dp" />
+
+    <LinearLayout
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/register_medic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Medic"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="164dp" />
+
+        <Button
+            android:id="@+id/register_pacient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:gravity="center"
+            android:text="Pacient"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="164dp" />
+    </LinearLayout>
 
 
 </LinearLayout>

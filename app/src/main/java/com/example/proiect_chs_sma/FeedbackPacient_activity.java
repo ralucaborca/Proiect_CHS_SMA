@@ -24,14 +24,14 @@ import java.util.Date;
 import java.util.Locale;
 
 public class FeedbackPacient_activity extends AppCompatActivity {
-    private EditText nume, sugestii, dataora;
+    private EditText nume, sugestii;
     private Spinner caz;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference database;
     Feedback feedback;
     private Button button_feedback;
     private long maxid;
-    private TextView id_p, nume_m;
+    private TextView id_p;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,6 @@ public class FeedbackPacient_activity extends AppCompatActivity {
         button_feedback = findViewById(R.id.button_feedback);
         nume = findViewById(R.id.feedback_nume_prenume_medic);
         caz = (Spinner) findViewById(R.id.alegerecazpuls);
-       // dataora = findViewById(R.id.data_ora);
         sugestii = findViewById(R.id.sugestii);
         feedback = new Feedback();
 
@@ -80,11 +79,11 @@ public class FeedbackPacient_activity extends AppCompatActivity {
                     String nume_medic = nume.getText().toString().trim();
                     String caz_puls = caz.getSelectedItem().toString();
                     String sugestii_medic = sugestii.getText().toString().trim();
-                    //String data_ora = dataora.getText().toString().trim();
+                    String id_pacient = id_p.getText().toString().trim();
                     feedback.setNume(nume_medic);
                     feedback.setCaz(caz_puls);
                     feedback.setFeedback(sugestii_medic);
-                    //feedback.setDataOra(data_ora);
+                    feedback.setIDPacient(id_pacient);
 
                     database.child(x).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(feedback);
                     Toast.makeText(FeedbackPacient_activity.this, "Sugestiile medicului adaugate cu succes!", Toast.LENGTH_LONG).show();
