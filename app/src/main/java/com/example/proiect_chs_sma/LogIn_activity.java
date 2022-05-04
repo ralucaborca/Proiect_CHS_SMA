@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LogIn_activity extends AppCompatActivity {
     FirebaseAuth mAuth;
     private TextView emailAddress, password;
-    private TextView gotoregister;
+    private TextView gotoregister, resetarParola;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class LogIn_activity extends AppCompatActivity {
         emailAddress=findViewById(R.id.textnume);
         password=findViewById(R.id.textparola);
         gotoregister = findViewById(R.id.register);
+        resetarParola = findViewById(R.id.resetare_parola);
         Button button_login = findViewById(R.id.button_login);
 
 
@@ -102,6 +103,26 @@ public class LogIn_activity extends AppCompatActivity {
                 Intent gotoReg= new Intent(LogIn_activity.this,Register_activity_pacient.class);
                 startActivity(gotoReg);
                 finish();
+            }
+        });
+
+        resetarParola.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String adresa_email = emailAddress.getText().toString();
+
+                if(!adresa_email.isEmpty()){
+                    mAuth.sendPasswordResetEmail(adresa_email).addOnSuccessListener((OnSuccessListener<? super Void>) task ->
+                            Toast.makeText(LogIn_activity.this, "Email-ul pentru resetarea parolei a fost trimis", Toast.LENGTH_SHORT).show())
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(LogIn_activity.this,"A aparut o eroare la trimiterea e-mail-ului.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }else {
+                    emailAddress.setError("Introduceti adresa de email.");
+                }
             }
         });
 
