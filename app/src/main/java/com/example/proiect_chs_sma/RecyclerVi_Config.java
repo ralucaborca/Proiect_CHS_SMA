@@ -25,14 +25,14 @@ public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.m
         this.lista_feedbacks = lista_feedbacks;
     }
     public static class mViewHold extends RecyclerView.ViewHolder {
-        TextView nume_medic,caz_puls, sugestie,button_like, dataora;
+        TextView nume_medic,caz_puls, sugestie,button_like, id_pacient;
 
         public mViewHold(@NonNull View itemView){
             super(itemView);
             nume_medic = itemView.findViewById(R.id.valoare_nume);
             caz_puls = itemView.findViewById(R.id.valoare_caz_puls);
             sugestie = itemView.findViewById(R.id.valoare_sugestie);
-           // dataora = itemView.findViewById(R.id.valoare_data_ora);
+            id_pacient = itemView.findViewById(R.id.valoare_id_pacient);
 
         }
     }
@@ -50,7 +50,7 @@ public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.m
         holder.nume_medic.setText(lista.getNume());
         holder.caz_puls.setText(lista.getCaz());
         holder.sugestie.setText(lista.getFeedback());
-        //holder.dataora.setText(lista.getDataOra());
+        holder.id_pacient.setText(lista.getIDPacient());
     }
 
     @Override

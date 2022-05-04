@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,8 +38,9 @@ public class Sugestii_activity extends AppCompatActivity {
     RecyclerVi_Config recyclerVi_config;
     DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
     ArrayList<Feedback> feedbackArrayList;
-    private String currentUserID;
+    private String currentID;
     private int maxcount=0;
     Feedback data_ora;
 
@@ -56,6 +58,9 @@ public class Sugestii_activity extends AppCompatActivity {
         feedbackArrayList = new ArrayList<>();
         recyclerVi_config = new RecyclerVi_Config(this, feedbackArrayList);
         mrecyclerView.setAdapter(recyclerVi_config);
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        currentID = firebaseUser.getUid();
 
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT
                 | ItemTouchHelper.RIGHT) {
@@ -97,12 +102,13 @@ public class Sugestii_activity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 feedbackArrayList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Feedback feedback = dataSnapshot.getValue(Feedback.class);
-                    feedbackArrayList.add(feedback);
+
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Feedback feedback = dataSnapshot.getValue(Feedback.class);
+                        feedbackArrayList.add(feedback);
+                    }
+                    recyclerVi_config.notifyDataSetChanged();
                 }
-               recyclerVi_config.notifyDataSetChanged();
-            }
 
 
             @Override
