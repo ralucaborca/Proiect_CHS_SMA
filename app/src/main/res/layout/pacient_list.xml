@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:backgroundTint="@color/purple_700"
     android:layout_width="match_parent"
-    android:layout_height="290dp"
+    android:layout_height="380dp"
     android:layout_margin="20dp"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp">
@@ -47,8 +47,7 @@
                 android:layout_weight="1"
                 android:text="@string/valoare_varsta"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="22sp" />
 
         </LinearLayout>
 
@@ -77,8 +76,7 @@
                 android:layout_weight="1"
                 android:text="@string/valoare_inaltime"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -105,8 +103,7 @@
                 android:layout_weight="1"
                 android:text="@string/valoare_greutate"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -132,8 +129,7 @@
                 android:layout_weight="1"
                 android:text="@string/valoare_puls"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="22sp" />
 
         </LinearLayout>
         <LinearLayout
@@ -157,8 +153,7 @@
                 android:layout_weight="1"
                 android:text="@string/valoare_fumat"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="22sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -181,8 +176,7 @@
                 android:layout_weight="1"
                 android:text="@string/valoare_sport"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -192,7 +186,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="203dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Probleme sanatate"
@@ -208,8 +202,7 @@
                 android:layout_weight="1"
                 android:text="@string/valoare_sanatate"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="22sp" />
         </LinearLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -221,8 +214,9 @@
                 android:id="@+id/button_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="Apasa"
+                android:backgroundTint="@color/pink2"
+                android:gravity="center_horizontal"
+                android:text="Scrie o sugestie"
                 android:textColor="@color/black"></Button>
 
         </RelativeLayout>
