@@ -40,9 +40,6 @@ public class FeedbackPacient_activity extends AppCompatActivity {
         String id = getIntent().getStringExtra("pacient");
         id_p = findViewById(R.id.id_pacient);
         id_p.setText(id);
-        /*String numem = getIntent().getStringExtra("nume");
-        nume_m = findViewById(R.id.id_pacient);
-        nume_m.setText(numem);*/
 
         button_feedback = findViewById(R.id.button_feedback);
         nume = findViewById(R.id.feedback_nume_prenume_medic);

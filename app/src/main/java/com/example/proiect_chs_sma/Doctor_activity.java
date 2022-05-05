@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class Doctor_activity extends AppCompatActivity {
     private ListView listView;
-
+    private Doctor_details doctor_details;
     private FirebaseUser user;
     private DatabaseReference databaseReference;
     private String userId;
@@ -49,6 +49,8 @@ public class Doctor_activity extends AppCompatActivity {
         final TextView prenumeView = findViewById(R.id.prenume);
         final TextView specializareView = findViewById(R.id.specializare);
         final TextView adresaView = findViewById(R.id.adresa);
+
+        Button show_puls = findViewById(R.id.photos_puls);
 
 
         databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -80,10 +82,18 @@ public class Doctor_activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent gotolista = new Intent(Doctor_activity.this,ListaPacienti_activity.class);
                 startActivity(gotolista);
+                finish();
             }
         });
 
-
+        show_puls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotoLog = new Intent(Doctor_activity.this, Show_photos_puls.class);
+                startActivity(gotoLog);
+                finish();
+            }
+        });
 
     }
 }

@@ -74,5 +74,14 @@
         android:backgroundTint="@color/pink1"
         android:textColor="@color/black"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/photos_puls"
+        android:text="Verificati lista fotografiilor"
+        android:backgroundTint="@color/pink1"
+        android:textColor="@color/black"
+        />
 
 </LinearLayout>
