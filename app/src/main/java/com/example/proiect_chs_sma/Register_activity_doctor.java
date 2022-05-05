@@ -40,7 +40,7 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
     private FirebaseAuth mAuth;
     private TextView gotologin;
     private Spinner spinner;
-
+    private final String[] SPECIALISATION = new String[] {"Cardiologie"};
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference;
 
@@ -126,6 +126,45 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                         return;
                     }
                 }
+
+                //Verificare daca e sau nu medic cu adevarat
+                /*try {
+                   String result = new JsonTask().execute("https://regmed.cmr.ro/api/v1/public/cautare/" + names + prenumes).get();
+                    String totalResults = result.split(",")[0].replaceAll("[^0-9]", "");
+                    int numberOfResults = Integer.parseInt(totalResults);
+                    if(numberOfResults == 0) {
+                        names.requestFocus();
+                        names.setError("Acest doctor nu există.");
+                        names.setError("");
+                        return;
+                    }
+                    JSONObject doctorDetails;
+                    doctorDetails = new JSONObject(result).getJSONObject("results").getString("results").getAsJsonArray().get(0).getAsJsonObject();
+                    String status = doctorDetails.get("status").toString().toLowerCase().replace("\"","");
+                    String specialitate = doctorDetails.get("specialitati").getAsJsonArray().get(0).getAsJsonObject().get("nume").toString().toLowerCase().replace("\"","");
+                    if (!status.equals("activ")) {
+                        names.requestFocus();
+                        names.setError("Doctorul nu mai profeseaza.");
+                        names.setError("");
+                        return;
+                    }
+                    if (!specialitate.equals("cardiologie")) {
+                        names.requestFocus();
+                        names.setError("Doctorul nu este cardiolog.");
+                        names.setError("");
+                        return;
+                    }
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                */
                 mAuth = FirebaseAuth.getInstance();
 
 
@@ -166,13 +205,13 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
             }
         });
 
-        //private void disableControllers(boolean isEnabled){
-        // names.setEnabled(! isEnabled);
-        // prenumes.setEnabled(! isEnabled);
-        //adresa.setEnabled(! isEnabled);
-        //specializare.setEnabled(! isEnabled);
-        // gotologin.setEnabled(! isEnabled);
-        //}
+       /* private void disableControllers(boolean x){
+         names.setEnabled(! x);
+         prenumes.setEnabled(! x);
+         adresa.setEnabled(! x);
+         specializare.setEnabled(! x);
+         gotologin.setEnabled(! x);
+        }*/
     }
 
     @Override
@@ -184,39 +223,6 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
-    }
-
-    private boolean validareMedic() throws ExecutionException, InterruptedException {
-        /*String result = new JsonTask().execute("https://regmed.cmr.ro/api/v1/public/cautare/" + names + prenumes).get();
-        String totalResults = result.split(",")[0].replaceAll("[^0-9]", "");
-        try {
-            int numberOfResults = Integer.parseInt(totalResults);
-            if (numberOfResults == 0) {
-                names.requestFocus();
-                names.setError("Doctorul cu acest nume nu exista.");
-                names.setError("");
-                return true;
-            }
-
-           // JSONObject doctorDetails = new JsonParser(result).getAsJsonObject().get("results").getAsJosnArray().get(0).getAsJsonObject();
-           // String status = doctorDetails.get("status").toString().toLowerCase().replace("\"", "");
-            //String specialitate = doctorDetails.get("specializare").getAsJsonArray().get(0).getAsJsonObject().get("name").toString().toLowerCase().replace("\"", "");
-            //if (!status.equals("activ")) {
-                names.requestFocus();
-                names.setError("Doctorul nu mai profeseaza.");
-                names.setError("");
-                return true;
-            }
-            //if (!specialitate.equals("cardiologie")) {
-                names.requestFocus();
-                names.setError("Doctorul nu este cardiolog.");
-                names.setError("");
-                return true;
-            }
-        } catch (NumberFormatException | JSONException nnn) {
-            nnn.printStackTrace();
-        }*/
-        return false;
     }
 
     private class JsonTask extends AsyncTask<String, String, String> {

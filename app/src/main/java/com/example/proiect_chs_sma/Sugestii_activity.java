@@ -41,6 +41,7 @@ public class Sugestii_activity extends AppCompatActivity {
     FirebaseUser firebaseUser;
     ArrayList<Feedback> feedbackArrayList;
     private String currentID;
+    private String doctorasName;
     private int maxcount=0;
     Feedback data_ora;
 
