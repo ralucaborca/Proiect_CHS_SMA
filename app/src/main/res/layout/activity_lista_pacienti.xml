@@ -8,8 +8,6 @@
     android:gravity="center"
     tools:context=".ListaPacienti_activity">
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleview_pacienti"
         android:layout_width="match_parent"
