@@ -30,6 +30,7 @@ public class UploadPhotos_activity extends AppCompatActivity {
     ImageView imageView;
     DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Fotografii puls");
     StorageReference pozaRef;
+    DatabaseReference pozafirebaase;
     Uri imagineURI;
 
     @Override
@@ -119,6 +120,5 @@ public class UploadPhotos_activity extends AppCompatActivity {
                 }
             });
         }
-
 
 }
