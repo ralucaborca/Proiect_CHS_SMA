@@ -1,5 +1,6 @@
 package com.example.proiect_chs_sma;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,17 +14,27 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class FormularPacient_activity extends AppCompatActivity{
     private EditText  problemes, id_pacient;
     private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, pulsSpinner, fumatSpinner, sportSpinner;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference;
+    private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     Pacients pacients;
     private Button button_formular, button_puls, button_imagine;
     private FirebaseUser user;
@@ -41,7 +52,6 @@ public class FormularPacient_activity extends AppCompatActivity{
         setContentView(R.layout.activity_formular_pacient);
 
         button_formular = findViewById(R.id.button_formular);
-        button_imagine = findViewById(R.id.button_imagine);
         problemes = findViewById(R.id.editprobleme);
         varstaSpinner = (Spinner) findViewById(R.id.alegerevarsta);
         inaltimeSpinner = (Spinner) findViewById(R.id.alegereinaltime);
@@ -51,7 +61,6 @@ public class FormularPacient_activity extends AppCompatActivity{
         sportSpinner = (Spinner) findViewById(R.id.alegeresport);
 
         rasfoieste = findViewById(R.id.rasfoieste_btn);
-        incarca = findViewById(R.id.uploadphoto_btn);
         imageView = findViewById(R.id.fotoView);
         pacients = new Pacients();
 
@@ -98,36 +107,23 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setFumat(fumat);
                 pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);
-
                 pacients.setIdPacient(idpacient);
                     if(imagineURI != null){
-                       // uploadToFirebase(imagineURI);
+                        uploadToFirebase(imagineURI);
                     }else{
                         Toast.makeText(FormularPacient_activity.this, "Va rugam incarcati imaginea cu pulsul dvs.",Toast.LENGTH_SHORT).show();
                     }
-
                 databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
                         Toast.LENGTH_SHORT).show();
                     Intent goback = new Intent(FormularPacient_activity.this, Pacient_activity.class);
                     startActivity(goback);
-            }catch(Exception e)
-
-            {
+            }catch(Exception e){
                 Toast.makeText(FormularPacient_activity.this, "Informatiile introduse sunt gresite!",
                         Toast.LENGTH_SHORT).show();
             }
 
-
           }
-        });
-
-        button_imagine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goImage = new Intent(FormularPacient_activity.this, UploadPhotos_activity.class);
-                startActivity(goImage);
-            }
         });
     }
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -136,5 +132,38 @@ public class FormularPacient_activity extends AppCompatActivity{
             imagineURI = data.getData();
             imageView.setImageURI(imagineURI);
         }
+    }
+    private void uploadToFirebase(Uri uri){
+        SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
+        Date dataCurenta = new Date();
+        String numePoza = datePoza.format(dataCurenta);
+        String setNumePozaDb = numePoza ;
+        pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + numePoza);
+
+        pozaRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                pozaRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        PhotoDatas data = new PhotoDatas();
+                        data.setLinkImagine(uri.toString());
+                        databaseReference.child( FirebaseAuth.getInstance().getCurrentUser().getUid().toString()).child(setNumePozaDb).setValue(data);
+
+                        Intent goToMenuP = new Intent(FormularPacient_activity.this, FormularPacient_activity.class);
+                        startActivity(goToMenuP);
+                    }
+                });
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(FormularPacient_activity.this, "Informatiile nu au fost trimise!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
