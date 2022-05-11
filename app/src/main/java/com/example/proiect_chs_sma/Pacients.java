@@ -9,11 +9,12 @@ public class Pacients {
     protected String fumat;
     protected String sport;
     protected String sanatate;
+    protected String linkPoza;
 
     public Pacients() {
     }
 
-    public Pacients(String idPacient, String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate) {
+    public Pacients(String idPacient, String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate, String linkPoza) {
         this.idPacient = idPacient;
         this.varsta = varsta;
         this.greutate = greutate;
@@ -22,6 +23,7 @@ public class Pacients {
         this.fumat = fumat;
         this.sport = sport;
         this.sanatate = sanatate;
+        this.linkPoza = linkPoza;
     }
     public String getIdPacient() {
         return idPacient;
@@ -77,5 +79,13 @@ public class Pacients {
 
     public void setSanatate(String sanatate) {
         this.sanatate = sanatate;
+    }
+
+    public String getLinkImagine() {
+        return linkPoza;
+    }
+
+    public void setLinkImagine(String linkPoza) {
+        this.linkPoza = linkPoza;
     }
 }
