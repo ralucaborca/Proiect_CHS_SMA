@@ -6,13 +6,13 @@ public class User {
 
     public User(){}
 
-    public User(String fullname, String email, String  usertype){
+    public User(String fullname, String email, String  usertype) {
         this.fullname = fullname;
         this.email = email;
         this.usertype = usertype;
     }
 
-    public String getFullName() {
+    public String getFullName(){
         return fullname;
     }
 

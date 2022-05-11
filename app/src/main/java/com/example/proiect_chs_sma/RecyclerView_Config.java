@@ -2,10 +2,12 @@ package com.example.proiect_chs_sma;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -20,6 +22,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
     protected RecyclerInterface recyclerInterface;
     private Context mContext;
     ArrayList<Pacients> lista_pacients;
+    Uri uri;
 
     public  RecyclerView_Config(Context mContext, ArrayList<Pacients> lista_pacients, RecyclerInterface recyclerInterface){
         this.mContext = mContext;
@@ -32,6 +35,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
 
     public class mViewHolder extends RecyclerView.ViewHolder{
         TextView puls, greutate, varsta, inaltime, fumat, sport, probleme_sanatate, button_like;
+        ImageView imageViewPuls;
 
         public mViewHolder(@NonNull View itemView, RecyclerInterface recyclerInterface) {
             super(itemView);
@@ -43,6 +47,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
             puls = itemView.findViewById(R.id.valoare_puls);
             probleme_sanatate = itemView.findViewById(R.id.valoare_sanatate);
             button_like = itemView.findViewById(R.id.button_like);
+            imageViewPuls = itemView.findViewById(R.id.puls_imagine);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -86,6 +91,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
         holder.fumat.setText(lista.getFumat());
         holder.sport.setText(lista.getSport());
         holder.probleme_sanatate.setText(lista.getSanatate());
+        //holder.imageViewPuls.setImageURI(Uri.parse(lista.getLinkImagine()));
     }
 
     @Override
