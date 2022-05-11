@@ -74,10 +74,13 @@ public class LogIn_activity extends AppCompatActivity {
                             if(usertype.equals("doctor")){
                                 Intent in = new Intent(LogIn_activity.this,Doctor_activity.class);
                                 startActivity(in);
+                                finish();
                             }
                             if(usertype.equals("pacient")){
                                 Intent in1 = new Intent(LogIn_activity.this,Pacient_activity.class);
+                                in1.putExtra("idpacient", FirebaseAuth.getInstance().getCurrentUser().getUid());
                                 startActivity(in1);
+                                finish();
                             }
                         }
 

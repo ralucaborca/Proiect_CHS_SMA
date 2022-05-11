@@ -44,12 +44,15 @@ public class Sugestii_activity extends AppCompatActivity {
     private String doctorasName;
     private int maxcount=0;
     Feedback data_ora;
-
+    TextView textid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugestii);
         data_ora = new Feedback();
+
+        //String idpac = getIntent().getStringExtra("pacientID");
+        //textid.setText(idpac);
 
         mrecyclerView = findViewById(R.id.recycleview_sugestii);
         databaseReference = FirebaseDatabase.getInstance().getReference("Sugestii medic");
@@ -99,7 +102,7 @@ public class Sugestii_activity extends AppCompatActivity {
                 Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });*/
-        databaseReference.orderByChild("Sugestii medic/caz").addChildEventListener(new ChildEventListener() {
+        databaseReference.orderByChild("Sugestii medic/idpacient").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 feedbackArrayList.clear();
@@ -132,5 +135,6 @@ public class Sugestii_activity extends AppCompatActivity {
 
             }
         });
+
     }
 }
