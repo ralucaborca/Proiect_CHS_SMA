@@ -10,19 +10,20 @@
 
     <ImageView
         android:layout_marginTop="10dp"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:src="@drawable/logo1"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="50dp"
         ></ImageView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="80dp"
         android:text="Activitatea de inregistrare"
         android:textColor="@color/purple_200"
-        android:textSize="35dp"
+        android:gravity="center"
+        android:textSize="45dp"
         android:textStyle="bold" />
 
     <TextView
@@ -30,19 +31,19 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:text="Va rugam sa va creati cont in functie de tipul de utilizator pe care doriti sa il utilizati ulterior."
+        android:text="Va rugam sa va creati cont in functie de tipul de utilizator dorit."
         android:textSize="20dp"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="60dp"/>
 
     <LinearLayout
         android:layout_width="260dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal">
 
         <Button
             android:id="@+id/register_medic"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Medic"
@@ -51,10 +52,11 @@
 
         <Button
             android:id="@+id/register_pacient"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="50dp"
             android:gravity="center"
+            android:shadowRadius="@integer/google_play_services_version"
             android:text="Pacient"
             tools:layout_editor_absoluteX="147dp"
             tools:layout_editor_absoluteY="164dp" />

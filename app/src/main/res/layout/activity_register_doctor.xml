@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:hint="Num"
+        android:hint="Nume"
         android:inputType="text"
         android:minHeight="48dp" />
     <EditText
