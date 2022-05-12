@@ -81,7 +81,7 @@ public class Pacients {
         this.sanatate = sanatate;
     }
 
-    public String getLinkImagine() {
+    public String getLinkImagine1() {
         return linkPoza;
     }
 

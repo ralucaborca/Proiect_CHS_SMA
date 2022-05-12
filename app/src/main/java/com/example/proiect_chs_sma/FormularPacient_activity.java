@@ -90,6 +90,10 @@ public class FormularPacient_activity extends AppCompatActivity{
         button_formular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
+                Date dataCurenta = new Date();
+                String numePoza = datePoza.format(dataCurenta);
+                String setNumePozaDb = numePoza ;
                 try{
                 String varsta = varstaSpinner.getSelectedItem().toString();
                 String inaltime = inaltimeSpinner.getSelectedItem().toString();
@@ -100,6 +104,8 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String probleme_sanatate = problemes.getText().toString().trim();
                 String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
 
+                Uri uri = null;
+
                 pacients.setGreutate(greutate);
                 pacients.setInaltime(inaltime);
                 pacients.setVarsta(varsta);
@@ -108,6 +114,9 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);
                 pacients.setIdPacient(idpacient);
+                pacients.setLinkImagine(setNumePozaDb);
+
+
                     if(imagineURI != null){
                         uploadToFirebase(imagineURI);
                     }else{
@@ -148,7 +157,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                     public void onSuccess(Uri uri) {
                         PhotoDatas data = new PhotoDatas();
                         data.setLinkImagine(uri.toString());
-                        databaseReference.child( FirebaseAuth.getInstance().getCurrentUser().getUid().toString()).child(setNumePozaDb).setValue(data);
+                        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid().toString()).child(numePoza).setValue(data);
 
                         Intent goToMenuP = new Intent(FormularPacient_activity.this, FormularPacient_activity.class);
                         startActivity(goToMenuP);

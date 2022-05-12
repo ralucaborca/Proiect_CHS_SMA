@@ -16,18 +16,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Config.mViewHolder> {
     protected RecyclerInterface recyclerInterface;
     private Context mContext;
     ArrayList<Pacients> lista_pacients;
-    Uri uri;
+    ImageView img;
 
     public  RecyclerView_Config(Context mContext, ArrayList<Pacients> lista_pacients, RecyclerInterface recyclerInterface){
         this.mContext = mContext;
         this.lista_pacients = lista_pacients;
         this.recyclerInterface = recyclerInterface;
+
     }
 
     public RecyclerView_Config(ListaPacienti_activity mContext, ArrayList<Pacients> pacientsArrayList) {
@@ -91,7 +95,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
         holder.fumat.setText(lista.getFumat());
         holder.sport.setText(lista.getSport());
         holder.probleme_sanatate.setText(lista.getSanatate());
-        //holder.imageViewPuls.setImageURI(Uri.parse(lista.getLinkImagine()));
+        Glide.with(mContext).load(lista.getLinkImagine1()).into(holder.imageViewPuls);
     }
 
     @Override
