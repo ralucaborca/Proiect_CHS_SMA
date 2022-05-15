@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class Show_photos_puls extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private ArrayList<Pacients> photoDatasArrayList;
+    private ArrayList<PhotoDatas> photoDatasArrayList;
     private PhotosAdapter photosAdapter;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Fotografii puls");
     @Override
@@ -40,7 +40,7 @@ public class Show_photos_puls extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Pacients photoDatas = dataSnapshot.getValue(Pacients.class);
+                    PhotoDatas photoDatas = dataSnapshot.getValue(PhotoDatas.class);
                     photoDatasArrayList.add(photoDatas);
                 }
                 photosAdapter.notifyDataSetChanged();

@@ -170,7 +170,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
+<Button
+    android:id="@+id/xxxxxxx"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="40dp"
+    android:text="Incarcati poza">
 
+</Button>
     <Button
         android:id="@+id/button_formular"
         android:layout_width="wrap_content"
