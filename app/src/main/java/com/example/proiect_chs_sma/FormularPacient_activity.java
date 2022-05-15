@@ -50,7 +50,7 @@ public class FormularPacient_activity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formular_pacient);
-
+        button_imagine = findViewById(R.id.xxxxxxx);
         button_formular = findViewById(R.id.button_formular);
         problemes = findViewById(R.id.editprobleme);
         varstaSpinner = (Spinner) findViewById(R.id.alegerevarsta);
@@ -130,6 +130,13 @@ public class FormularPacient_activity extends AppCompatActivity{
 
           }
         });
+        button_imagine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gob = new Intent(FormularPacient_activity.this, UploadPhotos_activity.class);
+                startActivity(gob);
+            }
+        });
     }
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -171,4 +178,5 @@ public class FormularPacient_activity extends AppCompatActivity{
             }
         });
     }
+
 }

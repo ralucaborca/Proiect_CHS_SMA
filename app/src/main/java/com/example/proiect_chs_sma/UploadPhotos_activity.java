@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import java.util.Locale;
 public class UploadPhotos_activity extends AppCompatActivity {
     Button home, rasfoieste, incarca;
     ImageView imageView;
+    EditText nume_poza;
     DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Fotografii puls");
     StorageReference pozaRef;
     DatabaseReference pozafirebaase;
@@ -38,6 +40,7 @@ public class UploadPhotos_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_photos);
 
+        nume_poza = findViewById(R.id.nume_pozica);
         home = findViewById(R.id.anulare);
         rasfoieste = findViewById(R.id.rasfoieste_btn);
         incarca = findViewById(R.id.uploadphoto_btn);
@@ -91,8 +94,9 @@ public class UploadPhotos_activity extends AppCompatActivity {
             SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
             Date dataCurenta = new Date();
             String numePoza = datePoza.format(dataCurenta);
-            String setNumePozaDb = numePoza ;
-           pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + numePoza);
+            String setNumePozaDb = numePoza;
+            String nume = nume_poza.getText().toString().trim();
+           pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + nume);
 
             pozaRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -101,8 +105,9 @@ public class UploadPhotos_activity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             PhotoDatas data = new PhotoDatas();
+                            data.setNumePoza(nume);
                             data.setLinkImagine(uri.toString());
-                            databaseRef.child(setNumePozaDb).setValue(data);
+                            databaseRef.child(nume).setValue(data);
 
                             Intent goToMenuP = new Intent(UploadPhotos_activity.this, FormularPacient_activity.class);
                             startActivity(goToMenuP);

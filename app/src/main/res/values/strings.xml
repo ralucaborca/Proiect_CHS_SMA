@@ -26,6 +26,7 @@
     <string name="nume_sugestii">Totul bun. Va rugam sa o tineti tot asa. Spor la treaba!</string>
     <string name="data_ora">Data/Ora</string>
     <string name="valoare_data_ora">09 Mai 2022/10:30</string>
+    <string name="poza_nume_pulsut">Denumire poza</string>
     <string-array name="categorii">
         <item>Selectati tipul de utilizator</item>
         <item>Doctor</item>
