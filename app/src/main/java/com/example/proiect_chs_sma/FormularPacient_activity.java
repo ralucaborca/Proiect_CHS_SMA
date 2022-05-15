@@ -114,11 +114,11 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);
                 pacients.setIdPacient(idpacient);
-                pacients.setLinkImagine(setNumePozaDb);
+                pacients.setNumePoza(setNumePozaDb);
 
 
                     if(imagineURI != null){
-                        uploadToFirebase(imagineURI);
+                        //uploadToFirebase(imagineURI);
                     }else{
                         Toast.makeText(FormularPacient_activity.this, "Va rugam incarcati imaginea cu pulsul dvs.",Toast.LENGTH_SHORT).show();
                     }

@@ -208,7 +208,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            >
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="203dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nume poza"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nume_poza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="@string/valoare_poza_puls"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="267dp"
