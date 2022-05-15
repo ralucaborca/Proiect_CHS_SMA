@@ -30,7 +30,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class FormularPacient_activity extends AppCompatActivity{
-    private EditText  problemes, id_pacient;
+    private EditText  problemes, id_pacient, denumire;
     private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, pulsSpinner, fumatSpinner, sportSpinner;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference;
@@ -59,6 +59,7 @@ public class FormularPacient_activity extends AppCompatActivity{
         pulsSpinner = (Spinner) findViewById(R.id.alegerepuls);
         fumatSpinner = (Spinner) findViewById(R.id.alegerefumat);
         sportSpinner = (Spinner) findViewById(R.id.alegeresport);
+        denumire = findViewById(R.id.denumire_poza_puls);
 
         rasfoieste = findViewById(R.id.rasfoieste_btn);
         imageView = findViewById(R.id.fotoView);
@@ -90,10 +91,6 @@ public class FormularPacient_activity extends AppCompatActivity{
         button_formular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
-                Date dataCurenta = new Date();
-                String numePoza = datePoza.format(dataCurenta);
-                String setNumePozaDb = numePoza ;
                 try{
                 String varsta = varstaSpinner.getSelectedItem().toString();
                 String inaltime = inaltimeSpinner.getSelectedItem().toString();
@@ -102,9 +99,8 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String fumat = fumatSpinner.getSelectedItem().toString();
                 String sport = sportSpinner.getSelectedItem().toString();
                 String probleme_sanatate = problemes.getText().toString().trim();
-                String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
-
-                Uri uri = null;
+                String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String denumire_poza = denumire.getText().toString().trim();
 
                 pacients.setGreutate(greutate);
                 pacients.setInaltime(inaltime);
@@ -114,11 +110,11 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);
                 pacients.setIdPacient(idpacient);
-                pacients.setNumePoza(setNumePozaDb);
+                pacients.setNumePoza(denumire_poza);
 
 
                     if(imagineURI != null){
-                        //uploadToFirebase(imagineURI);
+                        uploadToFirebase(imagineURI);
                     }else{
                         Toast.makeText(FormularPacient_activity.this, "Va rugam incarcati imaginea cu pulsul dvs.",Toast.LENGTH_SHORT).show();
                     }
@@ -143,10 +139,10 @@ public class FormularPacient_activity extends AppCompatActivity{
         }
     }
     private void uploadToFirebase(Uri uri){
-        SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
-        Date dataCurenta = new Date();
-        String numePoza = datePoza.format(dataCurenta);
-        String setNumePozaDb = numePoza ;
+        //SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
+       // Date dataCurenta = new Date();
+        //String numePoza = datePoza.format(dataCurenta);
+        String numePoza =  denumire.getText().toString().trim();
         pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + numePoza);
 
         pozaRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -155,9 +151,9 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pozaRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        PhotoDatas data = new PhotoDatas();
-                        data.setLinkImagine(uri.toString());
-                        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid().toString()).child(numePoza).setValue(data);
+                        Pacients data = new Pacients();
+                        data.setLinkImagine1(uri.toString());
+                        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(numePoza).setValue(data);
 
                         Intent goToMenuP = new Intent(FormularPacient_activity.this, FormularPacient_activity.class);
                         startActivity(goToMenuP);

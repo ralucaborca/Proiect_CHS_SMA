@@ -95,7 +95,7 @@ public class Pacients {
         return linkPoza;
     }
 
-    public void setLinkImagine(String linkPoza) {
+    public void setLinkImagine1(String linkPoza) {
         this.linkPoza = linkPoza;
     }
 }

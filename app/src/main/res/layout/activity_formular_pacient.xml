@@ -135,6 +135,17 @@
             android:text="Va rugam selectati folografia cu graficul pulsului:"
             android:textSize="16dp">
         </TextView>
+    <EditText
+        android:id="@+id/denumire_poza_puls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Denumire folografie"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        ></EditText>
     <ImageView
         android:id="@+id/fotoView"
         android:layout_width="250dp"

@@ -15,10 +15,10 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder> {
-    private ArrayList<PhotoDatas> photoDatas;
+    private ArrayList<Pacients> photoDatas;
     private Context context;
 
-    public PhotosAdapter(Context context, ArrayList<PhotoDatas> photoDatas){
+    public PhotosAdapter(Context context, ArrayList<Pacients> photoDatas){
         this.context = context;
         this.photoDatas = photoDatas;
     }
@@ -32,7 +32,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotosView
 
     @Override
     public void onBindViewHolder(@NonNull PhotosViewHolder holder, int position) {
-        Glide.with(context).load(photoDatas.get(position).getLinkImagine()).into(holder.imageView);
+        Glide.with(context).load(photoDatas.get(position).getLinkImagine1()).into(holder.imageView);
     }
 
     @Override
