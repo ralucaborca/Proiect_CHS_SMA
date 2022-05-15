@@ -14,6 +14,8 @@
     <string name="valoare_sport">Da</string>
     <string name="nume_sanatate">Probleme sanatate</string>
     <string name="valoare_sanatate">Am. Am probleme cu plamanii, am avut cancer dar acu e rezolvat.</string>
+    <string name="nume_poza_puls">Denumire poza</string>
+    <string name="valoare_poza_puls">valoare</string>
     <string name="sugestii_id">ID Medic</string>
     <string name="nume_id">1234</string>
     <string name="sugestie_nume">Nume medic</string>
