@@ -129,55 +129,22 @@
         android:minHeight="48dp"
         />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Va rugam selectati folografia cu graficul pulsului:"
-            android:textSize="16dp">
-        </TextView>
     <EditText
-        android:id="@+id/denumire_poza_puls"
+        android:id="@+id/numeee_pozaaa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:ems="10"
         android:gravity="center"
-        android:hint="Denumire folografie"
-        android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        ></EditText>
-    <ImageView
-        android:id="@+id/fotoView"
-        android:layout_width="250dp"
-        android:layout_height="267dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
-
+        android:hint="Denumire Poza"
+        android:minHeight="48dp" />
     <Button
-        android:id="@+id/rasfoieste_btn"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Rasfoieste in galerie"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        android:id="@+id/xxxxxxx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Incarcati poza">
+    </Button>
 
-<Button
-    android:id="@+id/xxxxxxx"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="40dp"
-    android:text="Incarcati poza">
-
-</Button>
     <Button
         android:id="@+id/button_formular"
         android:layout_width="wrap_content"
