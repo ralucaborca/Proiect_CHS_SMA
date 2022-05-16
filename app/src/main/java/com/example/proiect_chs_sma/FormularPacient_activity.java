@@ -30,21 +30,15 @@ import java.util.Date;
 import java.util.Locale;
 
 public class FormularPacient_activity extends AppCompatActivity{
-    private EditText  problemes, id_pacient, denumire;
+    private EditText  problemes, id_pacient, denumire1;
     private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, pulsSpinner, fumatSpinner, sportSpinner;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference;
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-    Pacients pacients;
+    Pacients pacients = new Pacients();
     private Button button_formular, button_puls, button_imagine;
     private FirebaseUser user;
     private String userId;
-
-    Button home, rasfoieste, incarca;
-    ImageView imageView;
-    StorageReference pozaRef;
-    DatabaseReference pozafirebaase;
-    Uri imagineURI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,34 +53,10 @@ public class FormularPacient_activity extends AppCompatActivity{
         pulsSpinner = (Spinner) findViewById(R.id.alegerepuls);
         fumatSpinner = (Spinner) findViewById(R.id.alegerefumat);
         sportSpinner = (Spinner) findViewById(R.id.alegeresport);
-        denumire = findViewById(R.id.denumire_poza_puls);
-
-        rasfoieste = findViewById(R.id.rasfoieste_btn);
-        imageView = findViewById(R.id.fotoView);
-        pacients = new Pacients();
+        denumire1 = findViewById(R.id.numeee_pozaaa);
 
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference("Despre pacienti");
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openPhoto = new Intent();
-                openPhoto.setAction(Intent.ACTION_GET_CONTENT);
-                openPhoto.setType("image/*");
-                startActivityForResult(openPhoto, 2);
-            }
-        });
-        rasfoieste.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openPhoto = new Intent();
-                openPhoto.setAction(Intent.ACTION_GET_CONTENT);
-                openPhoto.setType("image/*");
-                startActivityForResult(openPhoto, 2);
-            }
-        });
-
 
         button_formular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +70,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String sport = sportSpinner.getSelectedItem().toString();
                 String probleme_sanatate = problemes.getText().toString().trim();
                 String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                String denumire_poza = denumire.getText().toString().trim();
+                String denumire_poza = denumire1.getText().toString().trim();
 
                 pacients.setGreutate(greutate);
                 pacients.setInaltime(inaltime);
@@ -112,12 +82,6 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setIdPacient(idpacient);
                 pacients.setNumePoza(denumire_poza);
 
-
-                    if(imagineURI != null){
-                        uploadToFirebase(imagineURI);
-                    }else{
-                        Toast.makeText(FormularPacient_activity.this, "Va rugam incarcati imaginea cu pulsul dvs.",Toast.LENGTH_SHORT).show();
-                    }
                 databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
                         Toast.LENGTH_SHORT).show();
@@ -138,45 +102,6 @@ public class FormularPacient_activity extends AppCompatActivity{
             }
         });
     }
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 2 && resultCode == RESULT_OK && data != null){
-            imagineURI = data.getData();
-            imageView.setImageURI(imagineURI);
-        }
-    }
-    private void uploadToFirebase(Uri uri){
-        //SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
-       // Date dataCurenta = new Date();
-        //String numePoza = datePoza.format(dataCurenta);
-        String numePoza =  denumire.getText().toString().trim();
-        pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + numePoza);
 
-        pozaRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                pozaRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Pacients data = new Pacients();
-                        data.setLinkImagine1(uri.toString());
-                        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(numePoza).setValue(data);
-
-                        Intent goToMenuP = new Intent(FormularPacient_activity.this, FormularPacient_activity.class);
-                        startActivity(goToMenuP);
-                    }
-                });
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(FormularPacient_activity.this, "Informatiile nu au fost trimise!", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 }
