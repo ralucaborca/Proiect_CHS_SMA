@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proiect_CHS_SMA">
         <activity
+            android:name=".History_pacient"
+            android:exported="false" />
+        <activity
             android:name=".Show_photos_puls"
             android:exported="false" />
         <activity
