@@ -37,7 +37,6 @@ public class Sugestii_activity extends AppCompatActivity {
     RecyclerView mrecyclerView;
     RecyclerVi_Config recyclerVi_config;
     DatabaseReference databaseReference;
-    FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     ArrayList<Feedback> feedbackArrayList;
     private String currentID;
@@ -102,7 +101,7 @@ public class Sugestii_activity extends AppCompatActivity {
                 Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });*/
-        databaseReference.orderByChild("Sugestii medic/idpacient").addChildEventListener(new ChildEventListener() {
+        databaseReference.orderByChild("Sugestii medic/idPacient").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 feedbackArrayList.clear();

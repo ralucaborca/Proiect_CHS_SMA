@@ -58,6 +58,11 @@ public class FormularPacient_activity extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference("Despre pacienti");
 
+        SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd, HH:mm", Locale.getDefault());
+        Date dataCurenta = new Date();
+        String numePozaPuls = datePoza.format(dataCurenta);
+        String datacurenta = numePozaPuls;
+
         button_formular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +87,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setIdPacient(idpacient);
                 pacients.setNumePoza(denumire_poza);
 
-                databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(pacients);
+                databaseReference.child(datacurenta).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
                         Toast.LENGTH_SHORT).show();
                     Intent goback = new Intent(FormularPacient_activity.this, Pacient_activity.class);
