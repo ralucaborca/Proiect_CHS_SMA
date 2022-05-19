@@ -39,7 +39,6 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
 
     public class mViewHolder extends RecyclerView.ViewHolder{
         TextView puls, greutate, varsta, inaltime, fumat, sport, probleme_sanatate, button_like, poza_puls_denumire;
-        ImageView imageViewPuls;
 
         public mViewHolder(@NonNull View itemView, RecyclerInterface recyclerInterface) {
             super(itemView);
@@ -96,7 +95,6 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
         holder.sport.setText(lista.getSport());
         holder.probleme_sanatate.setText(lista.getSanatate());
         holder.poza_puls_denumire.setText(lista.getNumePoza());
-       // Glide.with(mContext).load(lista.getLinkImagine1()).into(holder.imageViewPuls);
     }
 
     @Override

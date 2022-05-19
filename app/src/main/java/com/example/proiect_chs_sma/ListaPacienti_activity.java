@@ -33,8 +33,6 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
     RecyclerView_Config recyclerView_config;
     DatabaseReference databaseReference;
     ArrayList<Pacients> pacientsArrayList;
-    Button button_like;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
