@@ -60,8 +60,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Completati, va rog, formularul"
+        android:text="Catre formular"
         android:id="@+id/button_completati_fomular"
+        android:backgroundTint="@color/pink1"
+        android:textColor="@color/black"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Istoric"
+        android:id="@+id/button_istoric"
         android:backgroundTint="@color/pink1"
         android:textColor="@color/black"
         />
