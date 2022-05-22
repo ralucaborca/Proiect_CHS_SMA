@@ -77,6 +77,18 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 String denumire_poza = denumire1.getText().toString().trim();
 
+                if(probleme_sanatate.isEmpty()){
+                    problemes.setError("Completati problema sau scrieti NU daca nu aveti.");
+                    problemes.requestFocus();
+                    return;
+                }
+
+                if(denumire_poza.isEmpty()){
+                    denumire1.setError("Denumirea pozei trebuie sa contina numele dumneavoastra.");
+                    denumire1.requestFocus();
+                    return;
+                }
+
                 pacients.setGreutate(greutate);
                 pacients.setInaltime(inaltime);
                 pacients.setVarsta(varsta);
