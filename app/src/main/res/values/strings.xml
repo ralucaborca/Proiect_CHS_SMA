@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Proiect_CHS_SMA</string>
+    <string name="app_name">HeartRate Application</string>
     <string name="nume_varsta">Varsta</string>
     <string name="valoare_varsta">18-30</string>
     <string name="nume_greutate">Greutate</string>
