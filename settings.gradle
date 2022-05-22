@@ -6,6 +6,6 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "Proiect_CHS_SMA"
+rootProject.name = "HeartRate Application"
 include ':app'
 include ':doctor'
