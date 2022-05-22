@@ -77,6 +77,18 @@ public class FeedbackPacient_activity extends AppCompatActivity {
                     String caz_puls = caz.getSelectedItem().toString();
                     String sugestii_medic = sugestii.getText().toString().trim();
                     String id_pacient = id_p.getText().toString().trim();
+
+                    if(nume_medic.isEmpty()){
+                        nume.setError("Completati numele dumneavoastra.");
+                        nume.requestFocus();
+                        return;
+                    }
+                    if(sugestii_medic.isEmpty()){
+                        sugestii.setError("Completati o sugestie pentru pacient.");
+                        sugestii.requestFocus();
+                        return;
+                    }
+
                     feedback.setNume(nume_medic);
                     feedback.setCaz(caz_puls);
                     feedback.setFeedback(sugestii_medic);
