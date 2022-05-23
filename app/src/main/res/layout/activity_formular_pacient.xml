@@ -137,12 +137,21 @@
         android:gravity="center"
         android:hint="Denumire Poza"
         android:minHeight="48dp" />
+
     <Button
         android:id="@+id/xxxxxxx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:text="Incarcati poza">
+    </Button>
+
+    <Button
+        android:id="@+id/istoric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Salveaza in istoric">
     </Button>
 
     <Button

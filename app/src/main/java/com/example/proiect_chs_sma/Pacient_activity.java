@@ -78,7 +78,7 @@ public class Pacient_activity extends AppCompatActivity {
         button_istoric.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gotoistoric = new Intent(Pacient_activity.this, Show_photos_puls.class);
+                Intent gotoistoric = new Intent(Pacient_activity.this, History_pacient.class);
                 startActivity(gotoistoric);
             }
         });

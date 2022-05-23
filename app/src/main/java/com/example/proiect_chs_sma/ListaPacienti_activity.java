@@ -82,7 +82,7 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ListaPacienti_activity.this,"Eroare! Va rugam reeniti!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListaPacienti_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });
 

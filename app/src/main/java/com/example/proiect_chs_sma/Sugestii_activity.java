@@ -39,8 +39,6 @@ public class Sugestii_activity extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
     ArrayList<Feedback> feedbackArrayList;
-    private String currentID;
-    private String doctorasName;
     private int maxcount=0;
     Feedback data_ora;
     TextView textid;
@@ -63,7 +61,6 @@ public class Sugestii_activity extends AppCompatActivity {
         mrecyclerView.setAdapter(recyclerVi_config);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        currentID = firebaseUser.getUid();
 
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT
                 | ItemTouchHelper.RIGHT) {
@@ -85,22 +82,6 @@ public class Sugestii_activity extends AppCompatActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mrecyclerView);
 
-        /*databaseReference.orderByChild("17 aprilie 2022").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                feedbackArrayList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        Feedback feedback = dataSnapshot.getValue(Feedback.class);
-                        feedbackArrayList.add(feedback);
-                }
-                recyclerVi_config.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
-            }
-        });*/
         databaseReference.orderByChild("Sugestii medic/idPacient").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
