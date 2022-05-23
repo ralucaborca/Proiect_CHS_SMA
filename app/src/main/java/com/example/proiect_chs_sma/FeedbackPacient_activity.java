@@ -68,6 +68,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
 
             }
         });
+
         button_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

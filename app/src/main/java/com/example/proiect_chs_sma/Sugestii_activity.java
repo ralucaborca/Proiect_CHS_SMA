@@ -85,22 +85,6 @@ public class Sugestii_activity extends AppCompatActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mrecyclerView);
 
-        /*databaseReference.orderByChild("17 aprilie 2022").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                feedbackArrayList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        Feedback feedback = dataSnapshot.getValue(Feedback.class);
-                        feedbackArrayList.add(feedback);
-                }
-                recyclerVi_config.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
-            }
-        });*/
         databaseReference.orderByChild("Sugestii medic/idPacient").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

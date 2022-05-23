@@ -66,7 +66,7 @@ public class Register_activity_pacient extends AppCompatActivity {
                 String emails = email.getText().toString().trim();
                 String passwords = password.getText().toString().trim();
                 String passwords2 = password2.getText().toString().trim();
-                String verificareParola = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 if (names.isEmpty()) {
                     name.setError("Introduceti un nume!");
@@ -79,7 +79,7 @@ public class Register_activity_pacient extends AppCompatActivity {
                     email.requestFocus();
                     return;
                 } else {
-                    if (!emails.matches(verificareParola)) {
+                    if (!emails.matches(verificareMail)) {
                         email.setError("Ati introdus o adresa de e-mail gresita!");
                         email.requestFocus();
                         return;
