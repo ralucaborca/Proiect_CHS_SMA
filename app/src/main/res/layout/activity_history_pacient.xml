@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,136 +8,15 @@
     android:gravity="center"
     tools:context=".History_pacient">
 
-    <LinearLayout
-        android:layout_marginTop="40dp"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <Spinner
-            android:id="@+id/alegerevarsta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:entries="@array/varsta"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.156"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            tools:ignore="SpeakableTextPresentCheck" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
-        <Spinner
-            android:id="@+id/alegereinaltime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:entries="@array/inaltime"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.156"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <Spinner
-            android:id="@+id/alegeregreutate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:entries="@array/greutate"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.156"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-        <Spinner
-            android:id="@+id/alegerepuls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:entries="@array/puls"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.156"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-        <Spinner
-            android:id="@+id/alegerefumat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:entries="@array/fumat"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.156"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-        <Spinner
-            android:id="@+id/alegeresport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:entries="@array/sport"
-            android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.156"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <EditText
-            android:id="@+id/editprobleme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Probleme de sanatate"
-            android:inputType="textMultiLine"
-            android:minHeight="48dp"
-            />
-
-        <EditText
-            android:id="@+id/numeee_pozaaa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:hint="Denumire Poza"
-            android:minHeight="48dp" />
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
