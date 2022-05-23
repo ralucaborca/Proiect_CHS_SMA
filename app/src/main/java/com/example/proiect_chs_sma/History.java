@@ -36,7 +36,7 @@ public class History {
         this.idPacient = idPacient;
     }
 
-    public String getVarsta() {
+    public String getVarsta1() {
         return varsta;
     }
 
@@ -44,7 +44,7 @@ public class History {
         this.varsta = varsta;
     }
 
-    public String getGreutate() {
+    public String getGreutate1() {
         return greutate;
     }
 
@@ -52,7 +52,7 @@ public class History {
         this.greutate = greutate;
     }
 
-    public String getPuls() {
+    public String getPuls1() {
         return puls;
     }
 
@@ -60,7 +60,7 @@ public class History {
         this.puls = puls;
     }
 
-    public String getInaltime() {
+    public String getInaltime1() {
         return inaltime;
     }
 
@@ -68,15 +68,15 @@ public class History {
         this.inaltime = inaltime;
     }
 
-    public String getFumat() { return fumat;}
+    public String getFumat1() { return fumat;}
 
     public void setFumat1(String fumat) { this.fumat = fumat;}
 
-    public String getSport() { return sport;}
+    public String getSport1() { return sport;}
 
     public void setSport1(String sport) {this.sport = sport;}
 
-    public String getSanatate() {
+    public String getSanatate1() {
         return sanatate;
     }
 
@@ -84,7 +84,7 @@ public class History {
         this.sanatate = sanatate;
     }
 
-    public String getNumePoza() {
+    public String getNumePoza1() {
         return nume_poza;
     }
 

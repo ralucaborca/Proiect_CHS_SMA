@@ -177,7 +177,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                 history.setIdPacient1(idpacient);
                 history.setNumePoza1(denumire_poza);
 
-                databaseReference1.child(datacurenta).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(history);
+                databaseReference1.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(history);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
                         Toast.LENGTH_SHORT).show();
                 Intent goback = new Intent(FormularPacient_activity.this, FormularPacient_activity.class);

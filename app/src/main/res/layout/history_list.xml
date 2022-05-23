@@ -35,7 +35,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/valoare_varsta"
+                android:id="@+id/valoare_varsta1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -65,7 +65,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/valoare_inaltime"
+                android:id="@+id/valoare_inaltime1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -92,7 +92,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/valoare_greutate"
+                android:id="@+id/valoare_greutate1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -119,7 +119,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/valoare_puls"
+                android:id="@+id/valoare_puls1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -142,7 +142,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/valoare_fumat"
+                android:id="@+id/valoare_fumat1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="90dp"
@@ -165,7 +165,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/valoare_sport"
+                android:id="@+id/valoare_sport1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
@@ -191,7 +191,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/valoare_sanatate"
+                android:id="@+id/valoare_sanatate1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -217,7 +217,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/nume_poza"
+                android:id="@+id/nume_poza1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"

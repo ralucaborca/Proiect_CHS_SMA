@@ -39,8 +39,6 @@ public class Sugestii_activity extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
     ArrayList<Feedback> feedbackArrayList;
-    private String currentID;
-    private String doctorasName;
     private int maxcount=0;
     Feedback data_ora;
     TextView textid;
@@ -63,7 +61,6 @@ public class Sugestii_activity extends AppCompatActivity {
         mrecyclerView.setAdapter(recyclerVi_config);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        currentID = firebaseUser.getUid();
 
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT
                 | ItemTouchHelper.RIGHT) {
