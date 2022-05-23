@@ -39,9 +39,10 @@ public class Sugestii_activity extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
     ArrayList<Feedback> feedbackArrayList;
-    private int maxcount=0;
+    private int maxcount = 0;
     Feedback data_ora;
     TextView textid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,37 +83,21 @@ public class Sugestii_activity extends AppCompatActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mrecyclerView);
 
-        databaseReference.orderByChild("Sugestii medic/idPacient").addChildEventListener(new ChildEventListener() {
+        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 feedbackArrayList.clear();
-
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        Feedback feedback = dataSnapshot.getValue(Feedback.class);
-                        feedbackArrayList.add(feedback);
-                    }
-                    recyclerVi_config.notifyDataSetChanged();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Feedback feedback= dataSnapshot.getValue(Feedback.class);
+                    System.out.println("aici" + feedback);
+                    feedbackArrayList.add(feedback);
                 }
-
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                recyclerVi_config.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });
 
