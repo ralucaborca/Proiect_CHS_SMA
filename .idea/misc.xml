@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_feedback_pacient.xml" value="0.22554347826086957" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_formular_pacient.xml" value="0.2296195652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_history_pacient.xml" value="0.2296195652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_lista_pacienti.xml" value="0.24048913043478262" />
