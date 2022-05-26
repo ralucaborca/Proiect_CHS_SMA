@@ -2,6 +2,7 @@ package com.example.proiect_chs_sma;
 
 public class Pacients {
     protected String idPacient;
+    protected String numePacient;
     protected String varsta;
     protected String greutate;
     protected String inaltime;
@@ -14,8 +15,9 @@ public class Pacients {
     public Pacients() {
     }
 
-    public Pacients(String idPacient, String varsta, String greutate, String inaltime, String fumat, String sport, String sanatate, String nume_poza, String linkPoza) {
+    public Pacients(String idPacient, String numePacient, String varsta, String greutate, String inaltime, String fumat, String sport, String sanatate, String nume_poza, String linkPoza) {
         this.idPacient = idPacient;
+        this.numePacient = numePacient;
         this.varsta = varsta;
         this.greutate = greutate;
         this.inaltime = inaltime;
@@ -32,6 +34,10 @@ public class Pacients {
     public void setIdPacient(String idPacient) {
         this.idPacient = idPacient;
     }
+
+    public String getNumePacient(){return numePacient;}
+
+    public void setNumePacient(String numePacient) {this.numePacient = numePacient;}
 
     public String getVarsta() {
         return varsta;

@@ -45,7 +45,7 @@ public class FormularPacient_activity extends AppCompatActivity{
     private FirebaseUser user;
     private String userId;
     private long maxid;
-    TextView x;
+    TextView nume_pacieent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +67,8 @@ public class FormularPacient_activity extends AppCompatActivity{
         databaseReference1 = mDatabase.getReference("Istoric pacienti");
 
         String nume = getIntent().getStringExtra("nume_p");
-        x = findViewById(R.id.nume_pacient);
-        x.setText(nume);
+        nume_pacieent = findViewById(R.id.nume_pacient);
+        nume_pacieent.setText(nume);
 
         SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd, HH:mm", Locale.getDefault());
         Date dataCurenta = new Date();
@@ -114,6 +114,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setSanatate(probleme_sanatate);
                 pacients.setIdPacient(idpacient);
                 pacients.setNumePoza(numePozaPuls);
+                pacients.setNumePacient(nume);
 
                 databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
