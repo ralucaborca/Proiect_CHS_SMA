@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,17 +35,21 @@ public class UploadPhotos_activity extends AppCompatActivity {
     StorageReference pozaRef;
     DatabaseReference pozafirebaase;
     Uri imagineURI;
-
+    TextView den;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_photos);
 
-        nume_poza = findViewById(R.id.nume_pozica);
+        nume_poza = findViewById(R.id.denumiree);
         home = findViewById(R.id.anulare);
         rasfoieste = findViewById(R.id.rasfoieste_btn);
         incarca = findViewById(R.id.uploadphoto_btn);
         imageView = findViewById(R.id.fotoView);
+
+        String denumire_om = getIntent().getStringExtra("nume");
+        den = findViewById(R.id.numeee);
+        den.setText(denumire_om);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,13 +95,15 @@ public class UploadPhotos_activity extends AppCompatActivity {
             imageView.setImageURI(imagineURI);
         }
     }
-        private void uploadToFirebase(Uri uri){
-            SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
+        public void uploadToFirebase(Uri uri){
+            String denumire_om = getIntent().getStringExtra("nume");
+            den = findViewById(R.id.numeee);
+            den.setText(denumire_om);
+            SimpleDateFormat dataPoza  = new SimpleDateFormat("yyyy_MM_dd, HH:mm", Locale.getDefault());
             Date dataCurenta = new Date();
-            String numePoza = datePoza.format(dataCurenta);
-            String setNumePozaDb = numePoza;
-            String nume = nume_poza.getText().toString().trim();
-           pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + nume);
+            String numePuls = denumire_om + "_" + dataPoza.format(dataCurenta);
+
+           pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + nume_poza);
 
             pozaRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -105,9 +112,9 @@ public class UploadPhotos_activity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             PhotoDatas data = new PhotoDatas();
-                            data.setNumePoza(nume);
+                            data.setNumePoza(numePuls);
                             data.setLinkImagine(uri.toString());
-                            databaseRef.child(nume).setValue(data);
+                            databaseRef.child(numePuls).setValue(data);
 
                             Intent goToMenuP = new Intent(UploadPhotos_activity.this, FormularPacient_activity.class);
                             startActivity(goToMenuP);

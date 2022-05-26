@@ -42,8 +42,8 @@ public class Pacient_activity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         userId = user.getUid();
 
-        final TextView fullnameView = findViewById(R.id.nume_prenume);
-        final TextView emailView = findViewById(R.id.email);
+       TextView fullnameView = findViewById(R.id.nume_prenume);
+       TextView emailView = findViewById(R.id.email);
 
         databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -58,7 +58,6 @@ public class Pacient_activity extends AppCompatActivity {
                     emailView.setText(email);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Pacient_activity.this, "Ceva neasteptat s-a intamplat!", Toast.LENGTH_LONG).show();
@@ -70,8 +69,11 @@ public class Pacient_activity extends AppCompatActivity {
         button_completati_formular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String namefull = fullnameView.getText().toString();
                 Intent gotoformular = new Intent(Pacient_activity.this,FormularPacient_activity.class);
+                gotoformular.putExtra("nume_p", namefull);
                 startActivity(gotoformular);
+                finish();
             }
         });
 
@@ -80,6 +82,7 @@ public class Pacient_activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent gotoistoric = new Intent(Pacient_activity.this, History_pacient.class);
                 startActivity(gotoistoric);
+                finish();
             }
         });
 
