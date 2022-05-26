@@ -56,7 +56,6 @@ public class FormularPacient_activity extends AppCompatActivity{
         varstaSpinner = (Spinner) findViewById(R.id.alegerevarsta);
         inaltimeSpinner = (Spinner) findViewById(R.id.alegereinaltime);
         greutateSpinner = (Spinner) findViewById(R.id.alegeregreutate);
-        pulsSpinner = (Spinner) findViewById(R.id.alegerepuls);
         fumatSpinner = (Spinner) findViewById(R.id.alegerefumat);
         sportSpinner = (Spinner) findViewById(R.id.alegeresport);
         denumire1 = findViewById(R.id.numeee_pozaaa);
@@ -91,7 +90,6 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String varsta = varstaSpinner.getSelectedItem().toString();
                 String inaltime = inaltimeSpinner.getSelectedItem().toString();
                 String greutate = greutateSpinner.getSelectedItem().toString();
-                String puls = pulsSpinner.getSelectedItem().toString();
                 String fumat = fumatSpinner.getSelectedItem().toString();
                 String sport = sportSpinner.getSelectedItem().toString();
                 String probleme_sanatate = problemes.getText().toString().trim();
@@ -113,7 +111,6 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setGreutate(greutate);
                 pacients.setInaltime(inaltime);
                 pacients.setVarsta(varsta);
-                pacients.setPuls(puls);
                 pacients.setFumat(fumat);
                 pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);

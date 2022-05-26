@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:backgroundTint="@color/purple_700"
     android:layout_width="match_parent"
-    android:layout_height="450dp"
+    android:layout_height="400dp"
     android:layout_margin="20dp"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp">
@@ -104,33 +104,6 @@
                 android:text="@string/valoare_greutate"
                 android:textColor="@color/white"
                 android:textSize="22sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="100dp"
-                android:text="Puls"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/valoare_puls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/valoare_puls"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
-
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"

@@ -83,13 +83,12 @@ public class Sugestii_activity extends AppCompatActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mrecyclerView);
 
-        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 feedbackArrayList.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Feedback feedback= dataSnapshot.getValue(Feedback.class);
-                    System.out.println("aici" + feedback);
                     feedbackArrayList.add(feedback);
                 }
                 recyclerVi_config.notifyDataSetChanged();
@@ -100,6 +99,5 @@ public class Sugestii_activity extends AppCompatActivity {
                 Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
