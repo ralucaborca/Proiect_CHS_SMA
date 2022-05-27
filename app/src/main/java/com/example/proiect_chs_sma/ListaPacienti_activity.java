@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,6 +34,7 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
     RecyclerView_Config recyclerView_config;
     DatabaseReference databaseReference;
     ArrayList<Pacients> pacientsArrayList;
+    TextView nume_medic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +42,14 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
         setContentView(R.layout.activity_lista_pacienti);
 
 
+        /*String nume = getIntent().getStringExtra("fullname_d");
+        nume_medic = findViewById(R.id.nume_pacient);
+        nume_medic.setText(nume);*/
+
         mrecyclerView = findViewById(R.id.recycleview_pacienti);
         databaseReference = FirebaseDatabase.getInstance().getReference("Despre pacienti");
         mrecyclerView.setHasFixedSize(true);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         pacientsArrayList = new ArrayList<>();
         recyclerView_config = new RecyclerView_Config(this, pacientsArrayList,this);
         mrecyclerView.setAdapter(recyclerView_config);

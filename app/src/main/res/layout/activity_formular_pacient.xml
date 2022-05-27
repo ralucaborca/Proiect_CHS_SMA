@@ -24,7 +24,23 @@
         android:hint="Nume complet"
         android:textSize="20dp"
         ></TextView>
-
+    <Spinner
+        android:id="@+id/alegeregen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:entries="@array/gen"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        tools:ignore="SpeakableTextPresentCheck" />
     <Spinner
         android:id="@+id/alegerevarsta"
         android:layout_width="match_parent"
@@ -67,6 +83,23 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:entries="@array/greutate"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <Spinner
+        android:id="@+id/alegereAfectiune"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:entries="@array/Afectiune"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,15 +175,6 @@
         android:layout_marginBottom="40dp"
         android:text="Incarcati poza">
     </Button>
-
-    <Button
-        android:id="@+id/istoric"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="Salveaza in istoric">
-    </Button>
-
     <Button
         android:id="@+id/button_formular"
         android:layout_width="wrap_content"

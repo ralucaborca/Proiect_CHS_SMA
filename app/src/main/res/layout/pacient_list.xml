@@ -8,7 +8,13 @@
     android:layout_margin="20dp"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp">
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/numisor"
+    android:visibility="visible"
+    android:hint="numisor">
+</TextView>
     <LinearLayout
         android:layout_width="340dp"
         android:layout_height="wrap_content"
@@ -45,6 +51,41 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:text="@string/valoare_nume"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="@string/nume_gen"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/valoare_gen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="@string/valoare_gen"
                 android:textColor="@color/white"
                 android:textSize="22sp" />
 
@@ -185,7 +226,41 @@
                 android:textColor="@color/white"
                 android:textSize="22sp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="@string/nume_afectiune"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/valoare_afectiune"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="@string/valoare_afectiune"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
