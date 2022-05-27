@@ -6,8 +6,8 @@
     <string name="valoare_greutate">55-70</string>
     <string name="nume_inaltime">Inaltime</string>
     <string name="valoare_inaltime">1.60-1.70</string>
-    <string name="nume_puls">Puls</string>
-    <string name="valoare_puls">80-100</string>
+    <string name="nume_nume">Nume</string>
+    <string name="valoare_nume">Ana Miriam</string>
     <string name="nume_fumat">Fumator</string>
     <string name="valoare_fumat">Da</string>
     <string name="nume_sport">Practica sport</string>

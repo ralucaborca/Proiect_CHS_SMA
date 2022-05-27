@@ -19,13 +19,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.904" />
-    <EditText
-        android:id="@+id/nume_pozica"
+    <TextView
+        android:id="@+id/numeee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Denumire poza"
+        android:hint="Nume"
+        android:textSize="20dp"
+        android:visibility="gone"
+        ></TextView>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/denumiree"
+        android:hint="Denumire poza"
+        android:visibility="gone"
         ></EditText>
-
     <ImageView
         android:id="@+id/fotoView"
         android:layout_width="250dp"

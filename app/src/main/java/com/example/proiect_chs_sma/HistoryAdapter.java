@@ -32,7 +32,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             greutate1 = itemView.findViewById(R.id.valoare_greutate1);
             fumat1 = itemView.findViewById(R.id.valoare_fumat1);
             sport1 = itemView.findViewById(R.id.valoare_sport1);
-            puls1 = itemView.findViewById(R.id.valoare_puls1);
             probleme_sanatate1 = itemView.findViewById(R.id.valoare_sanatate1);
             poza_puls_denumire1 = itemView.findViewById(R.id.nume_poza1);
         }
@@ -48,7 +47,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     @Override
     public void onBindViewHolder(@NonNull HistoryAdapter.HistoryViewHolder holder, int position) {
         History histori= histories.get(position);
-        holder.puls1.setText(histori.getPuls1());
         holder.greutate1.setText(histori.getGreutate1());
         holder.inaltime1.setText(histori.getInaltime1());
         holder.varsta1.setText(histori.getVarsta1());

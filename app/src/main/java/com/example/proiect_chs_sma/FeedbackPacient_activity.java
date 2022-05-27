@@ -95,7 +95,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
                     feedback.setFeedback(sugestii_medic);
                     feedback.setIDPacient(id_pacient);
 
-                    database.child(id_pacient).push().setValue(feedback);
+                    database.child(id_pacient).setValue(feedback);
                     Toast.makeText(FeedbackPacient_activity.this, "Sugestiile medicului adaugate cu succes!", Toast.LENGTH_LONG).show();
                         Intent goBack = new Intent(FeedbackPacient_activity.this,Doctor_activity.class);
                         startActivity(goBack);

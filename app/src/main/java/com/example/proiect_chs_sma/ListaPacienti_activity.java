@@ -102,7 +102,6 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
             Intent aaa =  new Intent(ListaPacienti_activity.this,FeedbackPacient_activity.class);
             Pacients pacient = pacientsArrayList.get(position);
             aaa.putExtra("pacient", pacient.getIdPacient());
-            Log.d("myactivity", pacient.getIdPacient());
             startActivity(aaa);
             finish();
 

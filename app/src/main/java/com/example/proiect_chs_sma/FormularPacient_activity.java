@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -44,6 +45,7 @@ public class FormularPacient_activity extends AppCompatActivity{
     private FirebaseUser user;
     private String userId;
     private long maxid;
+    TextView nume_pacieent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,6 @@ public class FormularPacient_activity extends AppCompatActivity{
         varstaSpinner = (Spinner) findViewById(R.id.alegerevarsta);
         inaltimeSpinner = (Spinner) findViewById(R.id.alegereinaltime);
         greutateSpinner = (Spinner) findViewById(R.id.alegeregreutate);
-        pulsSpinner = (Spinner) findViewById(R.id.alegerepuls);
         fumatSpinner = (Spinner) findViewById(R.id.alegerefumat);
         sportSpinner = (Spinner) findViewById(R.id.alegeresport);
         denumire1 = findViewById(R.id.numeee_pozaaa);
@@ -65,10 +66,13 @@ public class FormularPacient_activity extends AppCompatActivity{
         databaseReference = mDatabase.getReference("Despre pacienti");
         databaseReference1 = mDatabase.getReference("Istoric pacienti");
 
+        String nume = getIntent().getStringExtra("nume_p");
+        nume_pacieent = findViewById(R.id.nume_pacient);
+        nume_pacieent.setText(nume);
+
         SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd, HH:mm", Locale.getDefault());
         Date dataCurenta = new Date();
-        String numePozaPuls = datePoza.format(dataCurenta);
-        String datacurenta = numePozaPuls;
+        String numePozaPuls = nume + "_" + datePoza.format(dataCurenta);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,12 +95,10 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String varsta = varstaSpinner.getSelectedItem().toString();
                 String inaltime = inaltimeSpinner.getSelectedItem().toString();
                 String greutate = greutateSpinner.getSelectedItem().toString();
-                String puls = pulsSpinner.getSelectedItem().toString();
                 String fumat = fumatSpinner.getSelectedItem().toString();
                 String sport = sportSpinner.getSelectedItem().toString();
                 String probleme_sanatate = problemes.getText().toString().trim();
                 String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                String denumire_poza = denumire1.getText().toString().trim();
 
                 if(probleme_sanatate.isEmpty()){
                     problemes.setError("Completati problema sau scrieti NU daca nu aveti.");
@@ -104,21 +106,15 @@ public class FormularPacient_activity extends AppCompatActivity{
                     return;
                 }
 
-                if(denumire_poza.isEmpty()){
-                    denumire1.setError("Denumirea pozei trebuie sa contina numele dumneavoastra.");
-                    denumire1.requestFocus();
-                    return;
-                }
-
                 pacients.setGreutate(greutate);
                 pacients.setInaltime(inaltime);
                 pacients.setVarsta(varsta);
-                pacients.setPuls(puls);
                 pacients.setFumat(fumat);
                 pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);
                 pacients.setIdPacient(idpacient);
-                pacients.setNumePoza(denumire_poza);
+                pacients.setNumePoza(numePozaPuls);
+                pacients.setNumePacient(nume);
 
                 databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
@@ -137,7 +133,9 @@ public class FormularPacient_activity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent gob = new Intent(FormularPacient_activity.this, UploadPhotos_activity.class);
+                gob.putExtra("nume", nume);
                 startActivity(gob);
+                finish();
             }
         });
 

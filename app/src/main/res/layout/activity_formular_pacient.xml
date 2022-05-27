@@ -12,6 +12,19 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nume_pacient"
+        android:visibility="gone"
+        android:ems="10"
+        android:maxLength="13"
+        android:gravity="center"
+        android:hint="Nume complet"
+        android:textSize="20dp"
+        ></TextView>
+
     <Spinner
         android:id="@+id/alegerevarsta"
         android:layout_width="match_parent"
@@ -54,23 +67,6 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:entries="@array/greutate"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.156"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        tools:ignore="SpeakableTextPresentCheck" />
-    <Spinner
-        android:id="@+id/alegerepuls"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:entries="@array/puls"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,7 +132,8 @@
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:hint="Denumire Poza"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/xxxxxxx"
