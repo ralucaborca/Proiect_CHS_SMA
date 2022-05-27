@@ -38,10 +38,11 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
     }
 
     public class mViewHolder extends RecyclerView.ViewHolder{
-        TextView greutate, varsta, inaltime, fumat, sport, probleme_sanatate, button_like, poza_puls_denumire;
+        TextView nume, greutate, varsta, inaltime, fumat, sport, probleme_sanatate, button_like, poza_puls_denumire;
 
         public mViewHolder(@NonNull View itemView, RecyclerInterface recyclerInterface) {
             super(itemView);
+            nume = itemView.findViewById(R.id.valoare_nume_p);
             varsta = itemView.findViewById(R.id.valoare_varsta);
             inaltime = itemView.findViewById(R.id.valoare_inaltime);
             greutate = itemView.findViewById(R.id.valoare_greutate);
@@ -49,7 +50,6 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
             sport = itemView.findViewById(R.id.valoare_sport);
             probleme_sanatate = itemView.findViewById(R.id.valoare_sanatate);
             button_like = itemView.findViewById(R.id.button_like);
-            poza_puls_denumire = itemView.findViewById(R.id.nume_poza);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -86,13 +86,13 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
     @Override
     public void onBindViewHolder(@NonNull mViewHolder holder, int position) {
         Pacients lista= lista_pacients.get(position);
+        holder.nume.setText(lista.getNumePacient());
         holder.greutate.setText(lista.getGreutate());
         holder.inaltime.setText(lista.getInaltime());
         holder.varsta.setText(lista.getVarsta());
         holder.fumat.setText(lista.getFumat());
         holder.sport.setText(lista.getSport());
         holder.probleme_sanatate.setText(lista.getSanatate());
-        holder.poza_puls_denumire.setText(lista.getNumePoza());
     }
 
     @Override
