@@ -26,6 +26,8 @@ import com.google.firebase.database.core.Tag;
 
 import java.util.ArrayList;
 
+import io.grpc.stub.StreamObserver;
+
 public class Doctor_activity extends AppCompatActivity {
     private ListView listView;
     private Doctor_details doctor_details;
@@ -81,6 +83,10 @@ public class Doctor_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent gotolista = new Intent(Doctor_activity.this,ListaPacienti_activity.class);
+                String name = nameView.getText().toString();
+                String prenume = prenumeView.getText().toString();
+                String full = name + prenume;
+                gotolista.putExtra("fullname_d", full);
                 startActivity(gotolista);
                 finish();
             }

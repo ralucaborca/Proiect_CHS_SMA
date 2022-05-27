@@ -11,11 +11,13 @@ public class Pacients {
     protected String sanatate;
     protected String nume_poza;
     protected String linkPoza;
+    protected String gen;
+    protected String afectiune;
 
     public Pacients() {
     }
 
-    public Pacients(String idPacient, String numePacient, String varsta, String greutate, String inaltime, String fumat, String sport, String sanatate, String nume_poza, String linkPoza) {
+    public Pacients(String idPacient, String numePacient, String varsta, String greutate, String inaltime, String fumat, String sport, String sanatate, String nume_poza, String linkPoza, String gen, String afectiune) {
         this.idPacient = idPacient;
         this.numePacient = numePacient;
         this.varsta = varsta;
@@ -26,6 +28,8 @@ public class Pacients {
         this.sanatate = sanatate;
         this.nume_poza = nume_poza;
         this.linkPoza = linkPoza;
+        this.gen = gen;
+        this.afectiune = afectiune;
     }
     public String getIdPacient() {
         return idPacient;
@@ -87,11 +91,20 @@ public class Pacients {
         this.nume_poza = nume_poza;
     }
 
-    public String getLinkImagine1() {
-        return linkPoza;
+    public String getGen() {
+        return gen;
     }
 
-    public void setLinkImagine1(String linkPoza) {
-        this.linkPoza = linkPoza;
+    public void setGen(String gen) {
+        this.gen = gen;
     }
+
+    public String getAfectiune() {
+        return afectiune;
+    }
+
+    public void setAfectiune(String afectiune) {
+        this.afectiune = afectiune;
+    }
+
 }

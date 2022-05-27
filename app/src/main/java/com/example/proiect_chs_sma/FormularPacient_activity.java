@@ -35,13 +35,13 @@ import java.util.Locale;
 
 public class FormularPacient_activity extends AppCompatActivity{
     private EditText  problemes, id_pacient, denumire1;
-    private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, pulsSpinner, fumatSpinner, sportSpinner;
+    private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, genSpinner, fumatSpinner, sportSpinner, afectiuneSpinner;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference, databaseReference1;
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     Pacients pacients = new Pacients();
     History history = new History();
-    private Button button_formular, button_istoric, button_imagine;
+    private Button button_formular, button_imagine;
     private FirebaseUser user;
     private String userId;
     private long maxid;
@@ -51,7 +51,6 @@ public class FormularPacient_activity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formular_pacient);
-        button_istoric = findViewById(R.id.istoric);
         button_imagine = findViewById(R.id.xxxxxxx);
         button_formular = findViewById(R.id.button_formular);
         problemes = findViewById(R.id.editprobleme);
@@ -60,7 +59,10 @@ public class FormularPacient_activity extends AppCompatActivity{
         greutateSpinner = (Spinner) findViewById(R.id.alegeregreutate);
         fumatSpinner = (Spinner) findViewById(R.id.alegerefumat);
         sportSpinner = (Spinner) findViewById(R.id.alegeresport);
+        afectiuneSpinner = (Spinner) findViewById(R.id.alegereAfectiune);
+        genSpinner = (Spinner) findViewById(R.id.alegeregen);
         denumire1 = findViewById(R.id.numeee_pozaaa);
+
 
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference("Despre pacienti");
@@ -98,6 +100,8 @@ public class FormularPacient_activity extends AppCompatActivity{
                 String fumat = fumatSpinner.getSelectedItem().toString();
                 String sport = sportSpinner.getSelectedItem().toString();
                 String probleme_sanatate = problemes.getText().toString().trim();
+                String genut = genSpinner.getSelectedItem().toString();
+                String afectiunee = afectiuneSpinner.getSelectedItem().toString();
                 String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                 if(probleme_sanatate.isEmpty()){
@@ -113,6 +117,8 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setSport(sport);
                 pacients.setSanatate(probleme_sanatate);
                 pacients.setIdPacient(idpacient);
+                pacients.setAfectiune(afectiunee);
+                pacients.setGen(genut);
                 pacients.setNumePoza(numePozaPuls);
                 pacients.setNumePacient(nume);
 
@@ -139,7 +145,7 @@ public class FormularPacient_activity extends AppCompatActivity{
             }
         });
 
-        button_istoric.setOnClickListener(new View.OnClickListener() {
+        /*button_istoric.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
@@ -186,7 +192,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                         Toast.LENGTH_SHORT).show();
             }
             }
-        });
+        });*/
 
     }
 
