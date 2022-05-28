@@ -87,9 +87,11 @@ public class Sugestii_activity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 feedbackArrayList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Feedback feedback= dataSnapshot.getValue(Feedback.class);
-                    feedbackArrayList.add(feedback);
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Feedback feedback = dataSnapshot.getValue(Feedback.class);
+                    if (feedback.getIDPacient().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        feedbackArrayList.add(feedback);
+                    }
                 }
                 recyclerVi_config.notifyDataSetChanged();
             }

@@ -32,7 +32,7 @@ public class Pacient_activity extends AppCompatActivity {
         setContentView(R.layout.activity_pacient);
         Button button_completati_formular = findViewById(R.id.button_completati_fomular);
         Button button_sugestii = findViewById(R.id.button_sugestii);
-        Button button_istoric = findViewById(R.id.button_istoric);
+        //Button button_istoric = findViewById(R.id.button_istoric);
 
         String idpac = getIntent().getStringExtra("idpacient");
         id_pacientel = findViewById(R.id.idpacientel);
@@ -77,14 +77,14 @@ public class Pacient_activity extends AppCompatActivity {
             }
         });
 
-        button_istoric.setOnClickListener(new View.OnClickListener() {
+        /*button_istoric.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent gotoistoric = new Intent(Pacient_activity.this, History_pacient.class);
                 startActivity(gotoistoric);
                 finish();
             }
-        });
+        });*/
 
         button_sugestii.setOnClickListener(new View.OnClickListener() {
             @Override

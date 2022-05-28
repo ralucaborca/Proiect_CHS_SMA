@@ -103,7 +103,7 @@ public class LogIn_activity extends AppCompatActivity {
         gotoregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gotoReg= new Intent(LogIn_activity.this,Register_activity_pacient.class);
+                Intent gotoReg= new Intent(LogIn_activity.this,Register_activity_home.class);
                 startActivity(gotoReg);
                 finish();
             }
