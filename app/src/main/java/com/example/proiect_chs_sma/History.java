@@ -9,13 +9,13 @@ public class History {
     protected String fumat;
     protected String sport;
     protected String sanatate;
-    protected String nume_poza;
+    protected String nume;
     protected String linkPoza;
 
     public History() {
     }
 
-    public History(String idPacient, String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate, String nume_poza, String linkPoza) {
+    public History(String idPacient, String varsta, String greutate, String puls, String inaltime, String fumat, String sport, String sanatate, String nume, String linkPoza) {
         this.idPacient = idPacient;
         this.varsta = varsta;
         this.greutate = greutate;
@@ -24,11 +24,11 @@ public class History {
         this.fumat = fumat;
         this.sport = sport;
         this.sanatate = sanatate;
-        this.nume_poza = nume_poza;
+        this.nume = nume;
         this.linkPoza = linkPoza;
     }
 
-    public String getIdPacient() {
+    public String getIdPacient1() {
         return idPacient;
     }
 
@@ -84,12 +84,12 @@ public class History {
         this.sanatate = sanatate;
     }
 
-    public String getNumePoza1() {
-        return nume_poza;
+    public String getNume1() {
+        return nume;
     }
 
-    public void setNumePoza1(String nume_poza) {
-        this.nume_poza = nume_poza;
+    public void setNume1(String nume) {
+        this.nume= nume;
     }
 
 }

@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class History_pacient extends AppCompatActivity{
+public class History_pacient extends AppCompatActivity implements RecyclerInterface {
     RecyclerView hRecyclerView;
     HistoryAdapter historyAdapter;
     DatabaseReference databasereference;
@@ -39,7 +41,7 @@ public class History_pacient extends AppCompatActivity{
         hRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         historyArrayList = new ArrayList<>();
-        historyAdapter = new HistoryAdapter(this, historyArrayList);
+        historyAdapter = new HistoryAdapter(this, historyArrayList, this);
         hRecyclerView.setAdapter(historyAdapter);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -48,8 +50,8 @@ public class History_pacient extends AppCompatActivity{
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 historyArrayList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    History history= dataSnapshot.getValue(History.class);
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    History history = dataSnapshot.getValue(History.class);
                     historyArrayList.add(history);
                 }
                 historyAdapter.notifyDataSetChanged();
@@ -57,8 +59,26 @@ public class History_pacient extends AppCompatActivity{
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(History_pacient.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(History_pacient.this, "Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        hRecyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent x = new Intent(History_pacient.this, FeedbackPacient_activity.class);
+                startActivity(x);
+                finish();
+            }
+        });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent aaa =  new Intent(History_pacient.this, FeedbackPacient_activity.class);
+        History history = historyArrayList.get(position);
+        aaa.putExtra("pacient1", history.getIdPacient1());
+        startActivity(aaa);
+        finish();
     }
 }

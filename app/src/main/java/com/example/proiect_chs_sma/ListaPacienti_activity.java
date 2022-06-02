@@ -41,15 +41,11 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_pacienti);
 
-
-        /*String nume = getIntent().getStringExtra("fullname_d");
-        nume_medic = findViewById(R.id.nume_pacient);
-        nume_medic.setText(nume);*/
-
         mrecyclerView = findViewById(R.id.recycleview_pacienti);
         databaseReference = FirebaseDatabase.getInstance().getReference("Despre pacienti");
         mrecyclerView.setHasFixedSize(true);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         pacientsArrayList = new ArrayList<>();
         recyclerView_config = new RecyclerView_Config(this, pacientsArrayList,this);
         mrecyclerView.setAdapter(recyclerView_config);

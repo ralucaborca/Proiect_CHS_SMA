@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".Register_activity_doctor">
-
+<LinearLayout
+    android:layout_marginTop="20dp"
+    android:layout_width="360dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:src="@drawable/logo1"
         android:layout_marginBottom="40dp">
-
     </ImageView>
     <EditText
         android:id="@+id/editnume_doctor"
@@ -28,6 +30,7 @@
         android:id="@+id/editprenume_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Prenume"
@@ -37,6 +40,7 @@
         android:id="@+id/specializare_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Specializare"
@@ -46,6 +50,7 @@
         android:id="@+id/adresa_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Adresa cabinet"
@@ -59,7 +64,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Email"
+        android:hint="Adresa de e-mail"
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />
 
@@ -100,5 +105,5 @@
         android:layout_marginTop="40dp"
         android:text="Ai deja un cont? Intra in cont!"
         />
-
 </LinearLayout>
+</ScrollView>

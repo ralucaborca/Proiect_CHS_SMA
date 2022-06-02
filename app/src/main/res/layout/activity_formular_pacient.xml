@@ -167,14 +167,6 @@
         android:hint="Denumire Poza"
         android:minHeight="48dp"
         android:visibility="gone"/>
-
-    <Button
-        android:id="@+id/xxxxxxx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="Incarcati poza">
-    </Button>
     <Button
         android:id="@+id/button_formular"
         android:layout_width="wrap_content"
@@ -182,5 +174,13 @@
         android:layout_marginBottom="40dp"
         android:text="Trimiteti formularul"
         />
+    <Button
+        android:id="@+id/xxxxxxx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Incarcati poza">
+    </Button>
+
 </LinearLayout>
 </ScrollView>

@@ -131,7 +131,6 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                 }
 
                 //Verificare daca e sau nu medic cu adevarat
-
                 String result = null;
                 try {
                     System.out.println(prenumess);
@@ -153,24 +152,19 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                             names.setError("");
                             return;
                         }
-                        //JsonArray doctorDetailsArray =  JsonParser.parseString(result).getAsJsonObject().getAsJsonArray("results");
-                        Gson gson =new Gson();
+                        Gson gson = new Gson();
                         JsonObject res = gson.fromJson(result, JsonObject.class);
                         JsonElement doctorDet = res.get("data");
                         JsonArray doctorDetailsArr = doctorDet.getAsJsonObject().getAsJsonArray("results");
                         System.out.println(doctorDetailsArr);
-                        //boolean exists = false;
-                        for (JsonElement docDetails: doctorDetailsArr
-                             ) {
+                        for (JsonElement docDetails: doctorDetailsArr) {
                             JsonObject obj = docDetails.getAsJsonObject();
                             String prenume = obj.get("prenume").getAsString();
                             String status = obj.get("status").getAsString();
                             if (prenume.equals(prenumess.toUpperCase()) && status.equals("Activ"))
                             {
                                 JsonArray speialitati = obj.getAsJsonArray("specialitati");
-                                for (JsonElement spec: speialitati
-                                ) {
-
+                                for (JsonElement spec: speialitati) {
                                     String specializare = spec.getAsJsonObject().get("nume").getAsString();
                                     if (specializare.equals("CARDIOLOGIE") && specializare.equals(specializares.toUpperCase())){
                                         exists = true;
@@ -179,24 +173,7 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                                 }
                             }
 
-
-
-
                         }
-                        //String status = doctorDetails.get("status").toString().toLowerCase().replace("\"", "");
-                        //String specialitate = doctorDetails.get("specialitati").getAsJsonArray().get(0).getAsJsonObject().get("nume").toString().toLowerCase().replace("\"", "");
-//                        if (!status.equals("activ")) {
-//                            names.requestFocus();
-//                            names.setError("Doctorul nu mai profeseaza.");
-//                            names.setError("");
-//                            return;
-//                        }
-//                        if (!specialitate.equals("cardiologie")) {
-//                            names.requestFocus();
-//                            names.setError("Doctorul nu este cardiolog.");
-//                            names.setError("");
-//                            return;
-//                        }
                     } catch (NumberFormatException e) {
                         e.printStackTrace();
                     }
@@ -232,35 +209,7 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                     else {
                         Toast.makeText(Register_activity_doctor.this, "Doctorul nu exista", Toast.LENGTH_LONG).show();
                     }
-
                 }
-                /*mAuth = FirebaseAuth.getInstance();
-
-                mAuth.createUserWithEmailAndPassword(emailss, passwordss).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Doctor_details doctor_details = new Doctor_details(namess, prenumess, specializares, adresas, emailss, "doctor");
-
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(doctor_details)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-
-                                                Toast.makeText(Register_activity_doctor.this, "User creat cu succes!", Toast.LENGTH_LONG).show();
-                                            } else {
-                                                Toast.makeText(Register_activity_doctor.this, "A aparut o eroare aici!", Toast.LENGTH_LONG).show();
-                                            }
-                                        }
-                                    });
-                        } else {
-                            Toast.makeText(Register_activity_doctor.this, "A aparut o eroare!", Toast.LENGTH_LONG).show();
-                        }
-
-                    }
-                });*/
             }
         });
 
@@ -272,14 +221,6 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                 finish();
             }
         });
-
-       /* private void disableControllers(boolean x){
-         names.setEnabled(! x);
-         prenumes.setEnabled(! x);
-         adresa.setEnabled(! x);
-         specializare.setEnabled(! x);
-         gotologin.setEnabled(! x);
-        }*/
     }
 
     @Override
