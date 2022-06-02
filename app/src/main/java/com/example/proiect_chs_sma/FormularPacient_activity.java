@@ -40,7 +40,6 @@ public class FormularPacient_activity extends AppCompatActivity{
     private DatabaseReference databaseReference, databaseReference1;
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     Pacients pacients = new Pacients();
-    History history = new History();
     private Button button_formular, button_imagine;
     private FirebaseUser user;
     private String userId;
@@ -122,18 +121,7 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setNumePoza(numePozaPuls);
                 pacients.setNumePacient(nume);
 
-                history.setGreutate1(greutate);
-                history.setInaltime1(inaltime);
-                history.setVarsta1(varsta);
-                history.setFumat1(fumat);
-                history.setSport1(sport);
-                history.setSanatate1(probleme_sanatate);
-                history.setIdPacient1(idpacient);
-                history.setNume1(nume);
-
                 String numePozaPuls = idpacient + "_" + datePoza.format(dataCurenta);
-                databaseReference1.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(history);
-
                 databaseReference.child(numePozaPuls).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
                         Toast.LENGTH_SHORT).show();
