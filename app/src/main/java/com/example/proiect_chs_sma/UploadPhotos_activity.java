@@ -104,7 +104,6 @@ public class UploadPhotos_activity extends AppCompatActivity {
             String numePuls = denumire_om + "_" + dataPoza.format(dataCurenta);
 
            pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + nume_poza);
-
             pozaRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

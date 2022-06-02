@@ -38,32 +38,21 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
     }
 
     public class mViewHolder extends RecyclerView.ViewHolder{
-        TextView nume, greutate, varsta, inaltime, fumat, sport, probleme_sanatate, button_like, gen, afectiune;
+        TextView nume, greutate1, varsta1, inaltime1, fumat1, sport1, probleme_sanatate1, button_like, gen1, afectiune1;
 
         public mViewHolder(@NonNull View itemView, RecyclerInterface recyclerInterface) {
             super(itemView);
             nume = itemView.findViewById(R.id.valoare_nume_p);
-            varsta = itemView.findViewById(R.id.valoare_varsta);
-            inaltime = itemView.findViewById(R.id.valoare_inaltime);
-            greutate = itemView.findViewById(R.id.valoare_greutate);
-            fumat = itemView.findViewById(R.id.valoare_fumat);
-            sport = itemView.findViewById(R.id.valoare_sport);
-            probleme_sanatate = itemView.findViewById(R.id.valoare_sanatate);
-            gen = itemView.findViewById(R.id.valoare_gen);
-            afectiune = itemView.findViewById(R.id.valoare_afectiune);
+            varsta1 = itemView.findViewById(R.id.valoare_varsta);
+            inaltime1 = itemView.findViewById(R.id.valoare_inaltime);
+            greutate1 = itemView.findViewById(R.id.valoare_greutate);
+            fumat1 = itemView.findViewById(R.id.valoare_fumat);
+            sport1 = itemView.findViewById(R.id.valoare_sport);
+            probleme_sanatate1 = itemView.findViewById(R.id.valoare_sanatate);
+            gen1 = itemView.findViewById(R.id.valoare_gen);
+            afectiune1 = itemView.findViewById(R.id.valoare_afectiune);
             button_like = itemView.findViewById(R.id.button_like);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(recyclerInterface != null){
-                        int pos = getAdapterPosition();
-                        if(pos != RecyclerView.NO_POSITION){
-                            recyclerInterface.onItemClick(pos);
-                        }
-                    }
-                }
-            });
             button_like.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -87,16 +76,16 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
 
     @Override
     public void onBindViewHolder(@NonNull mViewHolder holder, int position) {
-        Pacients lista= lista_pacients.get(position);
+        Pacients lista = lista_pacients.get(position);
         holder.nume.setText(lista.getNumePacient());
-        holder.greutate.setText(lista.getGreutate());
-        holder.inaltime.setText(lista.getInaltime());
-        holder.varsta.setText(lista.getVarsta());
-        holder.fumat.setText(lista.getFumat());
-        holder.sport.setText(lista.getSport());
-        holder.probleme_sanatate.setText(lista.getSanatate());
-        holder.gen.setText(lista.getGen());
-        holder.afectiune.setText(lista.getAfectiune());
+        holder.gen1.setText(lista.getGen());
+        holder.varsta1.setText(lista.getVarsta());
+        holder.greutate1.setText(lista.getGreutate());
+        holder.inaltime1.setText(lista.getInaltime());
+        holder.fumat1.setText(lista.getFumat());
+        holder.probleme_sanatate1.setText(lista.getSanatate());
+        holder.sport1.setText(lista.getSport());
+        holder.afectiune1.setText(lista.getAfectiune());
     }
 
     @Override

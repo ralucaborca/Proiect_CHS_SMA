@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:hint="Nume complet"
+        android:hint="Nume si prenume"
         android:inputType="text"
         android:minHeight="48dp" />
 
@@ -31,7 +31,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Email"
+        android:hint="Adresa de e-mail"
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />
 

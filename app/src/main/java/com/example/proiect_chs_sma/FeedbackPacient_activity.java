@@ -52,8 +52,8 @@ public class FeedbackPacient_activity extends AppCompatActivity {
 
         SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd, HH:mm", Locale.getDefault());
         Date dataCurenta = new Date();
-        String numePozaPuls = datePoza.format(dataCurenta);
-        String x = numePozaPuls;
+       // String numePozaPuls = id_p + "_" + datePoza.format(dataCurenta);
+
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -95,7 +95,8 @@ public class FeedbackPacient_activity extends AppCompatActivity {
                     feedback.setFeedback(sugestii_medic);
                     feedback.setIDPacient(id_pacient);
 
-                    database.child(id_pacient).setValue(feedback);
+                    String numePozaPuls = id_pacient + "_" + datePoza.format(dataCurenta);
+                    database.child(numePozaPuls).setValue(feedback);
                     Toast.makeText(FeedbackPacient_activity.this, "Sugestiile medicului adaugate cu succes!", Toast.LENGTH_LONG).show();
                         Intent goBack = new Intent(FeedbackPacient_activity.this,Doctor_activity.class);
                         startActivity(goBack);

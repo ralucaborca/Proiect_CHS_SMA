@@ -122,7 +122,19 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setNumePoza(numePozaPuls);
                 pacients.setNumePacient(nume);
 
-                databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(pacients);
+                history.setGreutate1(greutate);
+                history.setInaltime1(inaltime);
+                history.setVarsta1(varsta);
+                history.setFumat1(fumat);
+                history.setSport1(sport);
+                history.setSanatate1(probleme_sanatate);
+                history.setIdPacient1(idpacient);
+                history.setNume1(nume);
+
+                String numePozaPuls = idpacient + "_" + datePoza.format(dataCurenta);
+                databaseReference1.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(history);
+
+                databaseReference.child(numePozaPuls).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
                         Toast.LENGTH_SHORT).show();
                     Intent goback = new Intent(FormularPacient_activity.this, Pacient_activity.class);
@@ -144,55 +156,6 @@ public class FormularPacient_activity extends AppCompatActivity{
                 finish();
             }
         });
-
-        /*button_istoric.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try{
-                String varsta = varstaSpinner.getSelectedItem().toString();
-                String inaltime = inaltimeSpinner.getSelectedItem().toString();
-                String greutate = greutateSpinner.getSelectedItem().toString();
-                String puls = pulsSpinner.getSelectedItem().toString();
-                String fumat = fumatSpinner.getSelectedItem().toString();
-                String sport = sportSpinner.getSelectedItem().toString();
-                String probleme_sanatate = problemes.getText().toString().trim();
-                String idpacient = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                String denumire_poza = denumire1.getText().toString().trim();
-
-                if(probleme_sanatate.isEmpty()){
-                    problemes.setError("Completati problema sau scrieti NU daca nu aveti.");
-                    problemes.requestFocus();
-                    return;
-                }
-
-                if(denumire_poza.isEmpty()){
-                    denumire1.setError("Denumirea pozei trebuie sa contina numele dumneavoastra.");
-                    denumire1.requestFocus();
-                    return;
-                }
-
-                history.setGreutate1(greutate);
-                history.setInaltime1(inaltime);
-                history.setVarsta1(varsta);
-                history.setPuls1(puls);
-                history.setFumat1(fumat);
-                history.setSport1(sport);
-                history.setSanatate1(probleme_sanatate);
-                history.setIdPacient1(idpacient);
-                history.setNumePoza1(denumire_poza);
-
-                databaseReference1.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(history);
-                Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
-                        Toast.LENGTH_SHORT).show();
-                Intent goback = new Intent(FormularPacient_activity.this, FormularPacient_activity.class);
-                startActivity(goback);
-
-            }catch(Exception e){
-                Toast.makeText(FormularPacient_activity.this, "Informatiile introduse sunt gresite!",
-                        Toast.LENGTH_SHORT).show();
-            }
-            }
-        });*/
 
     }
 
