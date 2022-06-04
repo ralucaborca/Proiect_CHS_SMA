@@ -20,6 +20,8 @@
     <string name="valoare_gen">feminin</string>
     <string name="nume_afectiune">Afectiune</string>
     <string name="valoare_afectiune">cardiologica</string>
+    <string name="nume_data">Data</string>
+    <string name="valoare_data">2022_06_02</string>
     <string name="sugestii_id">ID Medic</string>
     <string name="nume_id">1234</string>
     <string name="sugestie_nume">Nume medic</string>

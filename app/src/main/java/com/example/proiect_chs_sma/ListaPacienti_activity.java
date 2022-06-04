@@ -34,7 +34,6 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
     RecyclerView_Config recyclerView_config;
     DatabaseReference databaseReference;
     ArrayList<Pacients> pacientsArrayList;
-    TextView nume_medic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

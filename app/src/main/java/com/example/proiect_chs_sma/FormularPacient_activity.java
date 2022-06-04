@@ -34,14 +34,13 @@ import java.util.Date;
 import java.util.Locale;
 
 public class FormularPacient_activity extends AppCompatActivity{
-    private EditText  problemes, id_pacient, denumire1;
+    private EditText  problemes, denumire1;
     private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, genSpinner, fumatSpinner, sportSpinner, afectiuneSpinner;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference, databaseReference1;
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     Pacients pacients = new Pacients();
-    History history = new History();
-    private Button button_formular, button_imagine;
+    private Button button_formular, button_imagine, button_back1;
     private FirebaseUser user;
     private String userId;
     private long maxid;
@@ -62,7 +61,7 @@ public class FormularPacient_activity extends AppCompatActivity{
         afectiuneSpinner = (Spinner) findViewById(R.id.alegereAfectiune);
         genSpinner = (Spinner) findViewById(R.id.alegeregen);
         denumire1 = findViewById(R.id.numeee_pozaaa);
-
+        button_back1 = findViewById(R.id.buton_back);
 
         mDatabase = FirebaseDatabase.getInstance();
         databaseReference = mDatabase.getReference("Despre pacienti");
@@ -74,6 +73,7 @@ public class FormularPacient_activity extends AppCompatActivity{
 
         SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd, HH:mm", Locale.getDefault());
         Date dataCurenta = new Date();
+        String x = datePoza.format(dataCurenta);
         String numePozaPuls = nume + "_" + datePoza.format(dataCurenta);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -121,19 +121,9 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setGen(genut);
                 pacients.setNumePoza(numePozaPuls);
                 pacients.setNumePacient(nume);
-
-                history.setGreutate1(greutate);
-                history.setInaltime1(inaltime);
-                history.setVarsta1(varsta);
-                history.setFumat1(fumat);
-                history.setSport1(sport);
-                history.setSanatate1(probleme_sanatate);
-                history.setIdPacient1(idpacient);
-                history.setNume1(nume);
+                pacients.setData(x);
 
                 String numePozaPuls = idpacient + "_" + datePoza.format(dataCurenta);
-                databaseReference1.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(history);
-
                 databaseReference.child(numePozaPuls).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
                         Toast.LENGTH_SHORT).show();
@@ -153,6 +143,14 @@ public class FormularPacient_activity extends AppCompatActivity{
                 Intent gob = new Intent(FormularPacient_activity.this, UploadPhotos_activity.class);
                 gob.putExtra("nume", nume);
                 startActivity(gob);
+                finish();
+            }
+        });
+        button_back1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goback1 = new Intent(FormularPacient_activity.this, Pacient_activity.class);
+                startActivity(goback1);
                 finish();
             }
         });

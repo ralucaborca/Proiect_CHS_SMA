@@ -7,7 +7,7 @@
     tools:context=".FormularPacient_activity">
 
 <LinearLayout
-    android:layout_marginTop="40dp"
+    android:layout_marginTop="10dp"
     android:layout_width="400dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -24,6 +24,19 @@
         android:hint="Nume complet"
         android:textSize="20dp"
         ></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/data"
+        android:visibility="gone"
+        android:ems="10"
+        android:maxLength="13"
+        android:gravity="center"
+        android:hint="Data"
+        android:textSize="20dp"
+        ></TextView>
+
     <Spinner
         android:id="@+id/alegeregen"
         android:layout_width="match_parent"
@@ -150,7 +163,6 @@
         android:id="@+id/editprobleme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Probleme de sanatate"
@@ -162,25 +174,40 @@
         android:id="@+id/numeee_pozaaa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:hint="Denumire Poza"
         android:minHeight="48dp"
         android:visibility="gone"/>
-    <Button
-        android:id="@+id/button_formular"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="Trimiteti formularul"
-        />
-    <Button
-        android:id="@+id/xxxxxxx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="Incarcati poza">
-    </Button>
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
 
+        <Button
+            android:id="@+id/button_formular"
+            android:layout_width="193dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Trimiteti formularul" />
+
+        <Button
+            android:id="@+id/xxxxxxx"
+            android:layout_width="128dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Incarcati poza"></Button>
+    </LinearLayout>
+    <Button
+        android:id="@+id/buton_back"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Inapoi">
+    </Button>
 </LinearLayout>
 </ScrollView>

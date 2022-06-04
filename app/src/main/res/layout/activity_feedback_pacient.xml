@@ -14,9 +14,8 @@
         android:id="@+id/id_pacient"
         android:hint="ID pacient"
         android:visibility="gone"
-        >
+        ></TextView>
 
-    </TextView>
 
     <EditText
         android:id="@+id/feedback_nume_prenume_medic"
@@ -69,5 +68,12 @@
         android:layout_marginBottom="40dp"
         android:text="Trimiteti sugestiile"
         />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/buton_back_feedback"
+        android:text="Inapoi"
+        ></Button>
 
 </LinearLayout>

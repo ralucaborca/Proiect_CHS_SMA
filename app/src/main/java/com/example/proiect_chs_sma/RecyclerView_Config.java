@@ -38,7 +38,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
     }
 
     public class mViewHolder extends RecyclerView.ViewHolder{
-        TextView nume, greutate1, varsta1, inaltime1, fumat1, sport1, probleme_sanatate1, button_like, gen1, afectiune1;
+        TextView nume, greutate1, varsta1, inaltime1, fumat1, sport1, probleme_sanatate1, button_like, gen1, afectiune1, data1;
 
         public mViewHolder(@NonNull View itemView, RecyclerInterface recyclerInterface) {
             super(itemView);
@@ -52,6 +52,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
             gen1 = itemView.findViewById(R.id.valoare_gen);
             afectiune1 = itemView.findViewById(R.id.valoare_afectiune);
             button_like = itemView.findViewById(R.id.button_like);
+            data1 = itemView.findViewById(R.id.valoare_data);
 
             button_like.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -86,6 +87,7 @@ public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Confi
         holder.probleme_sanatate1.setText(lista.getSanatate());
         holder.sport1.setText(lista.getSport());
         holder.afectiune1.setText(lista.getAfectiune());
+        holder.data1.setText(lista.getData());
     }
 
     @Override
