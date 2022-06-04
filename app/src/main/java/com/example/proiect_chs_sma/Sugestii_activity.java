@@ -49,9 +49,6 @@ public class Sugestii_activity extends AppCompatActivity {
         setContentView(R.layout.activity_sugestii);
         data_ora = new Feedback();
 
-        //String idpac = getIntent().getStringExtra("pacientID");
-        //textid.setText(idpac);
-
         mrecyclerView = findViewById(R.id.recycleview_sugestii);
         databaseReference = FirebaseDatabase.getInstance().getReference("Sugestii medic");
         mrecyclerView.setHasFixedSize(true);

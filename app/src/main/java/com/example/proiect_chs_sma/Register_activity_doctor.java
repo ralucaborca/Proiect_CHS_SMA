@@ -42,10 +42,7 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
     private EditText names, prenumes, emails, passwords, passwords2, specializare, adresa;
     private FirebaseAuth mAuth;
     private TextView gotologin;
-    private Spinner spinner;
     private final String[] SPECIALISATION = new String[] {"Cardiologie"};
-    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

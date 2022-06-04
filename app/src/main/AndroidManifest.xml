@@ -22,9 +22,6 @@
             android:name=".Register_activity_home"
             android:exported="false" />
         <activity
-            android:name=".Pulse_activity"
-            android:exported="false" />
-        <activity
             android:name=".Sugestii_activity"
             android:exported="false" />
         <activity

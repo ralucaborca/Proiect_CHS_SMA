@@ -33,7 +33,6 @@ public class UploadPhotos_activity extends AppCompatActivity {
     EditText nume_poza;
     DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Fotografii puls");
     StorageReference pozaRef;
-    DatabaseReference pozafirebaase;
     Uri imagineURI;
     TextView den;
     @Override

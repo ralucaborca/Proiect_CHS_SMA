@@ -41,9 +41,6 @@ public class Register_activity_pacient extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private TextView gotologin;
 
-    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Pacient_activity extends AppCompatActivity {
-    private TextInputLayout nume1, nume2, feedback;
     private FirebaseUser user;
     private DatabaseReference databaseReference;
     private String userId;
@@ -32,7 +31,6 @@ public class Pacient_activity extends AppCompatActivity {
         setContentView(R.layout.activity_pacient);
         Button button_completati_formular = findViewById(R.id.button_completati_fomular);
         Button button_sugestii = findViewById(R.id.button_sugestii);
-        //Button button_istoric = findViewById(R.id.button_istoric);
 
         String idpac = getIntent().getStringExtra("idpacient");
         id_pacientel = findViewById(R.id.idpacientel);
@@ -76,15 +74,6 @@ public class Pacient_activity extends AppCompatActivity {
                 finish();
             }
         });
-
-        /*button_istoric.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent gotoistoric = new Intent(Pacient_activity.this, History_pacient.class);
-                startActivity(gotoistoric);
-                finish();
-            }
-        });*/
 
         button_sugestii.setOnClickListener(new View.OnClickListener() {
             @Override

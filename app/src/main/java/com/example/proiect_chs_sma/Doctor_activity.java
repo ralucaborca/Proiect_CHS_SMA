@@ -29,8 +29,6 @@ import java.util.ArrayList;
 import io.grpc.stub.StreamObserver;
 
 public class Doctor_activity extends AppCompatActivity {
-    private ListView listView;
-    private Doctor_details doctor_details;
     private FirebaseUser user;
     private DatabaseReference databaseReference;
     private String userId;

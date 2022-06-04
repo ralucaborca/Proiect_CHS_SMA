@@ -29,7 +29,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference database;
     Feedback feedback;
-    private Button button_feedback;
+    private Button button_feedback, buton_back;
     private long maxid;
     private TextView id_p;
 
@@ -45,6 +45,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
         nume = findViewById(R.id.feedback_nume_prenume_medic);
         caz = (Spinner) findViewById(R.id.alegerecazpuls);
         sugestii = findViewById(R.id.sugestii);
+        buton_back = findViewById(R.id.buton_back_feedback);
         feedback = new Feedback();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -52,8 +53,6 @@ public class FeedbackPacient_activity extends AppCompatActivity {
 
         SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd, HH:mm", Locale.getDefault());
         Date dataCurenta = new Date();
-       // String numePozaPuls = id_p + "_" + datePoza.format(dataCurenta);
-
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -104,6 +103,14 @@ public class FeedbackPacient_activity extends AppCompatActivity {
                 }catch (Exception e){
                     Toast.makeText(FeedbackPacient_activity.this, "Informatii introduse gresit!",Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        buton_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goback = new Intent(FeedbackPacient_activity.this, ListaPacienti_activity.class);
+                startActivity(goback);
             }
         });
     }
