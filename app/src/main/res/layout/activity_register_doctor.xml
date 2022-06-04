@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:src="@drawable/logo1"
-        android:layout_marginBottom="40dp">
+        android:layout_marginBottom="20dp">
     </ImageView>
     <EditText
         android:id="@+id/editnume_doctor"
@@ -30,7 +30,7 @@
         android:id="@+id/editprenume_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Prenume"
@@ -40,7 +40,7 @@
         android:id="@+id/specializare_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Specializare"
@@ -50,7 +50,7 @@
         android:id="@+id/adresa_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Adresa cabinet"
@@ -61,7 +61,7 @@
         android:id="@+id/email_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Adresa de e-mail"
@@ -72,7 +72,7 @@
         android:id="@+id/Parola_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Parola"
@@ -83,7 +83,7 @@
         android:id="@+id/parola2_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Reintroduceti parola"
@@ -94,7 +94,7 @@
         android:id="@+id/button_register_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Inregistreaza-te"
 
         />
@@ -102,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/login_doctor"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="Ai deja un cont? Intra in cont!"
         />
 </LinearLayout>
