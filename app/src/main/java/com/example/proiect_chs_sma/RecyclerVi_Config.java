@@ -47,10 +47,10 @@ public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.m
     @Override
     public void onBindViewHolder(@NonNull RecyclerVi_Config.mViewHold holder, int position) {
         Feedback lista= lista_feedbacks.get(position);
-        holder.nume_medic.setText(lista.getNume());
-        holder.caz_puls.setText(lista.getCaz());
-        holder.sugestie.setText(lista.getFeedback());
-        holder.id_pacient.setText(lista.getIDPacient());
+            holder.nume_medic.setText(lista.getNume());
+            holder.caz_puls.setText(lista.getCaz());
+            holder.sugestie.setText(lista.getFeedback());
+            holder.id_pacient.setText(lista.getIDPacient());
     }
 
     @Override

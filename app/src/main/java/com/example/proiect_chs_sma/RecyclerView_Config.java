@@ -1,40 +1,26 @@
 package com.example.proiect_chs_sma;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 
 public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Config.mViewHolder> {
     protected RecyclerInterface recyclerInterface;
     private Context mContext;
     ArrayList<Pacients> lista_pacients;
-    ImageView img;
 
     public  RecyclerView_Config(Context mContext, ArrayList<Pacients> lista_pacients, RecyclerInterface recyclerInterface){
         this.mContext = mContext;
         this.lista_pacients = lista_pacients;
         this.recyclerInterface = recyclerInterface;
 
-    }
-
-    public RecyclerView_Config(ListaPacienti_activity mContext, ArrayList<Pacients> pacientsArrayList) {
     }
 
     public class mViewHolder extends RecyclerView.ViewHolder{

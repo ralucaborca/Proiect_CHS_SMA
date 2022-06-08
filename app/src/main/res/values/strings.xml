@@ -16,7 +16,7 @@
     <string name="valoare_sanatate">Am. Am probleme cu plamanii, am avut cancer dar acu e rezolvat.</string>
     <string name="nume_poza_puls">Denumire poza</string>
     <string name="valoare_poza_puls">valoare</string>
-    <string name="nume_gen">Gen</string>
+    <string name="nume_gen">Sex</string>
     <string name="valoare_gen">feminin</string>
     <string name="nume_afectiune">Afectiune</string>
     <string name="valoare_afectiune">cardiologica</string>
@@ -85,7 +85,7 @@
         <item>Puls scazut</item>
     </string-array>
     <string-array name="gen">
-        <item>Selectati gen</item>
+        <item>Selectati sex</item>
         <item>Feminin</item>
         <item>Masculin</item>
     </string-array>
