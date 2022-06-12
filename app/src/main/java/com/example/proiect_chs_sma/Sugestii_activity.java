@@ -2,13 +2,15 @@ package com.example.proiect_chs_sma;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,12 +27,14 @@ public class Sugestii_activity extends AppCompatActivity {
     FirebaseUser firebaseUser;
     ArrayList<Feedback> feedbackArrayList;
     Feedback data_ora;
+    FloatingActionButton goback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugestii);
         data_ora = new Feedback();
+        goback = findViewById(R.id.goback);
 
         mrecyclerView = findViewById(R.id.recycleview_sugestii);
         databaseReference = FirebaseDatabase.getInstance().getReference("Sugestii medic");
@@ -43,25 +47,13 @@ public class Sugestii_activity extends AppCompatActivity {
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT
-                | ItemTouchHelper.RIGHT) {
+        goback.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
-                                  @NonNull RecyclerView.ViewHolder target) {
-                return false;
+            public void onClick(View v) {
+                Intent home = new Intent(Sugestii_activity.this, Pacient_activity.class);
+                startActivity(home);
             }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                feedbackArrayList.remove(position);
-                recyclerVi_config.notifyDataSetChanged();
-                Toast.makeText(Sugestii_activity.this, "A fost sters cu succes!", Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-        itemTouchHelper.attachToRecyclerView(mrecyclerView);
+        });
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -81,5 +73,6 @@ public class Sugestii_activity extends AppCompatActivity {
                 Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }

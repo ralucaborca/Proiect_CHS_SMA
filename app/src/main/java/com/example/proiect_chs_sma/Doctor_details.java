@@ -47,16 +47,5 @@ public class Doctor_details {
         this.adresa_cabinet = adresa_cabinet;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUsertype() {return usertype;}
-
-    public void setUsertype(String usertype) { this.usertype = usertype;}
 
 }

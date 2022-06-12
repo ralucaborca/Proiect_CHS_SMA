@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.25625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_doctor.xml" value="0.24365942028985507" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_feedback_pacient.xml" value="0.22554347826086957" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_formular_pacient.xml" value="0.264" />
@@ -15,6 +16,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_register_home.xml" value="0.21829710144927536" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_register_pacient.xml" value="0.4" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_retriving_data_list_view_sugestii.xml" value="0.2210144927536232" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_show_photos_puls.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_sugestii.xml" value="0.2296195652173913" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/activity_upload_photos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/HeartRate Application/app/src/main/res/layout/history_list.xml" value="0.2296195652173913" />

@@ -1,22 +1,13 @@
 package com.example.proiect_chs_sma;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,18 +18,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ListaPacienti_activity extends AppCompatActivity implements RecyclerInterface {
     RecyclerView mrecyclerView;
     RecyclerView_Config recyclerView_config;
     DatabaseReference databaseReference;
     ArrayList<Pacients> pacientsArrayList;
+    FloatingActionButton goback2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_pacienti);
+        goback2 = findViewById(R.id.goback2);
 
         mrecyclerView = findViewById(R.id.recycleview_pacienti);
         databaseReference = FirebaseDatabase.getInstance().getReference("Despre pacienti");
@@ -49,25 +41,13 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
         recyclerView_config = new RecyclerView_Config(this, pacientsArrayList,this);
         mrecyclerView.setAdapter(recyclerView_config);
 
-        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT
-                | ItemTouchHelper.RIGHT) {
+        goback2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
-                                  @NonNull RecyclerView.ViewHolder target) {
-                return false;
+            public void onClick(View v) {
+                Intent home2 = new Intent(ListaPacienti_activity.this, Doctor_activity.class);
+                startActivity(home2);
             }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                pacientsArrayList.remove(position);
-                recyclerView_config.notifyDataSetChanged();
-                Toast.makeText(ListaPacienti_activity.this, "A fost sters cu succes!", Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-        itemTouchHelper.attachToRecyclerView(mrecyclerView);
+        });
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

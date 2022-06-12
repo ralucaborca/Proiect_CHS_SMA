@@ -63,7 +63,6 @@ public class FormularPacient_activity extends AppCompatActivity{
         SimpleDateFormat datePoza  = new SimpleDateFormat("yyyy_MM_dd, HH:mm", Locale.getDefault());
         Date dataCurenta = new Date();
         String x = datePoza.format(dataCurenta);
-        String numePozaPuls = nume + "_" + datePoza.format(dataCurenta);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -108,7 +107,6 @@ public class FormularPacient_activity extends AppCompatActivity{
                 pacients.setIdPacient(idpacient);
                 pacients.setAfectiune(afectiunee);
                 pacients.setGen(genut);
-                pacients.setNumePoza(numePozaPuls);
                 pacients.setNumePacient(nume);
                 pacients.setData(x);
 
