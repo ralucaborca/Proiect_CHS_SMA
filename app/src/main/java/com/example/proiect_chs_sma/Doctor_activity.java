@@ -1,17 +1,12 @@
 package com.example.proiect_chs_sma;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +17,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.core.Tag;
-
-import java.util.ArrayList;
-
-import io.grpc.stub.StreamObserver;
 
 public class Doctor_activity extends AppCompatActivity {
     private FirebaseUser user;
@@ -45,11 +35,10 @@ public class Doctor_activity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         userId = user.getUid();
 
-        final TextView nameView = findViewById(R.id.nume);
-        final TextView prenumeView = findViewById(R.id.prenume);
-        final TextView specializareView = findViewById(R.id.specializare);
-        final TextView adresaView = findViewById(R.id.adresa);
-
+        TextView nameView = findViewById(R.id.nume);
+        TextView prenumeView = findViewById(R.id.prenume);
+        TextView specializareView = findViewById(R.id.specializare);
+        TextView adresaView = findViewById(R.id.adresa);
         Button show_puls = findViewById(R.id.photos_puls);
 
 

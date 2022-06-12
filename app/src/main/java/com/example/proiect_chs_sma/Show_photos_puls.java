@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,10 +23,13 @@ public class Show_photos_puls extends AppCompatActivity {
     private ArrayList<PhotoDatas> photoDatasArrayList;
     private PhotosAdapter photosAdapter;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Fotografii puls");
+    FloatingActionButton goback3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_photos_puls);
+        goback3 = findViewById(R.id.goback3);
 
         recyclerView = findViewById(R.id.recycleview_photos);
         recyclerView.hasFixedSize();
@@ -35,6 +38,14 @@ public class Show_photos_puls extends AppCompatActivity {
         photoDatasArrayList = new ArrayList<>();
         photosAdapter = new PhotosAdapter(this,photoDatasArrayList);
         recyclerView.setAdapter(photosAdapter);
+
+       goback3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent home3 = new Intent(Show_photos_puls.this, Doctor_activity.class);
+                startActivity(home3);
+            }
+        });
 
         root.addValueEventListener(new ValueEventListener() {
             @Override

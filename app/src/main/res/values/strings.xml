@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HeartRate Application</string>
+    <string name="app_name">MPHR</string>
     <string name="nume_varsta">Varsta</string>
     <string name="valoare_varsta">18-30</string>
     <string name="nume_greutate">Greutate</string>
@@ -33,6 +33,7 @@
     <string name="data_ora">Data/Ora</string>
     <string name="valoare_data_ora">09 Mai 2022/10:30</string>
     <string name="poza_nume_pulsut">Denumire poza</string>
+    <string name="goback">goBack</string>
     <string-array name="categorii">
         <item>Selectati tipul de utilizator</item>
         <item>Doctor</item>

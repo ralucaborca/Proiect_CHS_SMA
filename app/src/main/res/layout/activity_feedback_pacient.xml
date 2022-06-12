@@ -14,6 +14,7 @@
         android:id="@+id/id_pacient"
         android:hint="ID pacient"
         android:visibility="gone"
+        android:inputType="textMultiLine"
         ></TextView>
 
 
