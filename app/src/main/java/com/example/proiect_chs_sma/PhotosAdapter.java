@@ -16,8 +16,8 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder> {
-    private ArrayList<PhotoDatas> photoDatas;
-    private Context context;
+    private final ArrayList<PhotoDatas> photoDatas;
+    private final Context context;
 
 
     public PhotosAdapter(Context context, ArrayList<PhotoDatas> photoDatas){
@@ -26,8 +26,8 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotosView
     }
 
     public static class PhotosViewHolder extends RecyclerView.ViewHolder{
-        private ImageView imageView;
-        private TextView nume;
+        private final ImageView imageView;
+        private final TextView nume;
 
         public PhotosViewHolder(@NonNull View itemView) {
             super(itemView);

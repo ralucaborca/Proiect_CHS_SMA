@@ -59,6 +59,7 @@ public class UploadPhotos_activity extends AppCompatActivity {
                 startActivityForResult(openPhoto, 2);
             }
         });
+
         rasfoieste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +103,7 @@ public class UploadPhotos_activity extends AppCompatActivity {
             Date dataCurenta = new Date();
             String numePuls = denumire_om + "_" + dataPoza.format(dataCurenta);
 
-           pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + nume_poza);
+            pozaRef = FirebaseStorage.getInstance().getReference("Fotografii puls/" + nume_poza);
             pozaRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

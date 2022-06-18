@@ -7,7 +7,7 @@ public class PhotoDatas {
     public PhotoDatas(){
     }
 
-    public PhotoDatas(String linkImagine, String idPacient,String numePoza) {
+    public PhotoDatas(String linkImagine, String idPacient, String numePoza) {
         this.linkImagine = linkImagine;
         this.idPacient = idPacient;
         this.numePoza = numePoza;

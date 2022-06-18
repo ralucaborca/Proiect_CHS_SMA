@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class RecyclerVi_Config extends  RecyclerView.Adapter<RecyclerVi_Config.mViewHold>{
 
-    private Context mContext;
+    private final Context mContext;
     ArrayList<Feedback> lista_feedbacks;
     public interface OnItemClickListener{
         void OnItemClick(int position);

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class RecyclerView_Config extends RecyclerView.Adapter<RecyclerView_Config.mViewHolder> {
     protected RecyclerInterface recyclerInterface;
-    private Context mContext;
+    private final Context mContext;
     ArrayList<Pacients> lista_pacients;
 
     public  RecyclerView_Config(Context mContext, ArrayList<Pacients> lista_pacients, RecyclerInterface recyclerInterface){

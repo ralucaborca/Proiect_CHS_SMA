@@ -14,7 +14,6 @@
         android:id="@+id/id_pacient"
         android:hint="ID pacient"
         android:visibility="gone"
-        android:inputType="textMultiLine"
         ></TextView>
 
 
@@ -22,12 +21,11 @@
         android:id="@+id/feedback_nume_prenume_medic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:maxLength="13"
-        android:gravity="center"
-        android:hint="Nume complet"
-        android:inputType="text"
         android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Nume si prenume"
+        android:inputType="textMultiLine"
         android:minHeight="48dp"
         />
     <Spinner

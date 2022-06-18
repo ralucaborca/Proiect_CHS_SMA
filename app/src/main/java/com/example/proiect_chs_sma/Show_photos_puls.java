@@ -22,7 +22,7 @@ public class Show_photos_puls extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<PhotoDatas> photoDatasArrayList;
     private PhotosAdapter photosAdapter;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Fotografii puls");
+    private final DatabaseReference root = FirebaseDatabase.getInstance().getReference("Fotografii puls");
     FloatingActionButton goback3;
 
     @Override
@@ -36,10 +36,10 @@ public class Show_photos_puls extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         photoDatasArrayList = new ArrayList<>();
-        photosAdapter = new PhotosAdapter(this,photoDatasArrayList);
+        photosAdapter = new PhotosAdapter(this, photoDatasArrayList);
         recyclerView.setAdapter(photosAdapter);
 
-       goback3.setOnClickListener(new View.OnClickListener() {
+        goback3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent home3 = new Intent(Show_photos_puls.this, Doctor_activity.class);

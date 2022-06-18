@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MPHR</string>
+    <string name="app_name">MPHR Application</string>
     <string name="nume_varsta">Varsta</string>
     <string name="valoare_varsta">18-30</string>
     <string name="nume_greutate">Greutate</string>
