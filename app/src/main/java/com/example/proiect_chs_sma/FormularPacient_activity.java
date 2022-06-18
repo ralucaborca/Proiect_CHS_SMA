@@ -30,7 +30,7 @@ public class FormularPacient_activity extends AppCompatActivity{
     private Spinner varstaSpinner, inaltimeSpinner, greutateSpinner, genSpinner, fumatSpinner, sportSpinner, afectiuneSpinner;
     private FirebaseDatabase mDatabase;
     private DatabaseReference databaseReference, databaseReference1;
-    private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+    private final StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     Pacients pacients = new Pacients();
     private Button button_formular, button_imagine, button_back1;
     private long maxid;
@@ -43,13 +43,13 @@ public class FormularPacient_activity extends AppCompatActivity{
         button_imagine = findViewById(R.id.xxxxxxx);
         button_formular = findViewById(R.id.button_formular);
         problemes = findViewById(R.id.editprobleme);
-        varstaSpinner = (Spinner) findViewById(R.id.alegerevarsta);
-        inaltimeSpinner = (Spinner) findViewById(R.id.alegereinaltime);
-        greutateSpinner = (Spinner) findViewById(R.id.alegeregreutate);
-        fumatSpinner = (Spinner) findViewById(R.id.alegerefumat);
-        sportSpinner = (Spinner) findViewById(R.id.alegeresport);
-        afectiuneSpinner = (Spinner) findViewById(R.id.alegereAfectiune);
-        genSpinner = (Spinner) findViewById(R.id.alegeregen);
+        varstaSpinner = findViewById(R.id.alegerevarsta);
+        inaltimeSpinner = findViewById(R.id.alegereinaltime);
+        greutateSpinner = findViewById(R.id.alegeregreutate);
+        fumatSpinner = findViewById(R.id.alegerefumat);
+        sportSpinner = findViewById(R.id.alegeresport);
+        afectiuneSpinner = findViewById(R.id.alegereAfectiune);
+        genSpinner = findViewById(R.id.alegeregen);
         denumire1 = findViewById(R.id.numeee_pozaaa);
         button_back1 = findViewById(R.id.buton_back);
 
@@ -98,20 +98,20 @@ public class FormularPacient_activity extends AppCompatActivity{
                     return;
                 }
 
-                pacients.setGreutate(greutate);
-                pacients.setInaltime(inaltime);
-                pacients.setVarsta(varsta);
-                pacients.setFumat(fumat);
-                pacients.setSport(sport);
-                pacients.setSanatate(probleme_sanatate);
-                pacients.setIdPacient(idpacient);
-                pacients.setAfectiune(afectiunee);
-                pacients.setGen(genut);
-                pacients.setNumePacient(nume);
-                pacients.setData(x);
+                    pacients.setGreutate(greutate);
+                    pacients.setInaltime(inaltime);
+                    pacients.setVarsta(varsta);
+                    pacients.setFumat(fumat);
+                    pacients.setSport(sport);
+                    pacients.setSanatate(probleme_sanatate);
+                    pacients.setIdPacient(idpacient);
+                    pacients.setAfectiune(afectiunee);
+                    pacients.setGen(genut);
+                    pacients.setNumePacient(nume);
+                    pacients.setData(x);
 
                 String numePozaPuls = idpacient + "_" + datePoza.format(dataCurenta);
-                databaseReference.child(numePozaPuls).setValue(pacients);
+                    databaseReference.child(numePozaPuls).setValue(pacients);
                 Toast.makeText(FormularPacient_activity.this, "Informatiile pacientului au fost adaugate cu succes!",
                         Toast.LENGTH_SHORT).show();
                     Intent goback = new Intent(FormularPacient_activity.this, Pacient_activity.class);

@@ -45,7 +45,7 @@ public class Register_activity_pacient extends AppCompatActivity {
                 String emails = email.getText().toString().trim();
                 String passwords = password.getText().toString().trim();
                 String passwords2 = password2.getText().toString().trim();
-                String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                final String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 if (names.isEmpty()) {
                     name.setError("Introduceti un nume!");

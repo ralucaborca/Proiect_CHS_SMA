@@ -36,7 +36,6 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
     private EditText names, prenumes, emails, passwords, passwords2, specializare, adresa;
     private FirebaseAuth mAuth;
     private TextView gotologin;
-    private final String[] SPECIALISATION = new String[] {"Cardiologie"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +65,7 @@ public class Register_activity_doctor extends AppCompatActivity implements Adapt
                 String emailss = emails.getText().toString().trim();
                 String passwordss = passwords.getText().toString().trim();
                 String passwordss2 = passwords2.getText().toString().trim();
-                String verificareParola = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                final String verificareParola = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 if (namess.isEmpty()) {
                     names.setError("Introduceti numele dumneavoastra!");

@@ -27,10 +27,10 @@ public class LogIn_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        mAuth=FirebaseAuth.getInstance();
+        mAuth =FirebaseAuth.getInstance();
 
-        emailAddress=findViewById(R.id.textnume);
-        password=findViewById(R.id.textparola);
+        emailAddress = findViewById(R.id.textnume);
+        password = findViewById(R.id.textparola);
         gotoregister = findViewById(R.id.register);
         resetarParola = findViewById(R.id.resetare_parola);
         Button button_login = findViewById(R.id.button_login);
@@ -41,7 +41,7 @@ public class LogIn_activity extends AppCompatActivity {
             public void onClick(View v) {
                 String emailCreate = emailAddress.getText().toString().trim();
                 String passwordCreate = password.getText().toString().trim();
-                String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                final String verificareMail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
                 if (emailCreate.isEmpty()) {
@@ -112,11 +112,13 @@ public class LogIn_activity extends AppCompatActivity {
 
                 if(!adresa_email.isEmpty()){
                     mAuth.sendPasswordResetEmail(adresa_email).addOnSuccessListener((OnSuccessListener<? super Void>) task ->
-                            Toast.makeText(LogIn_activity.this, "Email-ul pentru resetarea parolei a fost trimis", Toast.LENGTH_SHORT).show())
+                            Toast.makeText(LogIn_activity.this, "Email-ul pentru resetarea parolei a fost trimis",
+                                    Toast.LENGTH_SHORT).show())
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(LogIn_activity.this,"A aparut o eroare la trimiterea e-mail-ului.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LogIn_activity.this,"A aparut o eroare la trimiterea e-mail-ului.",
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }else {

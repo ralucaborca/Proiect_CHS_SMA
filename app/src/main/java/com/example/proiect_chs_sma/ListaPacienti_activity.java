@@ -66,7 +66,7 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
             }
         });
 
-    mrecyclerView.setOnClickListener(new View.OnClickListener() {
+        mrecyclerView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             Intent xxx = new Intent(ListaPacienti_activity.this, FeedbackPacient_activity.class);
@@ -79,11 +79,11 @@ public class ListaPacienti_activity extends AppCompatActivity implements Recycle
 
     @Override
     public void onItemClick(int position) {
-            Intent aaa =  new Intent(ListaPacienti_activity.this,FeedbackPacient_activity.class);
+            Intent aaa =  new Intent(this,FeedbackPacient_activity.class);
             Pacients pacient = pacientsArrayList.get(position);
             aaa.putExtra("pacient", pacient.getIdPacient());
-            startActivity(aaa);
-            finish();
+        startActivity(aaa);
+        finish();
 
 }
 }

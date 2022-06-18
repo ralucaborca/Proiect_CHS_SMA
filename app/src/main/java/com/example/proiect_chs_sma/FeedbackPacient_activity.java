@@ -42,7 +42,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
 
         button_feedback = findViewById(R.id.button_feedback);
         nume = findViewById(R.id.feedback_nume_prenume_medic);
-        caz = (Spinner) findViewById(R.id.alegerecazpuls);
+        caz = findViewById(R.id.alegerecazpuls);
         sugestii = findViewById(R.id.sugestii);
         buton_back = findViewById(R.id.buton_back_feedback);
         feedback = new Feedback();
@@ -97,7 +97,7 @@ public class FeedbackPacient_activity extends AppCompatActivity {
                     database.child(numePozaPuls).setValue(feedback);
                     Toast.makeText(FeedbackPacient_activity.this, "Sugestiile medicului adaugate cu succes!", Toast.LENGTH_LONG).show();
                         Intent goBack = new Intent(FeedbackPacient_activity.this,Doctor_activity.class);
-                        startActivity(goBack);
+                    startActivity(goBack);
 
                 }catch (Exception e){
                     Toast.makeText(FeedbackPacient_activity.this, "Informatii introduse gresit!",Toast.LENGTH_LONG).show();

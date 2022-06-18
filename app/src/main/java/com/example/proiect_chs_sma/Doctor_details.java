@@ -47,5 +47,11 @@ public class Doctor_details {
         this.adresa_cabinet = adresa_cabinet;
     }
 
+    public String getUsertype() {
+        return usertype;
+    }
 
+    public void setUsertype(String usertype){
+        this.usertype = usertype;
+    }
 }

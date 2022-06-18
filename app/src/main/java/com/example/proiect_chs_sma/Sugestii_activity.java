@@ -30,46 +30,46 @@ public class Sugestii_activity extends AppCompatActivity {
     FloatingActionButton goback;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugestii);
         data_ora = new Feedback();
-        goback = findViewById(R.id.goback);
+        goback = this.findViewById(R.id.goback);
 
-        mrecyclerView = findViewById(R.id.recycleview_sugestii);
+        mrecyclerView = this.findViewById(R.id.recycleview_sugestii);
         databaseReference = FirebaseDatabase.getInstance().getReference("Sugestii medic");
         mrecyclerView.setHasFixedSize(true);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         feedbackArrayList = new ArrayList<>();
-        recyclerVi_config = new RecyclerVi_Config(this, feedbackArrayList);
-        mrecyclerView.setAdapter(recyclerVi_config);
+        recyclerVi_config = new RecyclerVi_Config(this, this.feedbackArrayList);
+        mrecyclerView.setAdapter(this.recyclerVi_config);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent home = new Intent(Sugestii_activity.this, Pacient_activity.class);
-                startActivity(home);
+            public void onClick(final View v) {
+                final Intent home = new Intent(Sugestii_activity.this, Pacient_activity.class);
+                Sugestii_activity.this.startActivity(home);
             }
         });
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull final DataSnapshot snapshot) {
                 feedbackArrayList.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Feedback feedback = dataSnapshot.getValue(Feedback.class);
+                for(final DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    final Feedback feedback = dataSnapshot.getValue(Feedback.class);
                     if (feedback.getIDPacient().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                        feedbackArrayList.add(feedback);
+                       feedbackArrayList.add(feedback);
                     }
                 }
                 recyclerVi_config.notifyDataSetChanged();
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull final DatabaseError error) {
                 Toast.makeText(Sugestii_activity.this,"Eroare! Va rugam reveniti!", Toast.LENGTH_SHORT).show();
             }
         });
